@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-13，第 1 轮结束。
+最后更新：2026-11-13，第 3 轮结束。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -25,7 +25,12 @@
 - 原始结果 JSON 只在 Linux#1 的 `results/` 下，仓库里是汇总表。
 - Linux#2 上有一个误建的 `/data1/ekyang/cgh/CODE/flash-lewm`（只有官方代码克隆），可删。
 
-## 下一步候选
+## 方向调整（第 3 轮）
+用户要算法层面的创新，不要纯工程优化。思路：对比 LeWM / Fast-LeWM 伪代码找可消除的串行结构。
+当前判断：Fast-LeWM 剩下的串行维度是 CEM 轮数 T，候选想法 A–D 见 `docs/discussion_log_v1.md` 第 3 轮，等用户选定。
+FlashCEM 降级为「优化后的同步基线」。
+
+## 下一步候选（第 1 轮遗留）
 1. FlashCEM 接入官方 `eval.py`，在 Cube 上复核。
 2. 测 `cem_multi` 多环境合批吞吐。
 3. 编译图像编码器。
