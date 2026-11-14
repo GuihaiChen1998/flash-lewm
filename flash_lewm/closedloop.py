@@ -16,6 +16,10 @@ ENV = os.environ.get("FLASH_ENV", "pusht")
 
 
 def make_env():
+    if ENV == "doom":
+        from .doom_env import DoomNav
+
+        return DoomNav()
     if ENV == "tworoom":
         from stable_worldmodel.envs.two_room.env import TwoRoomEnv
 
@@ -29,6 +33,10 @@ def make_env():
 
 
 def set_episode(env, state, goal_state):
+    if ENV == "doom":
+        env.set_spec(state)
+        env._set_goal_state(goal_state)
+        return
     env.reset(seed=0)
     dt = np.float32 if ENV == "tworoom" else np.float64
     env._set_state(np.asarray(state, dtype=dt))

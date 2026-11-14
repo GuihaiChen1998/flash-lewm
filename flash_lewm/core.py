@@ -21,6 +21,11 @@ IMN_STD = (0.229, 0.224, 0.225)
 def load_model(path=CKPT, device="cuda"):
     # The checkpoint is a pickled nn.Module. Its pickle globals were listed with
     # pickletools before first use (only torch / transformers.ViT / jepa / module classes).
+    if str(path).endswith(".pt"):   # a model trained with flash_lewm.train_min (state dict + config)
+        from .train_min import load_trained
+        m, ck = load_trained(path, device)
+        m.img_size, m.a_mean, m.a_std = ck["img_size"], ck["a_mean"].double().numpy(), ck["a_std"].double().numpy()
+        return m
     m = torch.load(path, weights_only=False, map_location="cpu")
     m.encoder = _rebuild_vit(m.encoder)
     m = m.to(device).eval()
@@ -67,21 +72,21 @@ class Timer:
 
 
 @torch.inference_mode()
-def preprocess(px, device="cuda"):
+def preprocess(px, device="cuda", size=224):
     """uint8 [B,H,W,3] -> normalised float [B,3,H,W] (same as the official eval transform at 224 px)."""
     x = torch.as_tensor(np.ascontiguousarray(px)).to(device).permute(0, 3, 1, 2).float() / 255.0
     mean = torch.tensor(IMN_MEAN, device=device).view(1, 3, 1, 1)
     std = torch.tensor(IMN_STD, device=device).view(1, 3, 1, 1)
     x = (x - mean) / std
-    if x.shape[-1] != 224 or x.shape[-2] != 224:
-        x = F.interpolate(x, size=(224, 224), mode="bilinear", antialias=True, align_corners=False)
+    if x.shape[-1] != size or x.shape[-2] != size:
+        x = F.interpolate(x, size=(size, size), mode="bilinear", antialias=True, align_corners=False)
     return x
 
 
 @torch.inference_mode()
 def encode_pixels(model, px):
     """uint8 [B,H,W,3] -> latent [B,192]."""
-    x = preprocess(px, next(model.parameters()).device)
+    x = preprocess(px, next(model.parameters()).device, getattr(model, "img_size", 224))
     out = model.encoder(x, interpolate_pos_encoding=True).last_hidden_state[:, 0]
     return model.projector(out)
 
