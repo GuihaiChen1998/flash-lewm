@@ -12,6 +12,8 @@ import torch.nn.functional as F
 
 H5 = os.environ.get("PUSHT_H5", "/data1/cgh/dataset/lewm-original/pusht_expert_train.h5")
 CKPT = os.environ.get("FLASH_CKPT", "/data1/cgh/code/flash-lewm/ckpt/Fast-lewm_pusht_object.ckpt")
+EP_KEY = os.environ.get("FLASH_EP_KEY", "episode_idx")       # "ep_idx" in the tworoom / cube / reacher files
+STATE_KEY = os.environ.get("FLASH_STATE_KEY", "state")       # what the env is reset from ("proprio" for tworoom)
 IMN_MEAN = (0.485, 0.456, 0.406)
 IMN_STD = (0.229, 0.224, 0.225)
 
@@ -199,7 +201,7 @@ def official_eval_rows(n=50, seed=42, goal_offset=25, h5=H5):
     import hdf5plugin  # noqa: F401
 
     with h5py.File(h5, "r") as f:
-        ep = f["episode_idx"][:]
+        ep = f[EP_KEY][:]
         step = f["step_idx"][:]
         ep_len = f["ep_len"][:]
     max_start = ep_len[ep] - goal_offset - 1
@@ -219,13 +221,16 @@ def load_pairs(rows, goal_offset=25, h5=H5):
         for r in rows:
             out["pixels"].append(f["pixels"][r])
             out["goal"].append(f["pixels"][r + goal_offset])
-            out["state"].append(f["state"][r])
-            out["goal_state"].append(f["state"][r + goal_offset])
+            out["state"].append(f[STATE_KEY][r])
+            out["goal_state"].append(f[STATE_KEY][r + goal_offset])
     return {k: np.stack(v) for k, v in out.items()}
 
 
-def action_stats(h5=H5, cache="/data1/cgh/code/flash-lewm/ckpt/pusht_action_stats.npz"):
+def action_stats(h5=H5, cache=None):
     """Mean / std of the action column (what sklearn StandardScaler fits in eval.py)."""
+    if cache is None:
+        name = os.path.basename(h5).split(".")[0].replace("_expert_train", "")
+        cache = f"/data1/cgh/code/flash-lewm/ckpt/{name}_action_stats.npz"
     if os.path.exists(cache):
         d = np.load(cache)
         return d["mean"], d["std"]

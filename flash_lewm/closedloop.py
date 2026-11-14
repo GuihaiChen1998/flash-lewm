@@ -10,18 +10,29 @@ import torch
 from .core import encode_pixels, sync
 
 
-def make_env():
-    from stable_worldmodel.envs.pusht.env import PushT
+import os
 
-    env = PushT(resolution=224)
+ENV = os.environ.get("FLASH_ENV", "pusht")
+
+
+def make_env():
+    if ENV == "tworoom":
+        from stable_worldmodel.envs.two_room.env import TwoRoomEnv
+
+        env = TwoRoomEnv()
+    else:
+        from stable_worldmodel.envs.pusht.env import PushT
+
+        env = PushT(resolution=224)
     env.reset(seed=0)
     return env
 
 
 def set_episode(env, state, goal_state):
     env.reset(seed=0)
-    env._set_state(np.asarray(state, dtype=np.float64))
-    env._set_goal_state(np.asarray(goal_state, dtype=np.float64))
+    dt = np.float32 if ENV == "tworoom" else np.float64
+    env._set_state(np.asarray(state, dtype=dt))
+    env._set_goal_state(np.asarray(goal_state, dtype=dt))
 
 
 @torch.inference_mode()
