@@ -76,3 +76,18 @@ Cube 数据解压、依赖装到 `.pydeps`、OGB checkpoint 下载、`scripts/cu
 **结论**：min 代价在 Push-T 和 Cube 上都成立；承诺前缀在目标切换和远目标场景显著胜出；ViZDoom 可行且有利，Craftax 偏弱，NetHack 不建议。
 
 **待用户决定**：是否开始在 ViZDoom 上训练 Fast-LeWM（需写精简训练脚本、采数据、占 GPU 数小时）。
+
+## 第 7 轮（2026-11-14）
+
+**用户问**：ViZDoom、Visual AntMaze、FourRoom、FourRoomDistractor、Atari 100k、BridgeData V2、RT-1 哪些对我们的想法有利（附了获取 Bridge / RT-1 小子集的建议）。
+
+**判断（未做实验）**
+- 判据：min 代价需要「朝目标潜状态规划 + 可闭环评估」；承诺前缀需要「环境不等人、勤重规划有用」；另看是否有现成权重和连续动作。
+- 有利且便宜：Two-Room / FourRoom 类（Two-Room 的官方权重和数据已在机器上）；Reacher 同理。
+- 最有利但要训练：ViZDoom。
+- 有条件有利：Visual AntMaze（远目标场景，但基础模型可能在所有方法上都接近 0）。
+- 只能离线评估：BridgeData V2、RT-1（数据集里没有仿真器；闭环需要真机或 SimplerEnv）。
+- 不合适：Atari 100k（离散动作、奖励驱动、衡量的是样本效率）。
+- 更正：用户材料里说 LeWM 默认输入 64×64 或 128×128；官方 Fast-LeWM 配置是 224×224、patch 14。
+
+**待用户决定**：先做零训练成本的 Two-Room / Reacher，还是直接开始 ViZDoom 训练。
