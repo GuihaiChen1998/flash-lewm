@@ -17,7 +17,28 @@ H, A, B = 5, 10, 5
 
 
 @torch.inference_mode()
-def cem_clamped(model, z, zg, prefix=None, n=300, topk=30, iters=30, gen=None, init_mean=None):
+def plan_cost(model, z, zg, plans, cost="last"):
+    """z, zg: [E,192]; plans: [E,N,H,A] -> [E,N].
+
+    last  official objective: distance to the goal after the whole plan (terminal cost only)
+    sum   mean over the endpoints of every prefix length 1..H. The causal prefix encoder returns
+          all prefix states in the same pass, so this costs H predictor tokens instead of one.
+          It rewards reaching the goal early and staying there, which makes the objective
+          consistent under receding-horizon replanning.
+    min   best endpoint over prefix lengths (reach the goal at any time within the plan)
+    """
+    if cost == "last":
+        return dense_cost_multi(model, z, zg, plans)
+    e, n, h = plans.shape[:3]
+    emb = z.view(e, 1, 1, -1).expand(e, n, 1, -1).reshape(e * n, 1, -1)
+    act = model.action_encoder(plans.reshape(e * n, h, -1), return_last_only=False, latent=emb)
+    pred = model.predict(emb, act)                                   # [E*N, H, D]
+    c = (pred.view(e, n, h, -1) - zg.view(e, 1, 1, -1)).pow(2).sum(-1)
+    return c.mean(-1) if cost == "sum" else c.min(-1).values
+
+
+@torch.inference_mode()
+def cem_clamped(model, z, zg, prefix=None, n=300, topk=30, iters=30, gen=None, init_mean=None, cost="last"):
     """Batched CEM over the free suffix only. z, zg: [E,192]; prefix: [E, m*A] or None.
     Every candidate is prefix (+) suffix and is scored by the unmodified model, so the score is the
     model's score of the full plan. Returns (full plan [E, H*A], model cost of that plan [E])."""
@@ -30,13 +51,12 @@ def cem_clamped(model, z, zg, prefix=None, n=300, topk=30, iters=30, gen=None, i
         suf = torch.randn(e, n, ds, generator=gen, device=dev) * std[:, None] + mean[:, None]
         suf[:, 0] = mean
         cand = suf if dp == 0 else torch.cat([prefix[:, None].expand(e, n, dp), suf], -1)
-        c = dense_cost_multi(model, z, zg, cand.view(e, n, H, A))
+        c = plan_cost(model, z, zg, cand.view(e, n, H, A), cost)
         _, i = torch.topk(c, topk, dim=1, largest=False)
         el = torch.gather(suf, 1, i[..., None].expand(-1, -1, ds))
         mean, std = el.mean(1), el.std(1)
     plan = mean if dp == 0 else torch.cat([prefix, mean], -1)
-    cost = dense_cost_multi(model, z, zg, plan.view(e, 1, H, A))[:, 0]
-    return plan, cost
+    return plan, plan_cost(model, z, zg, plan.view(e, 1, H, A), cost)[:, 0]
 
 
 @torch.inference_mode()
@@ -48,7 +68,7 @@ def predict_latent(model, z, blocks):
 
 
 def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=300, topk=30,
-             seed=0, chunk=50, perturb=None, log=None):
+             seed=0, chunk=50, perturb=None, log=None, cost="last"):
     """Closed-loop Push-T under a real-time clock. Returns first-success step per episode (T if none).
 
     method:
@@ -118,7 +138,7 @@ def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=30
         def observe():
             return encode_pixels(model, np.stack([e.render() for e in ev]))
 
-        kw = dict(n=n, topk=topk, iters=iters, gen=gen)
+        kw = dict(n=n, topk=topk, iters=iters, gen=gen, cost=cost)
         if method in ("sync", "oracle"):
             while t < T:
                 z = observe()
@@ -155,5 +175,5 @@ def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=30
                 execute(queue)                     # the world moves on while the plan is computed
                 queue = nxt
         if log:
-            log(f"  {method} m={m} d={d} it={iters}: {c0 + E}/{n_ep} success@50={np.mean(first[:c0 + E] < 50):.3f} @75={np.mean(first[:c0 + E] < 75):.3f}")
+            log(f"  {method} m={m} d={d} it={iters} {cost}: {c0 + E}/{n_ep} success@50={np.mean(first[:c0 + E] < 50):.3f} @75={np.mean(first[:c0 + E] < 75):.3f}")
     return first, float(np.mean(costs))

@@ -1,6 +1,7 @@
 """E9 (issue #7): closed-loop Push-T under a real-time clock with injected planning delay.
 Usage: e9_realtime.py <n_extra> <tag> <cfg> [<cfg> ...]
-cfg = method:m:d:iters[:tp:radius:angle]   (m in blocks of 5 env steps, d in env steps)"""
+cfg = method:m:d:iters:cost[:tp:radius:angle]   (m in blocks of 5 env steps, d in env steps,
+cost in last|sum|min)"""
 import json, sys, time
 import numpy as np, torch
 from flash_lewm.core import *
@@ -21,9 +22,10 @@ except Exception:
 for cfg in cfgs:
     p = cfg.split(":")
     method, m, d, iters = p[0], int(p[1]), int(p[2]), int(p[3])
-    perturb = (int(p[4]), float(p[5]), float(p[6])) if len(p) > 4 else None
+    cost = p[4] if len(p) > 4 else "last"
+    perturb = (int(p[5]), float(p[6]), float(p[7])) if len(p) > 5 else None
     t0 = time.time()
-    first, cost = simulate(model, pairs, a_mean, a_std, method, m=m, d=d, iters=iters, perturb=perturb,
+    first, cost = simulate(model, pairs, a_mean, a_std, method, m=m, d=d, iters=iters, perturb=perturb, cost=cost,
                            log=lambda s: print(s, flush=True))
     res[cfg] = {"n": len(rows), "first_success": first.tolist(), "mean_model_cost": cost,
                 "succ50": float(np.mean(first < 50)), "succ75": float(np.mean(first < 75)),
