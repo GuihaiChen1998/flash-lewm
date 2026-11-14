@@ -34,7 +34,8 @@ class Suffix(torch.nn.Module):
     def __init__(self, m, tp, ts):
         super().__init__(); self.m, self.tp, self.ts = m, tp, ts
         self.register_buffer("pos", ae._sinusoidal_pos_encoding(tp + ts, 192, dev, torch.float32)[:, tp:])
-        self.register_buffer("mask", torch.ones(ts, ts, dtype=torch.bool, device=dev).tril())
+        # additive causal mask (finite, so the compiled kernel needs no -inf constant)
+        self.register_buffer("mask", (1.0 - torch.ones(ts, ts, device=dev).tril()) * -1e30)
     def forward(self, z, zg, K, V, suf):
         n = suf.shape[0]
         x = ae.embed(ae.token_proj(suf)) + self.pos
@@ -47,7 +48,9 @@ class Suffix(torch.nn.Module):
             if last:
                 q = q[:, :, -1:]
             lp = torch.einsum("nhtd,hpd->nhtp", q, K[li]) * at.scale
-            ls = (torch.einsum("nhtd,nhsd->nhts", q, k) * at.scale).masked_fill(~(self.mask[-1:] if last else self.mask), float("-inf"))
+            ls = torch.einsum("nhtd,nhsd->nhts", q, k) * at.scale
+            if not last:   # the last token may attend to every suffix token
+                ls = ls + self.mask
             w = torch.cat([lp, ls], -1).softmax(-1)
             o = torch.einsum("nhtp,hpd->nhtd", w[..., :self.tp], V[li]) + torch.einsum("nhts,nhsd->nhtd", w[..., self.tp:], v)
             o = o.transpose(1, 2).reshape(n, o.shape[2], -1)
