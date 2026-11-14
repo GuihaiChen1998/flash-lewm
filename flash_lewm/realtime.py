@@ -68,7 +68,7 @@ def predict_latent(model, z, blocks):
 
 
 def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=300, topk=30,
-             seed=0, chunk=50, perturb=None, log=None, cost="last"):
+             seed=0, chunk=50, perturb=None, log=None, cost="last", kick=None, drift=None, switch=None):
     """Closed-loop Push-T under a real-time clock. Returns first-success step per episode (T if none).
 
     method:
@@ -85,6 +85,12 @@ def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=30
     the same start-up hold of d steps for the first plan.
     perturb: None or (t_p, radius_px, angle_rad): at step t_p every block is displaced by a
       seeded random offset of that radius and rotated by +-angle.
+    kick:    None or (period, radius_px): the same kind of displacement every `period` steps
+      (persistent disturbance).
+    drift:   None or px_per_step: the block slides at constant speed in a per-episode random
+      direction, so standing still loses ground.
+    switch:  None or t_s: until step t_s the goal is pairs["goal"]; from t_s on it is
+      pairs["goal2"] / pairs["goal2_state"], and only reaching that second goal counts.
     """
     dev = next(model.parameters()).device
     n_ep = len(pairs["state"])
@@ -107,21 +113,34 @@ def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=30
         zg = encode_pixels(model, pairs["goal"][idx])
         t = 0
         done = np.zeros(E, dtype=bool)
+        ddir = prng.uniform(0, 2 * np.pi, size=E)
+
+        def displace(e, radius, angle):
+            ang = prng.uniform(0, 2 * np.pi)
+            e.block.position = (e.block.position[0] + radius * np.cos(ang), e.block.position[1] + radius * np.sin(ang))
+            if angle:
+                e.block.angle = e.block.angle + prng.choice([-1.0, 1.0]) * angle
+            e.space.step(e.dt)
 
         def step_all(act):   # act: [E,2] raw env actions
-            nonlocal t
+            nonlocal t, zg
             if t >= T:
                 return
             if perturb is not None and t == perturb[0]:
                 for e in ev:
-                    ang = prng.uniform(0, 2 * np.pi)
-                    off = perturb[1] * np.array([np.cos(ang), np.sin(ang)])
-                    e.block.position = (e.block.position[0] + off[0], e.block.position[1] + off[1])
-                    e.block.angle = e.block.angle + prng.choice([-1.0, 1.0]) * perturb[2]
-                    e.space.step(e.dt)
+                    displace(e, perturb[1], perturb[2])
+            if kick is not None and t > 0 and t % kick[0] == 0:
+                for e in ev:
+                    displace(e, kick[1], 0.0)
+            if switch is not None and t == switch:
+                for e, i in zip(ev, idx):
+                    e._set_goal_state(np.asarray(pairs["goal2_state"][i], dtype=np.float64))
+                zg = encode_pixels(model, pairs["goal2"][idx])
             for j, e in enumerate(ev):
+                if drift is not None:
+                    e.block.position = (e.block.position[0] + drift * np.cos(ddir[j]), e.block.position[1] + drift * np.sin(ddir[j]))
                 _, _, term, _, _ = e.step(act[j])
-                if term and not done[j]:
+                if term and not done[j] and (switch is None or t >= switch):
                     done[j] = True
                     first[idx[j]] = t
             t += 1

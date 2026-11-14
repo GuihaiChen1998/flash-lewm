@@ -15,7 +15,8 @@ for k, v in res.items():
     d = (f[:n] < 50).astype(float) - (ref[:n] < 50)
     bs = [d[rng.integers(0, n, n)].mean() for _ in range(5000)]
     lo, hi = np.percentile(bs, [2.5, 97.5])
-    ts = float(f[f < 75].mean()) if (f < 75).any() else float("nan")
+    T = v.get("T", 75)
+    ts = float(f[f < T].mean()) if (f < T).any() else float("nan")
     out[k] = {"n": int(len(f)), "succ50": float((f < 50).mean()), "succ75": float((f < 75).mean()), "mean_first_success_step": ts,
               "diff50_vs_ref": float(d.mean()), "ci95": [float(lo), float(hi)]}
     print("%-36s %4d %7.1f %7.1f %8.1f   %+5.1f [%+5.1f, %+5.1f]" % (k, len(f), 100 * out[k]["succ50"], 100 * out[k]["succ75"], ts, 100 * d.mean(), 100 * lo, 100 * hi))

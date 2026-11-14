@@ -67,6 +67,9 @@ M.update({
  "flash 300x15 mean": flash("d", n=300, topk=30, iters=15),
  "flash 300x10 mean": flash("e", n=300, topk=30, iters=10),
  "flash 1000x20 k30 mean": flash("f", n=1000, topk=30, iters=20),
+ "flash-min 300x30": flash("g", n=300, topk=30, iters=30, cost="min"),
+ "flash-min 300x15": flash("h", n=300, topk=30, iters=15, cost="min"),
+ "flash-min 300x10": flash("i", n=300, topk=30, iters=10, cost="min"),
 })
 try:
     res = json.load(open(f"results/e5_closedloop_{tag}.json"))

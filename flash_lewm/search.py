@@ -211,17 +211,22 @@ def tree_search(model, z, zg, L=15, s=1, m=20, topk_frac=0.25, max_evals=9000, r
 class _CEMStep(torch.nn.Module):
     """One whole CEM iteration (sample -> score -> top-k -> refit) as a single graph."""
 
-    def __init__(self, model, topk):
+    def __init__(self, model, topk, cost="last"):
         super().__init__()
-        self.m, self.topk = model, topk
+        self.m, self.topk, self.cost = model, topk, cost
 
     def forward(self, z, zg, mean, std, noise):
         cand = torch.cat([mean[None], noise[1:] * std + mean], 0)
         n = cand.shape[0]
         emb = z.view(1, 1, -1).expand(n, 1, -1)
-        act = self.m.action_encoder(cand.view(n, H, A), return_last_only=True, latent=emb)
-        pred = self.m.predict(emb, act)
-        c = (pred[:, 0] - zg.view(1, -1)).pow(2).sum(-1)
+        if self.cost == "last":
+            act = self.m.action_encoder(cand.view(n, H, A), return_last_only=True, latent=emb)
+            pred = self.m.predict(emb, act)
+            c = (pred[:, 0] - zg.view(1, -1)).pow(2).sum(-1)
+        else:   # "min": closest endpoint over all prefix lengths (see realtime.plan_cost)
+            act = self.m.action_encoder(cand.view(n, H, A), return_last_only=False, latent=emb)
+            pred = self.m.predict(emb, act)
+            c = (pred - zg.view(1, 1, -1)).pow(2).sum(-1).min(-1).values
         v, i = torch.topk(c, self.topk, largest=False)
         el = cand[i]
         return el.mean(0), el.std(0), v[0], el[0], v.mean()
@@ -234,9 +239,9 @@ class FlashCEM:
     solver for one environment. The first call compiles (several seconds); later calls reuse it.
     """
 
-    def __init__(self, model, n=300, topk=30, iters=30, ret="mean", mode="reduce-overhead"):
+    def __init__(self, model, n=300, topk=30, iters=30, ret="mean", mode="reduce-overhead", cost="last"):
         self.n, self.iters, self.ret = n, iters, ret
-        step = _CEMStep(model, topk).eval()
+        step = _CEMStep(model, topk, cost).eval()
         self.step = torch.compile(step, mode=mode, dynamic=False) if mode else step
 
     def __call__(self, z, zg, gen=None):
