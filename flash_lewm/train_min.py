@@ -48,11 +48,18 @@ def encode(model, px_uint8):
     return model.projector(model.encoder(x, interpolate_pos_encoding=True).last_hidden_state[:, 0])
 
 
-def main(data, out, steps=30000, bs=128, lr=1e-4, k=5, H=5, seed=0):
+def main(data, out, steps=30000, bs=128, lr=1e-4, k=5, H=5, seed=0, img=0):
+    """img: train at this resolution (frames are upsampled on the fly); 0 = native frame size."""
     torch.manual_seed(seed)
     dev = "cuda"
     d = np.load(data)
+    if "observations" in d.files:      # OGBench layout: observations / actions / terminals
+        term = d["terminals"].astype(bool)
+        ep_all = np.concatenate([[0], np.cumsum(term)[:-1]]).astype(np.int64)
+        d = {"pixels": d["observations"], "action": d["actions"], "ep_idx": ep_all,
+             "step_idx": np.arange(len(term)) - np.maximum.accumulate(np.where(np.concatenate([[True], term[:-1]]), np.arange(len(term)), 0))}
     px = torch.from_numpy(d["pixels"]).to(dev)
+    img = int(img) or int(px.shape[1])
     act = d["action"].astype(np.float32)
     good = ~np.isnan(act).any(1)
     a_mean, a_std = act[good].mean(0), act[good].std(0) + 1e-6
@@ -67,8 +74,8 @@ def main(data, out, steps=30000, bs=128, lr=1e-4, k=5, H=5, seed=0):
     val_ep = set(rng.choice(np.unique(ep), size=max(1, len(np.unique(ep)) // 20), replace=False).tolist())
     is_val = np.isin(ep[starts_all], list(val_ep))
     tr, va = torch.from_numpy(starts_all[~is_val]).to(dev), torch.from_numpy(starts_all[is_val]).to(dev)
-    print(f"frames {n}, train starts {len(tr)}, val starts {len(va)}, action dim {act.shape[1]}, img {px.shape[1]}", flush=True)
-    model = build_model(act.shape[1], px.shape[1], k).to(dev)
+    print(f"frames {n}, train starts {len(tr)}, val starts {len(va)}, action dim {act.shape[1]}, frame {px.shape[1]} -> img {img}", flush=True)
+    model = build_model(act.shape[1], img, k).to(dev)
     sig = SIGReg(knots=17, num_proj=1024).to(dev)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-3)
     warm = 1000
@@ -77,7 +84,10 @@ def main(data, out, steps=30000, bs=128, lr=1e-4, k=5, H=5, seed=0):
     aoff = torch.arange(span, device=dev)
 
     def batch(idx):
-        frames = norm_px(px[(idx[:, None] + offs).reshape(-1)]).view(len(idx), H + 1, 3, px.shape[1], px.shape[2])
+        frames = norm_px(px[(idx[:, None] + offs).reshape(-1)])
+        if frames.shape[-1] != img:
+            frames = torch.nn.functional.interpolate(frames, size=(img, img), mode="bilinear", align_corners=False)
+        frames = frames.view(len(idx), H + 1, 3, img, img)
         a = actn[(idx[:, None] + aoff)].view(len(idx), H, -1)
         return {"pixels": frames, "action": a}
 
@@ -108,7 +118,7 @@ def main(data, out, steps=30000, bs=128, lr=1e-4, k=5, H=5, seed=0):
             log.append({"step": s, "pred": pl.item(), "sigreg": sl.item(), "val_pred": vp, "val_copy": copy, "t": time.time() - t0})
             print(json.dumps(log[-1]), flush=True)
         if (s + 1) % 5000 == 0 or s == steps - 1:
-            torch.save({"state_dict": model.state_dict(), "action_dim": int(act.shape[1]), "img_size": int(px.shape[1]), "k": k,
+            torch.save({"state_dict": model.state_dict(), "action_dim": int(act.shape[1]), "img_size": img, "k": k,
                         "a_mean": torch.tensor(a_mean), "a_std": torch.tensor(a_std), "step": s + 1, "log": json.dumps(log)}, out)
 
 

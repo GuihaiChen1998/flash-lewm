@@ -13,7 +13,11 @@ import torch
 from .closedloop import make_env, set_episode
 from .core import dense_cost_multi, encode_pixels
 
-H, A, B = 5, 10, 5
+import os
+
+ADIM = int(os.environ.get("FLASH_ADIM", "2"))     # env action dimension (2: Push-T / Two-Room / Doom, 8: Ant)
+H, B = 5, 5
+A = B * ADIM
 
 
 @torch.inference_mode()
@@ -147,10 +151,10 @@ def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=30
 
         def hold(k):
             for _ in range(k):
-                step_all(np.zeros((E, 2)))
+                step_all(np.zeros((E, ADIM)))
 
         def execute(blocks):   # [E, k*A] normalised
-            a = blocks.reshape(E, -1, 2).double().cpu().numpy() * a_std + a_mean
+            a = blocks.reshape(E, -1, ADIM).double().cpu().numpy() * a_std + a_mean
             for s in range(a.shape[1]):
                 step_all(a[:, s])
 

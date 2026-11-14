@@ -20,6 +20,10 @@ def make_env():
         from .doom_env import DoomNav
 
         return DoomNav()
+    if ENV == "ant":
+        from .ant_env import AntNav
+
+        return AntNav()
     if ENV == "tworoom":
         from stable_worldmodel.envs.two_room.env import TwoRoomEnv
 
@@ -33,7 +37,7 @@ def make_env():
 
 
 def set_episode(env, state, goal_state):
-    if ENV == "doom":
+    if ENV in ("doom", "ant"):
         env.set_spec(state)
         env._set_goal_state(goal_state)
         return
