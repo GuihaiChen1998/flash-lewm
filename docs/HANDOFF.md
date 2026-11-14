@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-14，第 4 轮结束。
+最后更新：2026-11-14，第 6 轮结束。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -41,6 +41,14 @@ FlashCEM 降级为「优化后的同步基线」。
 - 用户要求 sleep / timeout 不超过 20 秒；长实验用 nohup 后台跑，用定时回访查看。
 - 在远端用 `pkill -f` 会连带杀掉发起它的 shell，改用 ps 取 pid 再 kill。
 - GPU 与他人共用时，并行开太多进程会互相拖慢；计时类实验要注明。
+
+## min 代价与新场景（第 5–6 轮）
+结果见 `docs/min_cost_and_scenarios_v1.md`。min 代价在 Push-T（官方协议 1010 回合、四个新场景）和 Cube（200 回合）上都不降成功率、到达更快；
+承诺前缀在 switch / far 场景显著优于整段执行。
+- Cube：数据 `/data1/cgh/dataset/lewm-original/cube/cube_single_expert.h5`（102 GB），权重 `ckpt/Fast-lewm_ogb_object.ckpt`，
+  脚本 `scripts/cube_eval.py`（需 `MUJOCO_GL=egl`，退出时的 EGL 报错可忽略）。数据集动作列有 NaN 行，拟合归一化前要去掉。
+- ViZDoom 1.3.2 已装在 `.pydeps`，无头可跑；尚无世界模型，等用户确认后再训练。
+- 场景预设在 `scripts/e9_realtime.py` 的 `SCN`，cfg 格式 `method:m:d:iters:cost:scenario`。
 
 ## 下一步候选（第 1 轮遗留）
 1. FlashCEM 接入官方 `eval.py`，在 Cube 上复核。

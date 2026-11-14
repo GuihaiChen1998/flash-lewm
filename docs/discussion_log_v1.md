@@ -59,3 +59,20 @@ HF 缓存 `/data1/cgh/cache/huggingface`。
 但在 Push-T 上没有胜过「整段执行 + min 代价」。最稳的收益是 min 代价本身。详见 `issue7_review_and_results_v1.md`。
 
 **待用户决定**：是否把 min 代价作为独立方向继续验证；是否为承诺前缀协议换一个重规划频率有用的任务设定。
+
+## 第 5 轮（2026-11-14）
+
+**用户要求**：按推荐做（复核 min 代价；换到重规划有用的任务测承诺前缀），并想想哪些 benchmark 场景对想法有利，纳入实验。
+
+**做了什么**：FlashCEM 加 min 代价并在官方协议 1010 回合上复核；实时仿真器加入 kick / drift / switch / far 四个场景并跑完对照；
+Cube 数据解压、依赖装到 `.pydeps`、OGB checkpoint 下载、`scripts/cube_eval.py`。
+
+## 第 6 轮（2026-11-14）
+
+**用户要求**：继续未完成的事；考虑 Craftax、NetHack、ViZDoom 等游戏环境是否有利，把可行的纳入实验。
+
+**做了什么**：修正 Cube 脚本的 NaN 动作归一化问题并重跑；ViZDoom 装好并试跑；写 `min_cost_and_scenarios_v1.md`。
+
+**结论**：min 代价在 Push-T 和 Cube 上都成立；承诺前缀在目标切换和远目标场景显著胜出；ViZDoom 可行且有利，Craftax 偏弱，NetHack 不建议。
+
+**待用户决定**：是否开始在 ViZDoom 上训练 Fast-LeWM（需写精简训练脚本、采数据、占 GPU 数小时）。
