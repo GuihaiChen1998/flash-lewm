@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-13，第 3 轮结束。
+最后更新：2026-11-14，第 4 轮结束。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -29,6 +29,18 @@
 用户要算法层面的创新，不要纯工程优化。思路：对比 LeWM / Fast-LeWM 伪代码找可消除的串行结构。
 当前判断：Fast-LeWM 剩下的串行维度是 CEM 轮数 T，候选想法 A–D 见 `docs/discussion_log_v1.md` 第 3 轮，等用户选定。
 FlashCEM 降级为「优化后的同步基线」。
+
+## issue #7（第 4 轮）
+承诺前缀 / 异步重规划已实现并验证，结果见 `docs/issue7_review_and_results_v1.md`。
+要点：官方终点代价在频繁重规划下失效；改用「前缀终点最小」代价（`plan_cost(..., cost="min")`）后前缀钳制成立，
+但不优于「整段执行 + min 代价」。min 代价本身让到达更快、抗扰动更好，是目前最值得跟进的发现。
+第 3 轮的候选想法 A–D 尚未动手。
+
+运行注意：
+- 远端更新代码：`cd /data1/cgh/code/flash-lewm && /usr/bin/git fetch origin main && /usr/bin/git reset --hard origin/main`（需代理 127.0.0.1:17897）。
+- 用户要求 sleep / timeout 不超过 20 秒；长实验用 nohup 后台跑，用定时回访查看。
+- 在远端用 `pkill -f` 会连带杀掉发起它的 shell，改用 ps 取 pid 再 kill。
+- GPU 与他人共用时，并行开太多进程会互相拖慢；计时类实验要注明。
 
 ## 下一步候选（第 1 轮遗留）
 1. FlashCEM 接入官方 `eval.py`，在 Cube 上复核。

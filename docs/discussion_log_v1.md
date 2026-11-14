@@ -43,3 +43,19 @@ HF 缓存 `/data1/cgh/cache/huggingface`。
   A 的新颖性尚未做文献核查。
 
 **待用户决定**：先做哪一个（建议 A，B 作为低成本对照）。
+
+## 第 4 轮（2026-11-14）
+
+**用户要求**：暂停第 3 轮的方向，先看 issue #7（把 REALFAST / RTC 的承诺前缀思想用到 LeWM / Fast-LeWM）；可行就实现验证，
+需要改进就改进后实现。用 Linux#1（GPU 可能被占但显存够）。中途提醒：sleep / timeout 不要超过 20 秒。
+
+**做了什么**
+- `flash_lewm/realtime.py`：前缀钳制 CEM、预测状态再锚定、朴素异步、同步暂停、零延迟上界；注入延迟的实时时钟仿真；
+  三种代价（终点 / 前缀终点平均 / 前缀终点最小）；扰动注入。
+- `scripts/e8_commit_prefix.py`（计算复用与降维）、`scripts/e9_realtime.py`、`scripts/e9_report.py`。
+- Linux#1 的项目目录现在是 git 检出，更新方式是本地推送后远端 `git fetch && git reset --hard origin/main`。
+
+**结论**：按官方代价原样做不成立（目标函数在频繁重规划下不一致）；换成 min 代价后前缀钳制成立并明显优于朴素异步，
+但在 Push-T 上没有胜过「整段执行 + min 代价」。最稳的收益是 min 代价本身。详见 `issue7_review_and_results_v1.md`。
+
+**待用户决定**：是否把 min 代价作为独立方向继续验证；是否为承诺前缀协议换一个重规划频率有用的任务设定。
