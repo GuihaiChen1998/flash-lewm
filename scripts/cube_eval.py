@@ -22,7 +22,8 @@ with h5py.File(H5, "r") as f:
     ep, step, ep_len = f["ep_idx"][:], f["step_idx"][:], f["ep_len"][:]
     valid = np.nonzero(step <= ep_len[ep] - OFF - 1)[0]
     rows = np.sort(valid[np.random.default_rng(42).choice(len(valid) - 1, size=n_ep, replace=False)])
-    act = f["action"][:2_000_000:7].astype(np.float64)
+    act = f["action"][:].astype(np.float64)
+    act = act[~np.isnan(act).any(axis=1)]            # episode-final rows hold NaN actions (as in eval.py)
     a_mean, a_std = act.mean(0), act.std(0)
     D = {k: [] for k in ["pixels", "goal", "qpos", "qvel", "bpos", "gpos", "gquat", "acts"]}
     for r in rows:
