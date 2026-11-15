@@ -20,6 +20,10 @@ def make_env():
         from .doom_env import DoomNav
 
         return DoomNav()
+    if ENV == "cube":
+        from .cube_env import CubeNav
+
+        return CubeNav()
     if ENV == "ant":
         from .ant_env import AntNav
 
@@ -37,7 +41,7 @@ def make_env():
 
 
 def set_episode(env, state, goal_state):
-    if ENV in ("doom", "ant"):
+    if ENV in ("doom", "ant", "cube"):
         env.set_spec(state)
         env._set_goal_state(goal_state)
         return
