@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-14，第 7 轮结束。
+最后更新：2026-11-14，第 9 轮结束。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -49,6 +49,23 @@ FlashCEM 降级为「优化后的同步基线」。
   脚本 `scripts/cube_eval.py`（需 `MUJOCO_GL=egl`，退出时的 EGL 报错可忽略）。数据集动作列有 NaN 行，拟合归一化前要去掉。
 - ViZDoom 1.3.2 已装在 `.pydeps`，无头可跑；尚无世界模型，等用户确认后再训练。
 - 场景预设在 `scripts/e9_realtime.py` 的 `SCN`，cfg 格式 `method:m:d:iters:cost:scenario`。
+
+## 多环境（第 8–9 轮）
+结果见 `docs/multi_env_results_v1.md`。目前最强的两条结论：min 代价在 Push-T / Cube / Two-Room / ViZDoom 上都成立；
+前缀钳制在「停顿有代价或勤重规划有用」的场景胜出（ViZDoom 全部场景、Two-Room 与 Push-T 的远目标和目标切换）。
+
+各环境的运行前缀（都配合 `scripts/e9_realtime.py <n_extra> <tag> <cfg...>`，cfg = `method:m:d:iters:cost:scenario`）：
+- Two-Room：`FLASH_ENV=tworoom PUSHT_H5=/data1/cgh/dataset/lewm-original/tworoom/tworoom.h5 FLASH_CKPT=ckpt/Fast-lewm_tworoom_object.ckpt FLASH_EP_KEY=ep_idx FLASH_STATE_KEY=proprio`
+- ViZDoom：`FLASH_ENV=doom FLASH_CKPT=ckpt/doom_mwh.pt DOOM_PAIRS=/data1/cgh/dataset/doom/eval_pairs.npz`（每个进程会开 50 个 Doom 实例）
+- AntMaze：`FLASH_ENV=ant FLASH_ADIM=8 FLASH_ANT_NOISE=0|0.2 FLASH_CKPT=ckpt/ant_medium.pt DOOM_PAIRS=/data1/cgh/dataset/ant/eval_pairs.npz MUJOCO_GL=egl`，
+  且 `PYTHONPATH` 必须以 `.mj/3.3.0` 开头（MuJoCo ≥3.5 与 OGBench 数据集动力学不一致）。
+- 结果文件 `results/e9_realtime_<tag>*.json` 的键在不同环境间重名，按标签前缀（TR / DOOM / 无前缀为 Push-T）分开读。
+
+其他：
+- 训练：`python -m flash_lewm.train_min <data.npz> <out.pt> steps=30000 [img=112]`，数据整体放进 GPU 显存；约 9 步/秒。
+- `.mj/<版本>/` 是各版本 MuJoCo 的独立安装目录，只用于 AntMaze 和版本对比。
+- Reacher：`/data1/cgh/dataset/lewm-original/reacher/reacher.h5`（99 GB）、`ckpt/Fast-lewm_dmc_object.ckpt` 已就位，评估脚本未写。
+- Jupyter 连接（Claude_MCP_Portal）会过期，需要用户重新登录。
 
 ## 下一步候选（第 1 轮遗留）
 1. FlashCEM 接入官方 `eval.py`，在 Cube 上复核。

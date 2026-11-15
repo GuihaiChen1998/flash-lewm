@@ -91,3 +91,28 @@ Cube 数据解压、依赖装到 `.pydeps`、OGB checkpoint 下载、`scripts/cu
 - 更正：用户材料里说 LeWM 默认输入 64×64 或 128×128；官方 Fast-LeWM 配置是 224×224、patch 14。
 
 **待用户决定**：先做零训练成本的 Two-Room / Reacher，还是直接开始 ViZDoom 训练。
+
+## 第 8 轮（2026-11-14）
+
+**用户要求**：Two-Room / Reacher、ViZDoom、Visual AntMaze 三条线并行做（GPU1–3 空闲，GPU0 也可用）。
+
+**做了什么**
+- Two-Room：接入实时仿真器（`FLASH_ENV=tworoom` 等环境变量），跑 base / far / switch。
+- ViZDoom：`scripts/doom_collect.py` 采 31.4 万帧；`flash_lewm/train_min.py`（精简训练，损失同官方）训 3 万步；
+  `flash_lewm/doom_env.py` + `scripts/doom_pairs.py` 做目标图导航评估（同种子重放回到起点）。
+- Visual AntMaze：下载数据集，同一训练脚本训 3 万步，`flash_lewm/ant_env.py` + `scripts/ant_pairs.py`。
+- Reacher：数据解压、权重下载完成，评估未做。
+
+## 第 9 轮（2026-11-14）
+
+**用户要求**：继续；解决 AntMaze 与数据集记录对不上的问题，无噪声版和带噪声版都要。
+
+**结论**
+- 根因是 MuJoCo 版本：≤3.4.0 重放精确（25 步误差约 5e-7），3.5.0 起有系统偏差（0.44）。采集脚本存的就是加噪后执行的动作。
+  AntMaze 改用 `.mj/3.3.0`；两个版本由 `FLASH_ANT_NOISE=0 / 0.2` 切换。
+- AntMaze 规划不可行（2–6%），扁平 CEM 搜关节力矩走不出步态，没有铺开对照。
+- Two-Room：前缀钳制在远目标（+8.0）和目标切换（+7.5）显著胜过整段执行 + min；min 代价静态就 +5.5。
+- ViZDoom：前缀钳制在静态（+8.0）和目标切换（+11.0）都显著胜出；停顿在这里有代价。
+- 详见 `multi_env_results_v1.md`。
+
+**待用户决定**：是否做 Reacher；是否为 AntMaze 改成高层动作规划；是否扩大 ViZDoom（更多场景 / 更长训练 / 带敌人的地图）。
