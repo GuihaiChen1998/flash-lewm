@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-17，第 11 轮结束。
+最后更新：2026-11-17，第 13 轮。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -99,10 +99,19 @@ FlashCEM 降级为「优化后的同步基线」。
 - Linux#1 上文件名与 Release 资产名的对应：`/data1/cgh/dataset/cube_eval/eval_pairs{,_v2}.npz`、
   `/data1/cgh/dataset/doom/eval_pairs{,500}.npz`、`/data1/cgh/dataset/ant/eval_pairs.npz`。
 
+## LIBERO-10（第 13 轮）
+结果见 `docs/libero_results_v1.md`。单任务（STUDY_SCENE1）：承诺前缀对同步规划 +2 到 +6（全部显著），对朴素异步无差别；基础成功率只有 5–20%。
+- 数据 `/data1/cgh/dataset/libero/*.hdf5`（10 个任务，13.7 GB；下载脚本 `scripts/libero_download.sh <代理端口> <0|1>` 支持续传，
+  清单 `files.txt`）；转换后的训练数据 `study1.npz`；评测回合 `pairs_study1.npz`。
+- 适配器 `flash_lewm/libero_env.py`，一个进程只跑一个任务（`FLASH_LIBERO_BDDL`）。运行前缀见结果文档「复现」一节。
+- 依赖目录 `.pydeps_libero/`、配置 `.libero_cfg/config.yaml`（不入库，按复现一节重建）。
+- **注意**：不要在 Linux#1 上对有进程正在写的已跟踪日志做 `git stash -u` / `reset`，会把文件换掉，进程继续写已删除的 inode
+  （可从 `/proc/<pid>/fd/1` 读回）。这次因此丢了 LIBERO 训练第 12000 步之后的日志。
+
 ## 下一步候选（第 11 轮后）
 1. 给 Cube 加 far / kick 场景；查清官方代价配置在换目标那一步就成功的 21–29 个回合是怎么回事。
 2. 用真实规划耗时代替按步数注入的延迟（FlashCEM 65 ms 对官方 467 ms），把「求解器变快」和「承诺前缀」两条线合起来比较。
-3. LIBERO-10 路线（第 10 轮的判断，未动手）；Reacher 评估脚本未写。
+3. LIBERO-10：多任务模型 + 10 个任务各跑一遍（单任务已完成）；Reacher 评估脚本未写。
 4. 第 3 轮的算法候选 A–D、iCEM 基线仍未动手。
 
 ## 更早的候选（第 1 轮遗留）

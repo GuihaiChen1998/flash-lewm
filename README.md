@@ -14,7 +14,8 @@ Fast-LeWM（[论文](https://arxiv.org/abs/2606.26217)，[官方代码](https://
 | [docs/issue7_review_and_results_v1.md](docs/issue7_review_and_results_v1.md) | issue #7：承诺前缀 / 异步重规划，实时仿真协议 |
 | [docs/min_cost_and_scenarios_v1.md](docs/min_cost_and_scenarios_v1.md) | 「前缀终点最小」代价与扰动、目标切换、远目标场景 |
 | [docs/multi_env_results_v1.md](docs/multi_env_results_v1.md) | Two-Room、ViZDoom、Visual AntMaze（含数据集对齐） |
-| [docs/cube_doom_solid_v1.md](docs/cube_doom_solid_v1.md) | Cube 与 ViZDoom 的大样本复核（最新） |
+| [docs/cube_doom_solid_v1.md](docs/cube_doom_solid_v1.md) | Cube 与 ViZDoom 的大样本复核 |
+| [docs/libero_results_v1.md](docs/libero_results_v1.md) | LIBERO-10 单任务冒烟（最新） |
 | [docs/discussion_log_v1.md](docs/discussion_log_v1.md) | 逐轮讨论记录 |
 | [docs/HANDOFF.md](docs/HANDOFF.md) | 交接文档：机器、路径、运行前缀、未入库资源的位置 |
 
