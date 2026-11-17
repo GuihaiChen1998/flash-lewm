@@ -1,0 +1,41 @@
+{
+ "n_pairs": 8,
+ "official_ms_per_plan": [
+  486.7949327453971,
+  16.8929094052056
+ ],
+ "cached_ms_per_plan_incl_encode": [
+  154.04864447191358,
+  1.0762055632720204
+ ],
+ "cached_encode_ms": 5.952275358140469,
+ "speedup": 3.1600078950006627,
+ "max_abs_plan_diff_vs_official": 1.4319342374801636,
+ "cost_official_vs_cached": [
+  [
+   0.8841058015823364,
+   0.8815035223960876
+  ],
+  [
+   165.55906677246094,
+   166.97128295898438
+  ],
+  [
+   1.2058825492858887,
+   1.1148741245269775
+  ],
+  [
+   0.5907999873161316,
+   0.5907965898513794
+  ]
+ ],
+ "profile_ms": {
+  "image_encode (ViT+proj, 2 per iter)": 300.67151598632336,
+  "action prefix encoder": 48.920098692178726,
+  "endpoint predictor": 89.39987048506737,
+  "get_cost total": 464.89599347114563,
+  "cem bookkeeping (sample/topk/expand)": 10.214593261480331,
+  "get_cost other (H2D copies, dict)": 25.90450830757618
+ },
+ "profile_total_ms": 475.11058673262596
+}

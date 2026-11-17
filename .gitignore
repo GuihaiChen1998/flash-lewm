@@ -1,0 +1,8 @@
+__pycache__/
+.pydeps/
+.mj/
+third_party/
+ckpt/
+_vizdoom.ini
+*.tar.gz
+nohup.out
