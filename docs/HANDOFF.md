@@ -71,8 +71,9 @@ FlashCEM 降级为「优化后的同步基线」。
 结果见 `docs/cube_doom_solid_v1.md`，汇总数字在 `results/summary_cube_doom_solid.json`。
 - 承诺前缀在 Cube（300 回合）和 ViZDoom（两个种子各 500 回合）、延迟 5 / 10 步下都显著优于同步规划和朴素异步。
 - min 代价的结论收窄：Cube 普遍有效；ViZDoom 只在频繁重规划时有效，整段执行 + 静态目标时与官方代价无显著差别。
-- Cube 的 switch 场景评测集有缺陷（105 / 300 回合换目标即成功），剔除后无结论；`scripts/cube_pairs.py` 已修筛选条件，
-  **`/data1/cgh/dataset/cube_eval/eval_pairs.npz` 尚未重新生成**（重新生成后回合会变，旧结果不可配对）。
+- Cube 的 switch 场景：原评测集有缺陷（105 / 300 回合换目标即成功）；已生成 `eval_pairs_v2.npz` 并重跑（标签 `C2sw*`）：
+  延迟 5 步 clamp − sync min +3.7 [+0.3, +7.0]，延迟 10 步无差别。静态场景仍用原评测集。
+- ViZDoom 零延迟 m=2 参照已补跑：静态 57.5%，是最好的参照；clamp（d=5）比它低 5.1 [−7.7, −2.4]，所以是「接近」而非「追平」零延迟。
 
 运行前缀（配合 `scripts/e9_realtime.py <n_extra> <tag> <cfg...>`，实际回合数 = 50 + n_extra）：
 - Cube：`FLASH_ENV=cube FLASH_ADIM=5 FLASH_CHUNK=25 MUJOCO_GL=egl FLASH_CKPT=ckpt/Fast-lewm_ogb_object.ckpt PUSHT_H5=/data1/cgh/dataset/lewm-original/cube/cube_single_expert.h5 DOOM_PAIRS=/data1/cgh/dataset/cube_eval/eval_pairs.npz`
@@ -82,20 +83,24 @@ FlashCEM 降级为「优化后的同步基线」。
 - 结果标签：`CUBE*`（Cube）、`DA*`（Doom 种子 A）、`DB*`（Doom 种子 B）；每跑完一个配置就写一次 JSON。
 - 耗时：24 个进程并行时每个配置 8–25 分钟；异步配置（clamp / naive）和 m=1 的配置最慢。要快就少开进程。
 
-## 不在 GitHub 上的资源（都在 Linux#1）
-远端机器没有 GitHub 推送凭证，会话沙箱也无法搬运大文件，所以以下内容只在 Linux#1：
-- 权重 `/data1/cgh/code/flash-lewm/ckpt/`：官方 4 个（`Fast-lewm_{pusht,ogb,tworoom,dmc}_object.ckpt`，可从官方发布重新下载）；
-  自训练 4 个（`doom_mwh.pt`、`doom_mwh_10k.pt`、`doom_mwh_s1.pt`、`ant_medium.pt`，各 69 MB，可用 `train_min` 重训，约 1 小时一个）。
-- 评测回合：`/data1/cgh/dataset/doom/{eval_pairs.npz, eval_pairs500.npz}`（`scripts/doom_pairs.py`）、
-  `/data1/cgh/dataset/cube_eval/eval_pairs.npz`（`scripts/cube_pairs.py`）、`/data1/cgh/dataset/ant/eval_pairs.npz`（`scripts/ant_pairs.py`）。
-- Doom 训练数据 `/data1/cgh/dataset/doom/mwh_all.npz`（11 GB，`scripts/doom_collect.py`）。
-- 逐回合结果 `results/*.json`（98 个文件，约 1 MB）与日志 `logs/`；备份在 `/data1/cgh/code/flash-lewm/results_backup_20261117.tar.gz`。
-- 两个未入库的探索脚本：`scripts/e6_overhead.py`（单次前向固定开销剖析）、`scripts/try_doom.py`。
-- 依赖目录 `.pydeps/`、`.mj/`。
-如需把权重放上 GitHub，建议在 Linux#1 上配置凭证后用 Release 附件上传（单文件 < 100 MB，可以直接传）。
+## 资源存放位置（2026-11-17 起全部入库）
+- **git 仓库**：代码、文档、`results/`（全部逐回合结果 JSON）、`logs/`、`requirements-pydeps.txt`（`.pydeps` 的包清单）。
+- **GitHub Release `assets-v1`**（https://github.com/GuihaiChen1998/flash-lewm/releases/tag/assets-v1）：8 个权重
+  （官方 `Fast-lewm_{pusht,ogb,tworoom,dmc}_object.ckpt`；自训练 `doom_mwh.pt`、`doom_mwh_10k.pt`、`doom_mwh_s1.pt`、`ant_medium.pt`）
+  和 5 个评测回合文件（`cube_eval_pairs.npz`、`cube_eval_pairs_v2.npz`、`doom_eval_pairs.npz`、`doom_eval_pairs500.npz`、`ant_eval_pairs.npz`）。
+- **Hugging Face（账号 UUUooUUU，私有）**：模型仓库 `UUUooUUU/flash-lewm`（`ckpt/`、`results/`、`logs/`）；
+  数据集仓库 `UUUooUUU/flash-lewm-data`（`eval_pairs/` 同上 5 个文件；`doom/mwh_all.npz` 是 11 GB 的 Doom 训练数据，
+  上传状态看 Linux#1 的 `logs/upload_hf_big.log`，末尾出现 `ALL DONE` 才算完成）。
+- 上传脚本：`scripts/upload_release.sh`（环境变量 `GH`）、`scripts/upload_hf.py small|big|all`（环境变量 `HF`；
+  需 `HF_ENDPOINT=https://huggingface.co HF_HUB_DISABLE_XET=1`，代理下新存储后端连不上）。令牌不入库，用完即删。
+- 推送权限：chancanmakeit 账号的令牌对本仓库只读；能推送的是 GuihaiChen1998 账号的令牌。
+- 没有上传的：官方数据集原件（Push-T / Cube / Two-Room / Reacher / OGBench AntMaze，可从官方下载）、
+  `.pydeps/` 与 `.mj/`（按清单重装）、`third_party/Fast-LeWorldModel`（官方代码，提交 2fc3bca）。
+- Linux#1 上文件名与 Release 资产名的对应：`/data1/cgh/dataset/cube_eval/eval_pairs{,_v2}.npz`、
+  `/data1/cgh/dataset/doom/eval_pairs{,500}.npz`、`/data1/cgh/dataset/ant/eval_pairs.npz`。
 
 ## 下一步候选（第 11 轮后）
-1. 重新生成 Cube 评测回合后重跑 switch 场景；或给 Cube 加 far / kick 场景。
+1. 给 Cube 加 far / kick 场景；查清官方代价配置在换目标那一步就成功的 21–29 个回合是怎么回事。
 2. 用真实规划耗时代替按步数注入的延迟（FlashCEM 65 ms 对官方 467 ms），把「求解器变快」和「承诺前缀」两条线合起来比较。
 3. LIBERO-10 路线（第 10 轮的判断，未动手）；Reacher 评估脚本未写。
 4. 第 3 轮的算法候选 A–D、iCEM 基线仍未动手。
