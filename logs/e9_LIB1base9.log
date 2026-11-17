@@ -1,0 +1,873 @@
+[1m[33m[robosuite WARNING] [0mNo private macro file found! (macros.py:53)
+[1m[33m[robosuite WARNING] [0mIt is recommended to use a private macro file (macros.py:54)
+[1m[33m[robosuite WARNING] [0mTo setup, run: python /data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/scripts/setup_macros.py (macros.py:55)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+  sync m=5 d=10 it=30 last: 25/300 success@50=0.080 @75=0.120
+  sync m=5 d=10 it=30 last: 50/300 success@50=0.080 @75=0.120
+  sync m=5 d=10 it=30 last: 75/300 success@50=0.080 @75=0.107
+  sync m=5 d=10 it=30 last: 100/300 success@50=0.070 @75=0.090
+  sync m=5 d=10 it=30 last: 125/300 success@50=0.072 @75=0.112
+  sync m=5 d=10 it=30 last: 150/300 success@50=0.073 @75=0.113
+  sync m=5 d=10 it=30 last: 175/300 success@50=0.069 @75=0.109
+  sync m=5 d=10 it=30 last: 200/300 success@50=0.080 @75=0.120
+  sync m=5 d=10 it=30 last: 225/300 success@50=0.071 @75=0.107
+  sync m=5 d=10 it=30 last: 250/300 success@50=0.064 @75=0.104
+  sync m=5 d=10 it=30 last: 275/300 success@50=0.058 @75=0.098
+  sync m=5 d=10 it=30 last: 300/300 success@50=0.053 @75=0.090
+sync:5:10:30:last:base             n=300 succ@50=  5.3% succ@75=  9.0% succ@T=  9.0%  (2064s)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9068c40>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9068c40>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc90690c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc90690c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9068cc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9068cc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9068dc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9068dc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9069540>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9069540>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9068940>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc9068940>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce3d0240>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce3d0240>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc90688c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc90688c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce3d0ac0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce3d0ac0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce3d01c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce3d01c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce18c040>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce18c040>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce18d140>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce18d140>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce18c540>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce18c540>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce18d5c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dce18d5c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc48581c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc48581c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc485a6c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc485a6c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc485b8c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc485b8c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc4859440>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc4859440>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc753c2c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc753c2c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc753dec0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc753dec0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc753d540>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc753d540>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc753d240>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dc753d240>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dca5f81c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dca5f81c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dca5f90c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 150, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f4dca5f90c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f50344a3b50>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f507c158240>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f507c158240>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f50b4567f40>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f50344a39a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f501c107340>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f507c158240>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f507c158240>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f50b4567f40>,
+	),
+	result = 0
+)

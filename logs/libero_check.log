@@ -1,0 +1,27 @@
+[1m[33m[robosuite WARNING] [0mNo private macro file found! (macros.py:53)
+[1m[33m[robosuite WARNING] [0mIt is recommended to use a private macro file (macros.py:54)
+[1m[33m[robosuite WARNING] [0mTo setup, run: python /data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/scripts/setup_macros.py (macros.py:55)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+demo_0 len 234 img err at 0 (raw, flipped) [ 0.81 33.26] state/img err {1: (0.15955, 0.98), 5: (0.04081, 1.29), 25: (0.00899, 2.45), 50: (0.00695, 3.09), 100: (0.01323, 2.1), 233: (0.40998, 2.64)} success True
+   mid restore 117 -> state err 0.15408 img err 4.69
+demo_1 len 187 img err at 0 (raw, flipped) [ 1.6  34.17] state/img err {1: (0.09813, 1.85), 5: (0.04079, 2.22), 25: (0.00499, 2.95), 50: (0.00969, 3.46), 100: (0.02932, 4.13), 186: (0.57247, 3.58)} success False
+   mid restore 93 -> state err 0.062 img err 1.96
+demo_2 len 180 img err at 0 (raw, flipped) [ 1.5  33.33] state/img err {1: (0.09852, 1.63), 5: (0.04082, 1.93), 25: (0.00407, 3.12), 50: (0.00534, 3.09), 100: (0.04413, 2.92), 179: (0.29203, 2.55)} success True
+   mid restore 90 -> state err 0.07944 img err 3.2
+obs keys ['robot0_joint_pos', 'robot0_joint_pos_cos', 'robot0_joint_pos_sin', 'robot0_joint_vel', 'robot0_eef_pos', 'robot0_eef_quat', 'robot0_gripper_qpos', 'robot0_gripper_qvel', 'agentview_image', 'robot0_eye_in_hand_image', 'black_book_1_pos', 'black_book_1_quat', 'black_book_1_to_robot0_eef_pos', 'black_book_1_to_robot0_eef_quat', 'white_yellow_mug_1_pos', 'white_yellow_mug_1_quat', 'white_yellow_mug_1_to_robot0_eef_pos', 'white_yellow_mug_1_to_robot0_eef_quat', 'robot0_proprio-state', 'object-state']
+state dim 45
+nq 23 nv 21 bodies ['world', 'study_table', 'robot0_base', 'robot0_link0', 'robot0_link1', 'robot0_link2', 'robot0_link3', 'robot0_link4', 'robot0_link5', 'robot0_link6', 'robot0_link7', 'robot0_right_hand', 'gripper0_right_gripper', 'gripper0_eef', 'gripper0_leftfinger', 'gripper0_finger_joint1_tip', 'gripper0_rightfinger', 'gripper0_finger_joint2_tip', 'mount0_base', 'mount0_controller_box', 'mount0_pedestal_feet', 'mount0_torso', 'mount0_pedestal', 'black_book_1_main', 'white_yellow_mug_1_main', 'desk_caddy_1_main']
+Exception ignored in: <function MjRenderContext.__del__ at 0x7fcee19b55a0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 149, in free
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x7fcee19b53f0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps_libero/robosuite/renderers/context/egl_context.py", line 149, in free
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>

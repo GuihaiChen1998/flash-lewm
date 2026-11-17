@@ -6,3 +6,5 @@ ckpt/
 _vizdoom.ini
 *.tar.gz
 nohup.out
+.pydeps_libero/
+.libero_cfg/
