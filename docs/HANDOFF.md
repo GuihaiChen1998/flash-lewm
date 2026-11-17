@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-17，第 13 轮。
+最后更新：2026-11-17，第 14 轮。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -109,6 +109,14 @@ FlashCEM 降级为「优化后的同步基线」。
 - 依赖目录 `.pydeps_libero/`、配置 `.libero_cfg/config.yaml`（不入库，按复现一节重建）。
 - **注意**：不要在 Linux#1 上对有进程正在写的已跟踪日志做 `git stash -u` / `reset`，会把文件换掉，进程继续写已删除的 inode
   （可从 `/proc/<pid>/fd/1` 读回）。这次因此丢了 LIBERO 训练第 12000 步之后的日志。
+
+## 官方协议对比与官方训练（第 14 轮）
+- 官方 `eval.py` 已打通（`scripts/official_eval.py`），四个环境复现论文数字在 ±2 以内；min 代价在 Reacher +11.4，其余持平。结果见 `docs/official_protocol_v1.md`。
+- 官方 `train.py` 在 ViZDoom、LIBERO 数据上训练中：数据用 `scripts/npz_to_swm_h5.py` 转到 `/data1/cgh/dataset/official_h5/{doom_mwh,libero10}.h5`，
+  输出 `ckpt/official_train/{doom,libero10}/`；依赖在 `.pydeps_train`（stable-pretraining **0.1.6**、lightning 2.6.1、torchmetrics 1.9.0；
+  0.1.8 会拒绝从头训练），PYTHONPATH 末尾要加 `.pydeps_libero`（matplotlib）。命令：
+  `STABLEWM_HOME=/data1/cgh/dataset/official_h5 WANDB_MODE=disabled python train.py data=tworoom data.dataset.name=<doom_mwh|libero10> 'data.dataset.keys_to_load=[pixels,action]' 'data.dataset.keys_to_cache=[action]' wandb.enabled=False hydra.run.dir=<输出目录>`（在 `third_party/Fast-LeWorldModel` 下运行）。
+- 并行注意：评测进程要设 `OMP_NUM_THREADS=4`，否则多进程时 CPU 严重超订。
 
 ## 下一步候选（第 11 轮后）
 1. 给 Cube 加 far / kick 场景；查清官方代价配置在换目标那一步就成功的 21–29 个回合是怎么回事。
