@@ -117,6 +117,7 @@ FlashCEM 降级为「优化后的同步基线」。
   0.1.8 会拒绝从头训练），PYTHONPATH 末尾要加 `.pydeps_libero`（matplotlib）。命令：
   `STABLEWM_HOME=/data1/cgh/dataset/official_h5 WANDB_MODE=disabled python train.py data=tworoom data.dataset.name=<doom_mwh|libero10> 'data.dataset.keys_to_load=[pixels,action]' 'data.dataset.keys_to_cache=[action]' wandb.enabled=False hydra.run.dir=<输出目录>`（在 `third_party/Fast-LeWorldModel` 下运行）。
 - 并行注意：评测进程要设 `OMP_NUM_THREADS=4`，否则多进程时 CPU 严重超订。
+- 实测耗时 + 实时对比完成（`docs/real_latency_v1.md`）：官方求解器约 600 ms（6 步）、FlashCEM 65 ms（1 步）；完整方法对官方部署全部显著，换目标 +8 到 +62。结果标签 `RL<env><场景>`。
 
 ## 下一步候选（第 11 轮后）
 1. 给 Cube 加 far / kick 场景；查清官方代价配置在换目标那一步就成功的 21–29 个回合是怎么回事。

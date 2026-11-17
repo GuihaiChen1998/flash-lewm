@@ -16,12 +16,13 @@ Fast-LeWM（[论文](https://arxiv.org/abs/2606.26217)，[官方代码](https://
 | [docs/multi_env_results_v1.md](docs/multi_env_results_v1.md) | Two-Room、ViZDoom、Visual AntMaze（含数据集对齐） |
 | [docs/cube_doom_solid_v1.md](docs/cube_doom_solid_v1.md) | Cube 与 ViZDoom 的大样本复核 |
 | [docs/libero_results_v1.md](docs/libero_results_v1.md) | LIBERO-10 单任务与 10 任务 |
-| [docs/official_protocol_v1.md](docs/official_protocol_v1.md) | 官方 eval.py 协议下复现与 min 代价对比（最新） |
+| [docs/official_protocol_v1.md](docs/official_protocol_v1.md) | 官方 eval.py 协议下复现与 min 代价对比 |
+| [docs/real_latency_v1.md](docs/real_latency_v1.md) | 按实测规划耗时的实时对比：完整方法 vs 官方部署（最新） |
 | [docs/discussion_log_v1.md](docs/discussion_log_v1.md) | 逐轮讨论记录 |
 | [docs/HANDOFF.md](docs/HANDOFF.md) | 交接文档：机器、路径、运行前缀、未入库资源的位置 |
 
-目前最稳的结论：承诺前缀在 Cube 和 ViZDoom 上、延迟 5 / 10 步下都显著优于同步规划和朴素异步；
-min 代价在频繁重规划时是必需的。
+目前最稳的结论：按实测规划耗时，完整方法（FlashCEM + 承诺前缀 + min 代价）在 Push-T、Two-Room、Cube、ViZDoom 上
+全部显著优于官方 Fast-LeWM 的实际部署（换目标场景 +8 到 +62 个百分点）；官方协议下 min 代价不降成功率、Reacher +11.4。
 
 ## 代码
 
