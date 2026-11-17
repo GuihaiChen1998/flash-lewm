@@ -8,3 +8,7 @@ _vizdoom.ini
 nohup.out
 .pydeps_libero/
 .libero_cfg/
+.pydeps_off/
+.pydeps_train/
+results/official/*/
+ckpt/official_train/

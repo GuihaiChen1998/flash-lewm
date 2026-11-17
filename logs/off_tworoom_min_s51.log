@@ -1,0 +1,49 @@
+2026-11-18 03:08:05.609 | INFO     | stable_worldmodel.world:__init__:123 - 🌍🌍🌍 World swm/TwoRoom-v1 initialized 🌍🌍🌍
+2026-11-18 03:08:05.610 | INFO     | stable_worldmodel.world:__init__:125 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-18 03:08:05.610 | INFO     | stable_worldmodel.world:__init__:126 - Box(-1.0, 1.0, (50, 2), float32)
+2026-11-18 03:08:05.610 | INFO     | stable_worldmodel.world:__init__:128 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-18 03:08:05.610 | INFO     | stable_worldmodel.world:__init__:129 - Box(0.0, 224.0, (50, 10), float32)
+2026-11-18 03:08:05.610 | INFO     | stable_worldmodel.world:__init__:132 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    position: [1;35mBox[0m[1m([0m[1;36m14.0[0m, [1;36m209.0[0m, [1m([0m[1;36m2[0m,[1m)[0m, float32[1m)[0m
+    radius: [1;35mBox[0m[1m([0m[1;36m7.0[0m, [1;36m14.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+    speed: [1;35mBox[0m[1m([0m[1;36m1.75[0m, [1;36m10.5[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+background:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+door:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    number: [1;35mDiscrete[0m[1m([0m[1;36m3[0m, [33mstart[0m=[1;36m1[0m[1m)[0m
+    position: [1;35mMultiDiscrete[0m[1m([0m[1m[[0m[1;36m224[0m [1;36m224[0m [1;36m224[0m[1m][0m[1m)[0m
+    size: [1;35mMultiDiscrete[0m[1m([0m[1m[[0m[1;36m21[0m [1;36m21[0m [1;36m21[0m[1m][0m, [33mstart[0m=[1m[[0m[1;36m1[0m [1;36m1[0m [1;36m1[0m[1m][0m[1m)[0m
+rendering:
+    render_target: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+target:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    position: [1;35mBox[0m[1m([0m[1;36m14.0[0m, [1;36m209.0[0m, [1m([0m[1;36m2[0m,[1m)[0m, float32[1m)[0m
+    radius: [1;35mBox[0m[1m([0m[1;36m7.0[0m, [1;36m14.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+task:
+    min_steps: [1;35mDiscrete[0m[1m([0m[1;36m100[0m, [33mstart[0m=[1;36m15[0m[1m)[0m
+wall:
+    axis: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+    border_color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    thickness: [1;35mDiscrete[0m[1m([0m[1;36m35[0m, [33mstart[0m=[1;36m7[0m[1m)[0m
+[2026-11-18 03:08:05,650][root][INFO] - Cached 'action' from '/data1/cgh/dataset/lewm-original/tworoom/tworoom.h5'
+[2026-11-18 03:08:05,659][root][INFO] - Cached 'proprio' from '/data1/cgh/dataset/lewm-original/tworoom/tworoom.h5'
+670809 valid starting points found for evaluation.
+[ 13307  18215  33555  50313  87807 141821 169522 181206 195019 199811
+ 205199 213233 235007 282916 283505 291795 316160 354370 355300 358467
+ 363439 371258 378194 388566 397377 410227 410612 434203 453161 477846
+ 534449 556943 633902 674898 677816 690013 724235 728594 731987 738262
+ 742208 758117 813242 822912 837525 860777 863229 867901 868753 912851]
+[eval] enabled fast buffered action path: skip _prepare_info when CEM is not needed
+CEM solve time: 27.0705 seconds
+CEM solve time: 27.0182 seconds
+latent_loss_metrics {'source': 'cem_optimized_latent_cost', 'task_column': None, 'num_replans': 2, 'count': 50, 'mean': 22.67559395030141, 'std': 73.07596584908998, 'by_task': {'all': {'count': 50, 'mean': 22.67559395030141, 'std': 73.07596584908998}}}
+{'success_rate': 90.0, 'episode_successes': array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True, False,  True,  True,
+        True, False,  True,  True, False,  True,  True, False,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+       False,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True]), 'seeds': None}

@@ -1,0 +1,58 @@
+2026-11-18 02:30:04.222 | INFO     | stable_worldmodel.world:__init__:123 - 🌍🌍🌍 World swm/TwoRoom-v1 initialized 🌍🌍🌍
+2026-11-18 02:30:04.222 | INFO     | stable_worldmodel.world:__init__:125 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-18 02:30:04.222 | INFO     | stable_worldmodel.world:__init__:126 - Box(-1.0, 1.0, (50, 2), float32)
+2026-11-18 02:30:04.222 | INFO     | stable_worldmodel.world:__init__:128 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-18 02:30:04.222 | INFO     | stable_worldmodel.world:__init__:129 - Box(0.0, 224.0, (50, 10), float32)
+2026-11-18 02:30:04.222 | INFO     | stable_worldmodel.world:__init__:132 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    position: [1;35mBox[0m[1m([0m[1;36m14.0[0m, [1;36m209.0[0m, [1m([0m[1;36m2[0m,[1m)[0m, float32[1m)[0m
+    radius: [1;35mBox[0m[1m([0m[1;36m7.0[0m, [1;36m14.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+    speed: [1;35mBox[0m[1m([0m[1;36m1.75[0m, [1;36m10.5[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+background:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+door:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    number: [1;35mDiscrete[0m[1m([0m[1;36m3[0m, [33mstart[0m=[1;36m1[0m[1m)[0m
+    position: [1;35mMultiDiscrete[0m[1m([0m[1m[[0m[1;36m224[0m [1;36m224[0m [1;36m224[0m[1m][0m[1m)[0m
+    size: [1;35mMultiDiscrete[0m[1m([0m[1m[[0m[1;36m21[0m [1;36m21[0m [1;36m21[0m[1m][0m, [33mstart[0m=[1m[[0m[1;36m1[0m [1;36m1[0m [1;36m1[0m[1m][0m[1m)[0m
+rendering:
+    render_target: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+target:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    position: [1;35mBox[0m[1m([0m[1;36m14.0[0m, [1;36m209.0[0m, [1m([0m[1;36m2[0m,[1m)[0m, float32[1m)[0m
+    radius: [1;35mBox[0m[1m([0m[1;36m7.0[0m, [1;36m14.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+task:
+    min_steps: [1;35mDiscrete[0m[1m([0m[1;36m100[0m, [33mstart[0m=[1;36m15[0m[1m)[0m
+wall:
+    axis: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+    border_color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    thickness: [1;35mDiscrete[0m[1m([0m[1;36m35[0m, [33mstart[0m=[1;36m7[0m[1m)[0m
+[2026-11-18 02:30:09,625][root][INFO] - Cached 'action' from '/data1/cgh/dataset/lewm-original/tworoom/tworoom.h5'
+[2026-11-18 02:30:14,853][root][INFO] - Cached 'proprio' from '/data1/cgh/dataset/lewm-original/tworoom/tworoom.h5'
+670809 valid starting points found for evaluation.
+[ 58908  62735  79449  82490  85128  86996 118110 152360 168250 185614
+ 209429 254974 326766 341698 370733 398925 404332 408561 410644 414983
+ 415063 460975 472784 484945 502341 510811 581719 593044 602861 624527
+ 642470 645436 660989 677771 698450 701226 712913 717070 719912 724096
+ 757921 762396 773558 790687 790941 817965 822836 853582 893923 898343]
+[eval] enabled fast buffered action path: skip _prepare_info when CEM is not needed
+CEM solve time: 32.8886 seconds
+CEM solve time: 31.7673 seconds
+Error executing job with overrides: ['seed=42', 'eval.num_eval=50', 'world.max_episode_steps=100', 'eval.dataset_path=/data1/cgh/dataset/lewm-original/tworoom/tworoom.h5', 'eval.ckpt_path=/data1/cgh/code/flash-lewm/ckpt/Fast-lewm_tworoom_object.ckpt']
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/scripts/../third_party/Fast-LeWorldModel/eval.py", line 399, in run
+    metrics = world.evaluate_from_dataset(
+  File "/data1/cgh/code/flash-lewm/.pydeps/stable_worldmodel/world.py", line 984, in evaluate_from_dataset
+    out = imageio.get_writer(
+  File "/data1/cgh/code/flash-lewm/.pydeps/imageio/v2.py", line 324, in get_writer
+    image_file = imopen(uri, "w" + mode, **imopen_args)
+  File "/data1/cgh/code/flash-lewm/.pydeps/imageio/core/imopen.py", line 278, in imopen
+    raise err_type(err_msg)
+ValueError: Could not find a backend to open `/data1/cgh/code/flash-lewm/results/official/tworoom_s42/rollout_0.mp4`` with iomode `w?`.
+Based on the extension, the following plugins might add capable backends:
+  FFMPEG:  pip install imageio[ffmpeg]
+  pyav:  pip install imageio[pyav]
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
