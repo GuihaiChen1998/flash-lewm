@@ -8,7 +8,8 @@ import torch
 
 from .core import PrefixScorer, dense_cost, dense_cost_multi, sync
 
-H, A = 5, 10
+import os as _os
+H, A = 5, 5 * int(_os.environ.get("FLASH_ADIM", "2"))     # 5 blocks x (5 steps x action dim)
 
 
 def _now():
