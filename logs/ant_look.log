@@ -1,0 +1,7 @@
+observations (1001000, 64, 64, 3) uint8
+actions (1001000, 8) float32
+terminals (1001000,) bool
+qpos (1001000, 15) float32
+qvel (1001000, 14) float32
+episodes 1000 first terminal idx [1000 2001 3002]
+act range [-1. -1. -1. -1. -1. -1. -1. -1.] [1. 1. 1. 1. 1. 1. 1. 1.]

@@ -1,0 +1,28 @@
+  clamp m=2 d=10 it=30 last: 50/300 success@50=0.460 @75=0.620
+  clamp m=2 d=10 it=30 last: 100/300 success@50=0.460 @75=0.590
+  clamp m=2 d=10 it=30 last: 150/300 success@50=0.453 @75=0.607
+  clamp m=2 d=10 it=30 last: 200/300 success@50=0.455 @75=0.620
+  clamp m=2 d=10 it=30 last: 250/300 success@50=0.460 @75=0.612
+  clamp m=2 d=10 it=30 last: 300/300 success@50=0.437 @75=0.593
+clamp:2:10:30:last                 n=300 succ@50= 43.7% succ@75= 59.3%  cost=12.401  (626s)
+  naive m=2 d=10 it=30 last: 50/300 success@50=0.400 @75=0.500
+  naive m=2 d=10 it=30 last: 100/300 success@50=0.420 @75=0.520
+  naive m=2 d=10 it=30 last: 150/300 success@50=0.407 @75=0.533
+  naive m=2 d=10 it=30 last: 200/300 success@50=0.405 @75=0.515
+  naive m=2 d=10 it=30 last: 250/300 success@50=0.412 @75=0.512
+  naive m=2 d=10 it=30 last: 300/300 success@50=0.417 @75=0.523
+naive:2:10:30:last                 n=300 succ@50= 41.7% succ@75= 52.3%  cost=26.241  (627s)
+  reanchor m=2 d=10 it=30 last: 50/300 success@50=0.160 @75=0.280
+  reanchor m=2 d=10 it=30 last: 100/300 success@50=0.210 @75=0.320
+  reanchor m=2 d=10 it=30 last: 150/300 success@50=0.187 @75=0.320
+  reanchor m=2 d=10 it=30 last: 200/300 success@50=0.195 @75=0.315
+  reanchor m=2 d=10 it=30 last: 250/300 success@50=0.188 @75=0.308
+  reanchor m=2 d=10 it=30 last: 300/300 success@50=0.180 @75=0.297
+reanchor:2:10:30:last              n=300 succ@50= 18.0% succ@75= 29.7%  cost=8.680  (625s)
+  sync m=2 d=10 it=30 last: 50/300 success@50=0.020 @75=0.160
+  sync m=2 d=10 it=30 last: 100/300 success@50=0.060 @75=0.150
+  sync m=2 d=10 it=30 last: 150/300 success@50=0.067 @75=0.160
+  sync m=2 d=10 it=30 last: 200/300 success@50=0.075 @75=0.160
+  sync m=2 d=10 it=30 last: 250/300 success@50=0.076 @75=0.160
+  sync m=2 d=10 it=30 last: 300/300 success@50=0.070 @75=0.150
+sync:2:10:30:last                  n=300 succ@50=  7.0% succ@75= 15.0%  cost=9.665  (314s)

@@ -1,0 +1,3 @@
+tree L15 s1 m20 uniform sync                   n=1010 succ= 83.9%  off50= 82.0%  lat mean=  132.1 p95=  133.4 ms  dist= 106.7
+tree L15 s1 m20 adaptive sync                  n=1010 succ= 84.5%  off50= 90.0%  lat mean=  158.4 p95=  169.3 ms  dist= 107.7
+tree L15 s1 m20 adaptive sync 3000ev           n=1010 succ= 82.0%  off50= 82.0%  lat mean=   59.0 p95=   60.5 ms  dist= 105.4

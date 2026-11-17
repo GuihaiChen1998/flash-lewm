@@ -1,0 +1,9 @@
+cached-z cem 300x15 mean                       n=250 succ= 91.2%  off50= 96.0%  lat mean=   84.6 p95=   85.6 ms  dist=  99.4
+cached-z cem 300x10 mean                       n=250 succ= 91.2%  off50= 96.0%  lat mean=   60.1 p95=   60.9 ms  dist=  91.2
+cached-z cem 300x5 mean                        n=250 succ= 81.6%  off50= 84.0%  lat mean=   35.2 p95=   35.7 ms  dist=  82.7
+wide 3000x5 k30 mean                           n=250 succ= 92.0%  off50= 96.0%  lat mean=   69.5 p95=   70.3 ms  dist=  97.4
+wide 1000x10 k30 mean                          n=250 succ= 92.0%  off50= 96.0%  lat mean=   69.7 p95=   70.5 ms  dist= 108.5
+tree L15 s1 m20 uniform sync                   n=250 succ= 85.6%  off50= 82.0%  lat mean=  134.3 p95=  135.7 ms  dist= 105.5
+tree L15 s1 m20 adaptive sync                  n=250 succ= 84.8%  off50= 90.0%  lat mean=  159.6 p95=  171.8 ms  dist= 111.2
+tree L15 s1 m20 adaptive sync 3000ev           n=250 succ= 84.4%  off50= 82.0%  lat mean=   58.2 p95=   59.9 ms  dist= 107.6
+islands L5 s1 m60 adaptive                     n=250 succ= 90.0%  off50= 82.0%  lat mean=  161.6 p95=  168.6 ms  dist= 111.5

@@ -1,0 +1,111 @@
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+  oracle m=2 d=0 it=30 min: 50/500 success@50=0.540 @75=0.640
+  oracle m=2 d=0 it=30 min: 100/500 success@50=0.570 @75=0.620
+  oracle m=2 d=0 it=30 min: 150/500 success@50=0.540 @75=0.640
+  oracle m=2 d=0 it=30 min: 200/500 success@50=0.570 @75=0.665
+  oracle m=2 d=0 it=30 min: 250/500 success@50=0.588 @75=0.680
+  oracle m=2 d=0 it=30 min: 300/500 success@50=0.580 @75=0.657
+  oracle m=2 d=0 it=30 min: 350/500 success@50=0.574 @75=0.643
+  oracle m=2 d=0 it=30 min: 400/500 success@50=0.583 @75=0.657
+  oracle m=2 d=0 it=30 min: 450/500 success@50=0.591 @75=0.676
+  oracle m=2 d=0 it=30 min: 500/500 success@50=0.582 @75=0.676
+oracle:2:0:30:min:base             n=500 succ@50= 58.2% succ@75= 67.6% succ@T= 67.6%  (1376s)

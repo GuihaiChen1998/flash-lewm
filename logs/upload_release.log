@@ -1,0 +1,16 @@
+release 448182241
+Fast-lewm_dmc_object.ckpt 201
+Fast-lewm_ogb_object.ckpt 201
+Fast-lewm_pusht_object.ckpt 201
+Fast-lewm_tworoom_object.ckpt 201
+ant_medium.pt 201
+doom_mwh_10k.pt 201
+doom_mwh.pt 201
+doom_mwh_s1.pt 201
+curl: (56) Failure when receiving data from the peer
+cube_eval_pairs.npz 000
+cube_eval_pairs_v2.npz 201
+doom_eval_pairs.npz 201
+doom_eval_pairs500.npz 201
+ant_eval_pairs.npz 201
+ALL DONE

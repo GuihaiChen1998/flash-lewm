@@ -1,0 +1,15 @@
+  oracle m=1 d=0 it=30 min: 50/200 success@50=0.840 @75=0.860
+  oracle m=1 d=0 it=30 min: 100/200 success@50=0.830 @75=0.850
+  oracle m=1 d=0 it=30 min: 150/200 success@50=0.813 @75=0.847
+  oracle m=1 d=0 it=30 min: 200/200 success@50=0.845 @75=0.870
+oracle:1:0:30:min:switch           n=200 succ@50= 84.5% succ@75= 87.0% succ@T= 87.0%  (1226s)
+  clamp m=1 d=5 it=30 min: 50/200 success@50=0.740 @75=0.820
+  clamp m=1 d=5 it=30 min: 100/200 success@50=0.780 @75=0.820
+  clamp m=1 d=5 it=30 min: 150/200 success@50=0.793 @75=0.820
+  clamp m=1 d=5 it=30 min: 200/200 success@50=0.800 @75=0.830
+clamp:1:5:30:min:switch            n=200 succ@50= 80.0% succ@75= 83.0% succ@T= 83.0%  (1051s)
+  naive m=1 d=5 it=30 min: 50/200 success@50=0.600 @75=0.660
+  naive m=1 d=5 it=30 min: 100/200 success@50=0.620 @75=0.680
+  naive m=1 d=5 it=30 min: 150/200 success@50=0.607 @75=0.660
+  naive m=1 d=5 it=30 min: 200/200 success@50=0.640 @75=0.690
+naive:1:5:30:min:switch            n=200 succ@50= 64.0% succ@75= 69.0% succ@T= 69.0%  (1230s)

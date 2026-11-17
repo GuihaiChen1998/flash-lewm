@@ -1,0 +1,7 @@
+  clamp m=1 d=5 it=30 min: 50/300 success@50=0.900 @75=0.900
+  clamp m=1 d=5 it=30 min: 100/300 success@50=0.930 @75=0.940
+  clamp m=1 d=5 it=30 min: 150/300 success@50=0.920 @75=0.933
+  clamp m=1 d=5 it=30 min: 200/300 success@50=0.920 @75=0.930
+  clamp m=1 d=5 it=30 min: 250/300 success@50=0.908 @75=0.920
+  clamp m=1 d=5 it=30 min: 300/300 success@50=0.907 @75=0.920
+clamp:1:5:30:min                   n=300 succ@50= 90.7% succ@75= 92.0%  cost=32.490  (2697s)

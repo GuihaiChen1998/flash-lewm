@@ -1,0 +1,35 @@
+  oracle m=2 d=0 it=30 min: 50/300 success@50=0.940 @75=0.940
+  oracle m=2 d=0 it=30 min: 100/300 success@50=0.940 @75=0.940
+  oracle m=2 d=0 it=30 min: 150/300 success@50=0.940 @75=0.940
+  oracle m=2 d=0 it=30 min: 200/300 success@50=0.940 @75=0.940
+  oracle m=2 d=0 it=30 min: 250/300 success@50=0.928 @75=0.928
+  oracle m=2 d=0 it=30 min: 300/300 success@50=0.917 @75=0.920
+oracle:2:0:30:min                  n=300 succ@50= 91.7% succ@75= 92.0%  cost=32.512  (333s)
+  clamp m=2 d=10 it=30 min: 50/300 success@50=0.860 @75=0.860
+  clamp m=2 d=10 it=30 min: 100/300 success@50=0.870 @75=0.880
+  clamp m=2 d=10 it=30 min: 150/300 success@50=0.880 @75=0.887
+  clamp m=2 d=10 it=30 min: 200/300 success@50=0.875 @75=0.880
+  clamp m=2 d=10 it=30 min: 250/300 success@50=0.876 @75=0.880
+  clamp m=2 d=10 it=30 min: 300/300 success@50=0.870 @75=0.873
+clamp:2:10:30:min                  n=300 succ@50= 87.0% succ@75= 87.3%  cost=45.543  (1407s)
+  naive m=2 d=10 it=30 min: 50/300 success@50=0.720 @75=0.760
+  naive m=2 d=10 it=30 min: 100/300 success@50=0.700 @75=0.750
+  naive m=2 d=10 it=30 min: 150/300 success@50=0.720 @75=0.760
+  naive m=2 d=10 it=30 min: 200/300 success@50=0.700 @75=0.730
+  naive m=2 d=10 it=30 min: 250/300 success@50=0.708 @75=0.732
+  naive m=2 d=10 it=30 min: 300/300 success@50=0.693 @75=0.717
+naive:2:10:30:min                  n=300 succ@50= 69.3% succ@75= 71.7%  cost=47.429  (1425s)
+  reanchor m=2 d=10 it=30 min: 50/300 success@50=0.860 @75=0.880
+  reanchor m=2 d=10 it=30 min: 100/300 success@50=0.900 @75=0.920
+  reanchor m=2 d=10 it=30 min: 150/300 success@50=0.900 @75=0.927
+  reanchor m=2 d=10 it=30 min: 200/300 success@50=0.890 @75=0.910
+  reanchor m=2 d=10 it=30 min: 250/300 success@50=0.884 @75=0.904
+  reanchor m=2 d=10 it=30 min: 300/300 success@50=0.873 @75=0.907
+reanchor:2:10:30:min               n=300 succ@50= 87.3% succ@75= 90.7%  cost=34.699  (493s)
+  sync m=2 d=10 it=30 min: 50/300 success@50=0.620 @75=0.920
+  sync m=2 d=10 it=30 min: 100/300 success@50=0.600 @75=0.910
+  sync m=2 d=10 it=30 min: 150/300 success@50=0.620 @75=0.907
+  sync m=2 d=10 it=30 min: 200/300 success@50=0.625 @75=0.915
+  sync m=2 d=10 it=30 min: 250/300 success@50=0.632 @75=0.904
+  sync m=2 d=10 it=30 min: 300/300 success@50=0.647 @75=0.897
+sync:2:10:30:min                   n=300 succ@50= 64.7% succ@75= 89.7%  cost=17.836  (172s)

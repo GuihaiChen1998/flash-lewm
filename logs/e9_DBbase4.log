@@ -1,0 +1,111 @@
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+  clamp m=1 d=5 it=30 min: 50/500 success@50=0.500 @75=0.620
+  clamp m=1 d=5 it=30 min: 100/500 success@50=0.530 @75=0.610
+  clamp m=1 d=5 it=30 min: 150/500 success@50=0.527 @75=0.607
+  clamp m=1 d=5 it=30 min: 200/500 success@50=0.530 @75=0.615
+  clamp m=1 d=5 it=30 min: 250/500 success@50=0.532 @75=0.624
+  clamp m=1 d=5 it=30 min: 300/500 success@50=0.520 @75=0.620
+  clamp m=1 d=5 it=30 min: 350/500 success@50=0.503 @75=0.609
+  clamp m=1 d=5 it=30 min: 400/500 success@50=0.512 @75=0.620
+  clamp m=1 d=5 it=30 min: 450/500 success@50=0.518 @75=0.631
+  clamp m=1 d=5 it=30 min: 500/500 success@50=0.524 @75=0.632
+clamp:1:5:30:min:base              n=500 succ@50= 52.4% succ@75= 63.2% succ@T= 63.2%  (2965s)

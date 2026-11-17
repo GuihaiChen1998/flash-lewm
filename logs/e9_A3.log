@@ -1,0 +1,7 @@
+  naive m=1 d=5 it=30 min: 50/300 success@50=0.620 @75=0.640
+  naive m=1 d=5 it=30 min: 100/300 success@50=0.660 @75=0.670
+  naive m=1 d=5 it=30 min: 150/300 success@50=0.680 @75=0.713
+  naive m=1 d=5 it=30 min: 200/300 success@50=0.690 @75=0.720
+  naive m=1 d=5 it=30 min: 250/300 success@50=0.664 @75=0.692
+  naive m=1 d=5 it=30 min: 300/300 success@50=0.650 @75=0.690
+naive:1:5:30:min                   n=300 succ@50= 65.0% succ@75= 69.0%  cost=53.144  (2497s)

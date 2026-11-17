@@ -1,0 +1,3 @@
+official (re-encode every iter) 300x30 mean    n=50 succ= 92.0%  off50= 92.0%  lat mean=  460.2 p95=  463.2 ms  dist= 108.8
+cached-z cem 300x30 mean                       n=50 succ= 90.0%  off50= 90.0%  lat mean=  153.2 p95=  155.7 ms  dist= 144.6
+cached-z cem 300x5 mean                        n=50 succ= 84.0%  off50= 84.0%  lat mean=   33.8 p95=   34.6 ms  dist=  79.0

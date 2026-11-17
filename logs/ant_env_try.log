@@ -1,0 +1,24 @@
+obs <class 'numpy.ndarray'> (64, 64, 3) uint8 info keys ['goal']
+unwrapped (<class 'ogbench.locomaze.maze.make_maze_env.<locals>.MazeEnv'>, <class 'ogbench.locomaze.ant.AntEnv'>, <class 'gymnasium.envs.mujoco.mujoco_env.MujocoEnv'>, <class 'gymnasium.core.Env'>)
+['_ob_type', 'cur_goal_xy', 'custom_renderer', 'frame_skip', 'get_ob', 'get_xy', 'initialize_renderer', 'mujoco_renderer', 'render', 'render_mode', 'set_goal', 'set_state', 'set_xy']
+action space Box(-1.0, 1.0, (8,), float32) nq 15 nv 14
+5000 get_ob (64, 64, 3) diff vs dataset 0.3681640625 | render (64, 64, 3) 0.3681640625
+   xy after 25 expert steps [3.55069619 8.52537632] dataset [14.275162 11.119015] start [4.4672146 7.162558 ] obs diff 70.69759114583333
+123456 get_ob (64, 64, 3) diff vs dataset 0.035725911458333336 | render (64, 64, 3) 0.035725911458333336
+   xy after 25 expert steps [ 4.07887447 10.6921197 ] dataset [ 4.4530764 10.330634 ] start [ 4.52829  10.368201] obs diff 19.6796875
+700123 get_ob (64, 64, 3) diff vs dataset 0.06486002604166667 | render (64, 64, 3) 0.06486002604166667
+   xy after 25 expert steps [3.58235787 6.84898082] dataset [3.8263888 7.796958 ] start [4.3700542 7.8617754] obs diff 21.159586588541668
+xy displacement median: 25 steps 2.6841257 50 steps 4.4186254
+Exception ignored in: <function Renderer.__del__ at 0x7f3c00e308b0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 131, in free
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function GLContext.__del__ at 0x7f3c00e300d0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 131, in free
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>

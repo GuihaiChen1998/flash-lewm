@@ -1,0 +1,11 @@
+eager cem 300x30                   t= 161.4 ms p95= 168.9  median cost=1.3645  ratio=1.000  warmup=0.8s
+flash 300x30 k30                   t=  57.1 ms p95=  57.5  median cost=1.1760  ratio=0.960  warmup=11.3s
+flash 300x15 k30                   t=  28.5 ms p95=  29.0  median cost=2.8278  ratio=1.977  warmup=0.1s
+flash 300x10 k30                   t=  18.9 ms p95=  19.4  median cost=5.7103  ratio=3.232  warmup=0.1s
+flash 1000x10 k30                  t=  50.7 ms p95=  51.0  median cost=2.6310  ratio=1.756  warmup=8.5s
+flash 1000x30 k100                 t= 152.6 ms p95= 153.3  median cost=1.5913  ratio=1.079  warmup=8.7s
+flash 1000x20 k30                  t= 102.4 ms p95= 102.9  median cost=1.1723  ratio=0.902  warmup=0.4s
+flash 3000x8 k30                   t= 110.8 ms p95= 111.5  median cost=2.6998  ratio=1.894  warmup=8.9s
+flash 300x30 k30 best              t=  58.3 ms p95=  58.5  median cost=1.1013  ratio=0.922  warmup=0.2s
+flash 300x30 k30 (no cudagraph)    t=  81.6 ms p95=  82.6  median cost=1.1760  ratio=0.960  warmup=6.5s
+encode eager 6.891308352351189

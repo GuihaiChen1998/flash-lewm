@@ -1,0 +1,21 @@
+  oracle m=5 d=0 it=30 last: 50/300 success@50=0.760 @75=0.800
+  oracle m=5 d=0 it=30 last: 100/300 success@50=0.760 @75=0.790
+  oracle m=5 d=0 it=30 last: 150/300 success@50=0.733 @75=0.780
+  oracle m=5 d=0 it=30 last: 200/300 success@50=0.730 @75=0.770
+  oracle m=5 d=0 it=30 last: 250/300 success@50=0.740 @75=0.776
+  oracle m=5 d=0 it=30 last: 300/300 success@50=0.727 @75=0.760
+oracle:5:0:30:last:12:12:0.15      n=300 succ@50= 72.7% succ@75= 76.0%  cost=33.357  (259s)
+  sync m=5 d=5 it=30 last: 50/300 success@50=0.680 @75=0.780
+  sync m=5 d=5 it=30 last: 100/300 success@50=0.720 @75=0.780
+  sync m=5 d=5 it=30 last: 150/300 success@50=0.700 @75=0.767
+  sync m=5 d=5 it=30 last: 200/300 success@50=0.695 @75=0.750
+  sync m=5 d=5 it=30 last: 250/300 success@50=0.716 @75=0.760
+  sync m=5 d=5 it=30 last: 300/300 success@50=0.677 @75=0.733
+sync:5:5:30:last:12:12:0.15        n=300 succ@50= 67.7% succ@75= 73.3%  cost=33.841  (258s)
+  oracle m=1 d=0 it=30 min: 50/300 success@50=0.820 @75=0.840
+  oracle m=1 d=0 it=30 min: 100/300 success@50=0.810 @75=0.830
+  oracle m=1 d=0 it=30 min: 150/300 success@50=0.793 @75=0.813
+  oracle m=1 d=0 it=30 min: 200/300 success@50=0.795 @75=0.815
+  oracle m=1 d=0 it=30 min: 250/300 success@50=0.796 @75=0.820
+  oracle m=1 d=0 it=30 min: 300/300 success@50=0.793 @75=0.813
+oracle:1:0:30:min:12:12:0.15       n=300 succ@50= 79.3% succ@75= 81.3%  cost=34.330  (2545s)

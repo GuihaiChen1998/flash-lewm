@@ -1,0 +1,14 @@
+  reanchor m=1 d=5 it=30 last: 50/300 success@50=0.220 @75=0.320
+  reanchor m=1 d=5 it=30 last: 100/300 success@50=0.230 @75=0.330
+  reanchor m=1 d=5 it=30 last: 150/300 success@50=0.240 @75=0.313
+  reanchor m=1 d=5 it=30 last: 200/300 success@50=0.235 @75=0.305
+  reanchor m=1 d=5 it=30 last: 250/300 success@50=0.236 @75=0.292
+  reanchor m=1 d=5 it=30 last: 300/300 success@50=0.220 @75=0.280
+reanchor:1:5:30:last               n=300 succ@50= 22.0% succ@75= 28.0%  cost=8.046  (1292s)
+  sync m=1 d=5 it=30 last: 50/300 success@50=0.140 @75=0.160
+  sync m=1 d=5 it=30 last: 100/300 success@50=0.140 @75=0.200
+  sync m=1 d=5 it=30 last: 150/300 success@50=0.127 @75=0.193
+  sync m=1 d=5 it=30 last: 200/300 success@50=0.130 @75=0.185
+  sync m=1 d=5 it=30 last: 250/300 success@50=0.124 @75=0.176
+  sync m=1 d=5 it=30 last: 300/300 success@50=0.117 @75=0.167
+sync:1:5:30:last                   n=300 succ@50= 11.7% succ@75= 16.7%  cost=7.584  (687s)

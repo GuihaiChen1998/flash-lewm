@@ -1,0 +1,20 @@
+mujoco 3.5.0 ogbench ?
+frame_skip 5 timestep 0.02 integrator 1 solver iters 100
+k | max|qpos err| median, p90 | xy err median, p90 | xy err after mj_resetData median | self-divergence (1e-7 start noise) median, p90 | true xy displacement median
+1 | 8.53e-03 2.06e-02 | 3.80e-03 9.56e-03 | 3.80e-03 | 2.68e-08 1.27e-07 | 0.141
+2 | 1.50e-02 3.28e-02 | 7.81e-03 2.42e-02 | 7.81e-03 | 6.13e-08 1.81e-07 | 0.280
+3 | 2.29e-02 5.18e-02 | 1.50e-02 4.38e-02 | 1.50e-02 | 9.88e-08 2.55e-07 | 0.416
+5 | 4.03e-02 9.93e-02 | 3.46e-02 9.42e-02 | 3.46e-02 | 1.73e-07 4.14e-07 | 0.668
+10 | 1.10e-01 2.48e-01 | 1.15e-01 2.68e-01 | 1.15e-01 | 3.41e-07 8.61e-07 | 1.246
+15 | 2.00e-01 4.73e-01 | 1.99e-01 5.03e-01 | 1.99e-01 | 5.44e-07 1.47e-06 | 1.807
+25 | 4.30e-01 9.78e-01 | 4.44e-01 1.07e+00 | 4.44e-01 | 1.36e-06 4.80e-06 | 2.760
+one-step qpos err per dim [3.3800e-03 2.8600e-03 1.3041e-02 3.1370e-03 2.0895e-02 4.8680e-03
+ 1.0607e-02 2.1400e-03 3.3380e-03 3.5290e-03 4.4000e-05 8.3500e-04
+ 5.2910e-03 4.7800e-04 1.2700e-04]
+one-step qvel err per dim [1.41950e-01 2.36550e-01 4.32390e-01 1.03975e+00 7.92780e-01 6.30800e-01
+ 3.70500e-02 4.68700e-02 1.89740e-01 3.30000e-04 1.01470e-01 3.14600e-02
+ 1.29100e-02 1.66000e-03]
+one-step err using act[t] median 9.70e-03
+one-step err using act[t-1] median 1.13e-01
+one-step err using act[t+1] median 1.36e-01
+one-step err using zero median 1.34e-01

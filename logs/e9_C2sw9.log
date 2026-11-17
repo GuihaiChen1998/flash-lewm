@@ -1,0 +1,13 @@
+  sync m=5 d=10 it=30 last: 25/300 success@50=0.120 @75=0.120
+  sync m=5 d=10 it=30 last: 50/300 success@50=0.200 @75=0.200
+  sync m=5 d=10 it=30 last: 75/300 success@50=0.173 @75=0.187
+  sync m=5 d=10 it=30 last: 100/300 success@50=0.240 @75=0.250
+  sync m=5 d=10 it=30 last: 125/300 success@50=0.224 @75=0.240
+  sync m=5 d=10 it=30 last: 150/300 success@50=0.207 @75=0.227
+  sync m=5 d=10 it=30 last: 175/300 success@50=0.206 @75=0.223
+  sync m=5 d=10 it=30 last: 200/300 success@50=0.225 @75=0.250
+  sync m=5 d=10 it=30 last: 225/300 success@50=0.222 @75=0.249
+  sync m=5 d=10 it=30 last: 250/300 success@50=0.220 @75=0.244
+  sync m=5 d=10 it=30 last: 275/300 success@50=0.240 @75=0.262
+  sync m=5 d=10 it=30 last: 300/300 success@50=0.247 @75=0.267
+sync:5:10:30:last:switch           n=300 succ@50= 24.7% succ@75= 26.7% succ@T= 26.7%  (404s)

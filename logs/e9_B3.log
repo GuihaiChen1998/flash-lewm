@@ -1,0 +1,14 @@
+  sync m=2 d=10 it=30 min: 50/300 success@50=0.620 @75=0.920
+  sync m=2 d=10 it=30 min: 100/300 success@50=0.600 @75=0.910
+  sync m=2 d=10 it=30 min: 150/300 success@50=0.620 @75=0.907
+  sync m=2 d=10 it=30 min: 200/300 success@50=0.625 @75=0.915
+  sync m=2 d=10 it=30 min: 250/300 success@50=0.632 @75=0.904
+  sync m=2 d=10 it=30 min: 300/300 success@50=0.647 @75=0.897
+sync:2:10:30:min                   n=300 succ@50= 64.7% succ@75= 89.7%  cost=17.836  (606s)
+  clamp_ws m=1 d=5 it=30 min: 50/300 success@50=0.880 @75=0.900
+  clamp_ws m=1 d=5 it=30 min: 100/300 success@50=0.900 @75=0.910
+  clamp_ws m=1 d=5 it=30 min: 150/300 success@50=0.893 @75=0.900
+  clamp_ws m=1 d=5 it=30 min: 200/300 success@50=0.895 @75=0.900
+  clamp_ws m=1 d=5 it=30 min: 250/300 success@50=0.880 @75=0.884
+  clamp_ws m=1 d=5 it=30 min: 300/300 success@50=0.860 @75=0.863
+clamp_ws:1:5:30:min                n=300 succ@50= 86.0% succ@75= 86.3%  cost=56.734  (1706s)

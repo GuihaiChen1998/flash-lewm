@@ -1,0 +1,7 @@
+  reanchor m=1 d=5 it=30 min: 50/300 success@50=0.860 @75=0.880
+  reanchor m=1 d=5 it=30 min: 100/300 success@50=0.890 @75=0.900
+  reanchor m=1 d=5 it=30 min: 150/300 success@50=0.880 @75=0.893
+  reanchor m=1 d=5 it=30 min: 200/300 success@50=0.895 @75=0.905
+  reanchor m=1 d=5 it=30 min: 250/300 success@50=0.884 @75=0.892
+  reanchor m=1 d=5 it=30 min: 300/300 success@50=0.873 @75=0.887
+reanchor:1:5:30:min                n=300 succ@50= 87.3% succ@75= 88.7%  cost=18.028  (2087s)

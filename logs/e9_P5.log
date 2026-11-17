@@ -1,0 +1,14 @@
+  sync m=5 d=10 it=30 min: 50/300 success@50=0.660 @75=0.680
+  sync m=5 d=10 it=30 min: 100/300 success@50=0.720 @75=0.730
+  sync m=5 d=10 it=30 min: 150/300 success@50=0.693 @75=0.720
+  sync m=5 d=10 it=30 min: 200/300 success@50=0.685 @75=0.710
+  sync m=5 d=10 it=30 min: 250/300 success@50=0.700 @75=0.720
+  sync m=5 d=10 it=30 min: 300/300 success@50=0.677 @75=0.693
+sync:5:10:30:min:12:12:0.15        n=300 succ@50= 67.7% succ@75= 69.3%  cost=54.213  (151s)
+  sync m=5 d=10 it=30 last: 50/300 success@50=0.640 @75=0.680
+  sync m=5 d=10 it=30 last: 100/300 success@50=0.680 @75=0.730
+  sync m=5 d=10 it=30 last: 150/300 success@50=0.667 @75=0.727
+  sync m=5 d=10 it=30 last: 200/300 success@50=0.670 @75=0.720
+  sync m=5 d=10 it=30 last: 250/300 success@50=0.684 @75=0.724
+  sync m=5 d=10 it=30 last: 300/300 success@50=0.657 @75=0.693
+sync:5:10:30:last:12:12:0.15       n=300 succ@50= 65.7% succ@75= 69.3%  cost=36.377  (61s)

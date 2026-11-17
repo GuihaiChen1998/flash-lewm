@@ -1,0 +1,35 @@
+  clamp m=1 d=5 it=10 min: 50/300 success@50=0.880 @75=0.920
+  clamp m=1 d=5 it=10 min: 100/300 success@50=0.900 @75=0.920
+  clamp m=1 d=5 it=10 min: 150/300 success@50=0.907 @75=0.920
+  clamp m=1 d=5 it=10 min: 200/300 success@50=0.910 @75=0.920
+  clamp m=1 d=5 it=10 min: 250/300 success@50=0.896 @75=0.908
+  clamp m=1 d=5 it=10 min: 300/300 success@50=0.890 @75=0.900
+clamp:1:5:10:min                   n=300 succ@50= 89.0% succ@75= 90.0%  cost=31.315  (771s)
+  naive m=1 d=5 it=10 min: 50/300 success@50=0.740 @75=0.760
+  naive m=1 d=5 it=10 min: 100/300 success@50=0.760 @75=0.790
+  naive m=1 d=5 it=10 min: 150/300 success@50=0.760 @75=0.807
+  naive m=1 d=5 it=10 min: 200/300 success@50=0.750 @75=0.805
+  naive m=1 d=5 it=10 min: 250/300 success@50=0.720 @75=0.776
+  naive m=1 d=5 it=10 min: 300/300 success@50=0.703 @75=0.763
+naive:1:5:10:min                   n=300 succ@50= 70.3% succ@75= 76.3%  cost=49.780  (771s)
+  clamp m=2 d=10 it=10 min: 50/300 success@50=0.840 @75=0.840
+  clamp m=2 d=10 it=10 min: 100/300 success@50=0.870 @75=0.870
+  clamp m=2 d=10 it=10 min: 150/300 success@50=0.887 @75=0.893
+  clamp m=2 d=10 it=10 min: 200/300 success@50=0.880 @75=0.885
+  clamp m=2 d=10 it=10 min: 250/300 success@50=0.880 @75=0.884
+  clamp m=2 d=10 it=10 min: 300/300 success@50=0.870 @75=0.873
+clamp:2:10:10:min                  n=300 succ@50= 87.0% succ@75= 87.3%  cost=39.795  (324s)
+  naive m=2 d=10 it=10 min: 50/300 success@50=0.680 @75=0.680
+  naive m=2 d=10 it=10 min: 100/300 success@50=0.710 @75=0.730
+  naive m=2 d=10 it=10 min: 150/300 success@50=0.693 @75=0.713
+  naive m=2 d=10 it=10 min: 200/300 success@50=0.680 @75=0.695
+  naive m=2 d=10 it=10 min: 250/300 success@50=0.680 @75=0.692
+  naive m=2 d=10 it=10 min: 300/300 success@50=0.670 @75=0.687
+naive:2:10:10:min                  n=300 succ@50= 67.0% succ@75= 68.7%  cost=52.148  (290s)
+  oracle m=5 d=0 it=10 last: 50/300 success@50=0.940 @75=0.940
+  oracle m=5 d=0 it=10 last: 100/300 success@50=0.930 @75=0.930
+  oracle m=5 d=0 it=10 last: 150/300 success@50=0.913 @75=0.913
+  oracle m=5 d=0 it=10 last: 200/300 success@50=0.920 @75=0.920
+  oracle m=5 d=0 it=10 last: 250/300 success@50=0.912 @75=0.916
+  oracle m=5 d=0 it=10 last: 300/300 success@50=0.883 @75=0.897
+oracle:5:0:10:last                 n=300 succ@50= 88.3% succ@75= 89.7%  cost=21.542  (44s)

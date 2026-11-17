@@ -1,0 +1,12 @@
+  oracle m=1 d=0 it=30 sum: 50/50 success@50=0.860 @75=0.860
+oracle:1:0:30:sum                  n=50 succ@50= 86.0% succ@75= 86.0%  cost=39.680  (81s)
+  oracle m=1 d=0 it=30 min: 50/50 success@50=0.940 @75=0.940
+oracle:1:0:30:min                  n=50 succ@50= 94.0% succ@75= 94.0%  cost=15.149  (82s)
+  oracle m=2 d=0 it=30 sum: 50/50 success@50=0.820 @75=0.820
+oracle:2:0:30:sum                  n=50 succ@50= 82.0% succ@75= 82.0%  cost=47.511  (44s)
+  oracle m=2 d=0 it=30 min: 50/50 success@50=0.940 @75=0.940
+oracle:2:0:30:min                  n=50 succ@50= 94.0% succ@75= 94.0%  cost=41.895  (44s)
+  oracle m=5 d=0 it=30 sum: 50/50 success@50=0.800 @75=0.820
+oracle:5:0:30:sum                  n=50 succ@50= 80.0% succ@75= 82.0%  cost=51.105  (17s)
+  clamp m=1 d=5 it=30 sum: 50/50 success@50=0.800 @75=0.800
+clamp:1:5:30:sum                   n=50 succ@50= 80.0% succ@75= 80.0%  cost=51.451  (82s)

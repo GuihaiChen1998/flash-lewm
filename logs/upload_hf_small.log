@@ -1,0 +1,436 @@
+Upload 11 LFS files:   0%|          | 0/11 [00:00<?, ?it/s]
+Fast-lewm_dmc_object.ckpt:   0%|          | 0.00/71.9M [00:00<?, ?B/s][A
+
+Fast-lewm_pusht_object.ckpt:   0%|          | 0.00/71.9M [00:00<?, ?B/s][A[A
+
+
+Fast-lewm_ogb_object.ckpt:   0%|          | 0.00/71.9M [00:00<?, ?B/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:   0%|          | 0.00/71.9M [00:00<?, ?B/s][A[A[A[A
+
+
+
+
+ant_medium.pt:   0%|          | 0.00/71.7M [00:00<?, ?B/s][A[A[A[A[A
+Fast-lewm_dmc_object.ckpt:   0%|          | 16.4k/71.9M [00:00<1:08:19, 17.5kB/s][A
+
+Fast-lewm_pusht_object.ckpt:   0%|          | 16.4k/71.9M [00:00<1:07:44, 17.7kB/s][A[A
+Fast-lewm_dmc_object.ckpt:   9%|▉         | 6.50M/71.9M [00:01<00:08, 7.58MB/s]  [A
+
+Fast-lewm_pusht_object.ckpt:  11%|█▏        | 8.13M/71.9M [00:01<00:06, 9.35MB/s]  [A[A
+
+
+Fast-lewm_ogb_object.ckpt:   0%|          | 16.4k/71.9M [00:01<1:25:16, 14.0kB/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:   0%|          | 16.4k/71.9M [00:01<1:24:51, 14.1kB/s][A[A[A[A
+
+
+
+
+ant_medium.pt:   0%|          | 16.4k/71.7M [00:01<1:30:30, 13.2kB/s][A[A[A[A[A
+
+Fast-lewm_pusht_object.ckpt:  14%|█▍        | 10.3M/71.9M [00:01<00:06, 9.97MB/s][A[A
+Fast-lewm_dmc_object.ckpt:  12%|█▏        | 8.39M/71.9M [00:01<00:07, 7.98MB/s][A
+
+
+Fast-lewm_ogb_object.ckpt:  16%|█▌        | 11.7M/71.9M [00:01<00:05, 10.7MB/s]  [A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  14%|█▍        | 10.3M/71.9M [00:01<00:06, 9.33MB/s]  [A[A[A[A
+
+
+
+
+ant_medium.pt:  14%|█▍        | 10.1M/71.7M [00:01<00:08, 7.55MB/s]  [A[A[A[A[A
+
+Fast-lewm_pusht_object.ckpt:  17%|█▋        | 12.4M/71.9M [00:01<00:08, 6.68MB/s][A[A
+Fast-lewm_dmc_object.ckpt:  17%|█▋        | 12.4M/71.9M [00:01<00:08, 7.35MB/s][A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  17%|█▋        | 12.4M/71.9M [00:01<00:08, 7.10MB/s][A[A[A[A
+
+Fast-lewm_pusht_object.ckpt:  20%|█▉        | 14.1M/71.9M [00:02<00:08, 6.98MB/s][A[A
+Fast-lewm_dmc_object.ckpt:  20%|█▉        | 14.3M/71.9M [00:02<00:08, 7.00MB/s][A
+
+
+
+
+ant_medium.pt:  16%|█▌        | 11.4M/71.7M [00:02<00:10, 5.69MB/s][A[A[A[A[A
+
+
+
+
+ant_medium.pt:  17%|█▋        | 12.2M/71.7M [00:02<00:10, 5.42MB/s][A[A[A[A[A
+
+Fast-lewm_pusht_object.ckpt:  22%|██▏       | 15.5M/71.9M [00:02<00:09, 5.84MB/s][A[A
+
+
+Fast-lewm_ogb_object.ckpt:  20%|█▉        | 14.2M/71.9M [00:02<00:09, 5.82MB/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  19%|█▉        | 13.7M/71.9M [00:02<00:11, 5.29MB/s][A[A[A[A
+Fast-lewm_dmc_object.ckpt:  22%|██▏       | 15.8M/71.9M [00:02<00:11, 4.87MB/s][A
+
+
+
+
+ant_medium.pt:  19%|█▉        | 13.9M/71.7M [00:02<00:12, 4.74MB/s][A[A[A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  21%|██▏       | 15.4M/71.9M [00:02<00:11, 4.94MB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  22%|██▏       | 15.7M/71.9M [00:03<00:11, 4.78MB/s][A[A[A
+
+
+
+
+ant_medium.pt:  21%|██        | 15.0M/71.7M [00:03<00:13, 4.24MB/s][A[A[A[A[A
+
+
+
+
+ant_medium.pt:  22%|██▏       | 16.0M/71.7M [00:03<00:14, 3.76MB/s][A[A[A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  22%|██▏       | 16.0M/71.9M [00:19<00:11, 4.94MB/s][A[A[A[A
+
+
+
+
+ant_medium.pt:  22%|██▏       | 16.0M/71.7M [00:19<00:14, 3.76MB/s][A[A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  22%|██▏       | 16.0M/71.9M [00:19<00:11, 4.78MB/s][A[A[A
+
+Fast-lewm_pusht_object.ckpt:  22%|██▏       | 16.0M/71.9M [00:19<00:09, 5.84MB/s][A[AUpload 11 LFS files:   0%|          | 0/11 [00:20<?, ?it/s]
+Fast-lewm_dmc_object.ckpt:  22%|██▏       | 16.0M/71.9M [00:19<00:11, 4.87MB/s][A
+
+Fast-lewm_pusht_object.ckpt:  22%|██▏       | 16.0M/71.9M [01:01<11:17, 82.5kB/s][A[A
+
+Fast-lewm_pusht_object.ckpt:  40%|███▉      | 28.6M/71.9M [01:01<01:53, 381kB/s] [A[A
+
+Fast-lewm_pusht_object.ckpt:  44%|████▍     | 31.9M/71.9M [01:02<01:22, 488kB/s][A[A
+Fast-lewm_dmc_object.ckpt:  22%|██▏       | 16.0M/71.9M [01:04<11:20, 82.1kB/s][A
+Fast-lewm_dmc_object.ckpt:  40%|███▉      | 28.7M/71.9M [01:04<01:56, 371kB/s] [A
+Fast-lewm_dmc_object.ckpt:  44%|████▍     | 31.7M/71.9M [01:04<01:26, 466kB/s][A
+
+
+
+
+ant_medium.pt:  22%|██▏       | 16.0M/71.7M [01:05<16:53, 54.9kB/s][A[A[A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  22%|██▏       | 16.0M/71.9M [01:05<10:30, 88.6kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  22%|██▏       | 16.0M/71.9M [01:05<08:59, 103kB/s] [A[A[A
+
+
+
+
+ant_medium.pt:  39%|███▉      | 28.2M/71.7M [01:05<02:11, 331kB/s] [A[A[A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  34%|███▍      | 24.3M/71.9M [01:05<02:53, 274kB/s] [A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  35%|███▌      | 25.3M/71.9M [01:05<02:29, 311kB/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  39%|███▉      | 28.1M/71.9M [01:06<01:51, 392kB/s][A[A[A[A
+
+
+
+
+ant_medium.pt:  44%|████▍     | 31.6M/71.7M [01:06<01:32, 435kB/s][A[A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  41%|████      | 29.3M/71.9M [01:06<01:38, 432kB/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  42%|████▏     | 30.5M/71.9M [01:06<01:24, 489kB/s][A[A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  45%|████▍     | 32.0M/71.9M [01:19<01:21, 489kB/s][A[A[A[A
+
+
+
+
+ant_medium.pt:  45%|████▍     | 32.0M/71.7M [01:19<01:31, 435kB/s][A[A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  45%|████▍     | 32.0M/71.9M [01:19<01:32, 432kB/s][A[A[A
+
+Fast-lewm_pusht_object.ckpt:  45%|████▍     | 32.0M/71.9M [01:19<01:21, 488kB/s][A[A
+Fast-lewm_dmc_object.ckpt:  45%|████▍     | 32.0M/71.9M [01:20<01:25, 466kB/s][A
+
+Fast-lewm_pusht_object.ckpt:  45%|████▍     | 32.0M/71.9M [02:05<05:26, 122kB/s][A[A
+
+Fast-lewm_pusht_object.ckpt:  62%|██████▏   | 44.3M/71.9M [02:05<01:23, 330kB/s][A[A
+Fast-lewm_dmc_object.ckpt:  45%|████▍     | 32.0M/71.9M [02:08<05:26, 122kB/s][A
+Fast-lewm_dmc_object.ckpt:  61%|██████▏   | 44.2M/71.9M [02:08<01:25, 325kB/s][A
+
+
+
+
+ant_medium.pt:  45%|████▍     | 32.0M/71.7M [02:09<05:40, 116kB/s][A[A[A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  45%|████▍     | 32.0M/71.9M [02:09<05:41, 117kB/s][A[A[A[A
+
+
+
+
+ant_medium.pt:  62%|██████▏   | 44.5M/71.7M [02:09<01:23, 324kB/s][A[A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  45%|████▍     | 32.0M/71.9M [02:09<04:38, 143kB/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  57%|█████▋    | 40.8M/71.9M [02:09<01:53, 275kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  55%|█████▌    | 39.6M/71.9M [02:10<02:00, 268kB/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  62%|██████▏   | 44.7M/71.9M [02:10<01:12, 374kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  61%|██████▏   | 44.1M/71.9M [02:10<01:14, 373kB/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  67%|██████▋   | 48.0M/71.9M [02:10<00:49, 479kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  66%|██████▌   | 47.6M/71.9M [02:11<00:50, 478kB/s][A[A[A
+
+
+
+
+ant_medium.pt:  67%|██████▋   | 48.0M/71.7M [02:19<01:13, 324kB/s][A[A[A[A[A
+
+Fast-lewm_pusht_object.ckpt:  67%|██████▋   | 48.0M/71.9M [02:19<01:12, 330kB/s][A[A
+Fast-lewm_dmc_object.ckpt:  67%|██████▋   | 48.0M/71.9M [02:20<01:13, 325kB/s][A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  67%|██████▋   | 48.0M/71.9M [02:29<00:49, 479kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  67%|██████▋   | 48.0M/71.9M [02:29<00:50, 478kB/s][A[A[A
+
+Fast-lewm_pusht_object.ckpt:  67%|██████▋   | 48.0M/71.9M [03:09<02:24, 165kB/s][A[A
+
+Fast-lewm_pusht_object.ckpt:  84%|████████▎ | 60.2M/71.9M [03:09<00:35, 329kB/s][A[A
+
+
+
+
+ant_medium.pt:  67%|██████▋   | 48.0M/71.7M [03:13<02:26, 161kB/s][A[A[A[A[A
+
+
+
+
+ant_medium.pt:  85%|████████▍ | 60.7M/71.7M [03:14<00:33, 332kB/s][A[A[A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  67%|██████▋   | 48.0M/71.9M [03:14<03:29, 114kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  67%|██████▋   | 48.0M/71.9M [03:14<03:10, 126kB/s][A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  78%|███████▊  | 56.0M/71.9M [03:14<01:03, 251kB/s][A[A[A[A
+Fast-lewm_dmc_object.ckpt:  67%|██████▋   | 48.0M/71.9M [03:14<02:27, 162kB/s][A
+
+
+Fast-lewm_ogb_object.ckpt:  76%|███████▌  | 54.5M/71.9M [03:14<01:13, 235kB/s][A[A[A
+Fast-lewm_dmc_object.ckpt:  78%|███████▊  | 56.3M/71.9M [03:14<00:57, 271kB/s][A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  84%|████████▎ | 60.1M/71.9M [03:14<00:33, 349kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  83%|████████▎ | 59.5M/71.9M [03:14<00:35, 352kB/s][A[A[A
+Fast-lewm_dmc_object.ckpt:  86%|████████▌ | 61.8M/71.9M [03:15<00:27, 367kB/s][A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  88%|████████▊ | 63.3M/71.9M [03:15<00:19, 446kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  87%|████████▋ | 62.6M/71.9M [03:15<00:20, 446kB/s][A[A[A
+
+Fast-lewm_pusht_object.ckpt:  89%|████████▉ | 64.0M/71.9M [03:20<00:23, 329kB/s][A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  89%|████████▉ | 64.0M/71.9M [03:29<00:17, 446kB/s][A[A[A[A
+
+
+
+
+ant_medium.pt:  89%|████████▉ | 64.0M/71.7M [03:29<00:23, 332kB/s][A[A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  89%|████████▉ | 64.0M/71.9M [03:29<00:17, 446kB/s][A[A[A
+Fast-lewm_dmc_object.ckpt:  89%|████████▉ | 64.0M/71.9M [03:30<00:21, 367kB/s][A
+
+Fast-lewm_pusht_object.ckpt:  89%|████████▉ | 64.0M/71.9M [04:13<00:43, 180kB/s][A[A
+
+
+
+
+ant_medium.pt:  89%|████████▉ | 64.0M/71.7M [04:17<00:43, 178kB/s][A[A[A[A[A
+
+
+
+Fast-lewm_tworoom_object.ckpt:  89%|████████▉ | 64.0M/71.9M [04:18<01:06, 119kB/s][A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt:  89%|████████▉ | 64.0M/71.9M [04:18<01:01, 128kB/s][A[A[A
+Fast-lewm_dmc_object.ckpt:  89%|████████▉ | 64.0M/71.9M [04:18<00:49, 160kB/s][A
+
+
+
+Fast-lewm_tworoom_object.ckpt: 100%|██████████| 71.9M/71.9M [04:29<00:00, 119kB/s][A[A[A[A
+
+
+
+
+ant_medium.pt: 100%|██████████| 71.7M/71.7M [04:29<00:00, 178kB/s][A[A[A[A[A
+
+
+Fast-lewm_ogb_object.ckpt: 100%|██████████| 71.9M/71.9M [04:29<00:00, 128kB/s][A[A[A
+
+Fast-lewm_pusht_object.ckpt: 100%|██████████| 71.9M/71.9M [04:30<00:00, 180kB/s][A[A
+Fast-lewm_dmc_object.ckpt: 100%|██████████| 71.9M/71.9M [04:30<00:00, 160kB/s][AFast-lewm_pusht_object.ckpt: 100%|██████████| 71.9M/71.9M [04:45<00:00, 252kB/s]
+Upload 11 LFS files:   9%|▉         | 1/11 [04:46<47:47, 286.74s/it]
+
+cube_single_expert_action_stats.npz:   0%|          | 0.00/580 [00:00<?, ?B/s][A[Acube_single_expert_action_stats.npz: 100%|██████████| 580/580 [00:00<00:00, 1.18kB/s]
+Upload 11 LFS files:  18%|█▊        | 2/11 [04:47<21:34, 143.84s/it]
+
+doom_mwh.pt:   0%|          | 0.00/71.7M [00:00<?, ?B/s][A[A
+
+doom_mwh.pt:  18%|█▊        | 13.0M/71.7M [00:00<00:00, 65.6MB/s][A[Aant_medium.pt: 100%|██████████| 71.7M/71.7M [04:48<00:00, 249kB/s]
+Fast-lewm_tworoom_object.ckpt: 100%|██████████| 71.9M/71.9M [04:49<00:00, 248kB/s]
+Fast-lewm_ogb_object.ckpt: 100%|██████████| 71.9M/71.9M [04:49<00:00, 248kB/s]
+Fast-lewm_dmc_object.ckpt: 100%|██████████| 71.9M/71.9M [04:49<00:00, 248kB/s]
+Upload 11 LFS files:  27%|██▋       | 3/11 [04:49<12:52, 96.61s/it] 
+doom_mwh_10k.pt:   0%|          | 0.00/71.7M [00:00<?, ?B/s][A
+doom_mwh_10k.pt:  17%|█▋        | 12.4M/71.7M [00:00<00:00, 79.8MB/s][AUpload 11 LFS files:  36%|███▋      | 4/11 [04:51<08:29, 72.82s/it]
+
+
+doom_mwh_s1.pt:   0%|          | 0.00/71.7M [00:00<?, ?B/s][A[A[A
+
+
+doom_mwh_s1.pt:  17%|█▋        | 12.1M/71.7M [00:00<00:00, 73.5MB/s][A[A[AUpload 11 LFS files:  45%|████▌     | 5/11 [04:51<05:49, 58.32s/it]
+
+
+
+pusht_action_stats.npz:   0%|          | 0.00/532 [00:00<?, ?B/s][A[A[A[Apusht_action_stats.npz: 100%|██████████| 532/532 [00:00<00:00, 1.30kB/s]
+Upload 11 LFS files:  55%|█████▍    | 6/11 [04:52<04:03, 48.69s/it]
+
+
+
+tworoom_action_stats.npz:   0%|          | 0.00/532 [00:00<?, ?B/s][A[A[A[AUpload 11 LFS files:  64%|██████▎   | 7/11 [04:52<02:47, 41.77s/it]tworoom_action_stats.npz: 100%|██████████| 532/532 [00:00<00:00, 1.45kB/s]
+Upload 11 LFS files:  73%|███████▎  | 8/11 [04:53<01:49, 36.63s/it]
+doom_mwh_10k.pt:  22%|██▏       | 16.0M/71.7M [00:10<00:00, 79.8MB/s][A
+
+doom_mwh.pt:  22%|██▏       | 16.0M/71.7M [00:12<00:00, 65.6MB/s][A[A
+
+
+doom_mwh_s1.pt:  22%|██▏       | 16.0M/71.7M [00:18<00:00, 73.5MB/s][A[A[A
+
+doom_mwh.pt:  22%|██▏       | 16.0M/71.7M [00:37<02:51, 325kB/s] [A[A
+
+doom_mwh.pt:  40%|███▉      | 28.6M/71.7M [00:37<00:53, 803kB/s][A[A
+doom_mwh_10k.pt:  22%|██▏       | 16.0M/71.7M [00:37<02:51, 325kB/s] [A
+doom_mwh_10k.pt:  40%|███▉      | 28.4M/71.7M [00:38<00:54, 789kB/s][A
+
+
+doom_mwh_s1.pt:  22%|██▏       | 16.0M/71.7M [00:38<02:52, 322kB/s] [A[A[A
+
+
+doom_mwh_s1.pt:  39%|███▉      | 28.3M/71.7M [00:38<00:56, 767kB/s][A[A[A
+doom_mwh_10k.pt:  45%|████▍     | 32.0M/71.7M [00:50<00:50, 789kB/s][A
+
+doom_mwh.pt:  45%|████▍     | 32.0M/71.7M [00:52<00:49, 803kB/s][A[A
+
+
+doom_mwh_s1.pt:  45%|████▍     | 32.0M/71.7M [00:58<00:51, 767kB/s][A[A[A
+
+doom_mwh.pt:  45%|████▍     | 32.0M/71.7M [01:15<02:04, 320kB/s][A[A
+
+doom_mwh.pt:  62%|██████▏   | 44.3M/71.7M [01:16<00:43, 627kB/s][A[A
+doom_mwh_10k.pt:  45%|████▍     | 32.0M/71.7M [01:16<02:03, 321kB/s][A
+doom_mwh_10k.pt:  62%|██████▏   | 44.4M/71.7M [01:16<00:43, 628kB/s][A
+
+
+doom_mwh_s1.pt:  45%|████▍     | 32.0M/71.7M [01:16<02:03, 322kB/s][A[A[A
+
+
+doom_mwh_s1.pt:  62%|██████▏   | 44.1M/71.7M [01:17<00:44, 622kB/s][A[A[A
+
+
+doom_mwh_s1.pt:  67%|██████▋   | 48.0M/71.7M [01:28<00:38, 622kB/s][A[A[A
+doom_mwh_10k.pt:  67%|██████▋   | 48.0M/71.7M [01:30<00:37, 628kB/s][A
+
+doom_mwh.pt:  67%|██████▋   | 48.0M/71.7M [01:32<00:37, 627kB/s][A[A
+
+doom_mwh.pt:  67%|██████▋   | 48.0M/71.7M [01:54<01:14, 320kB/s][A[A
+
+doom_mwh.pt:  85%|████████▍ | 60.8M/71.7M [01:54<00:18, 593kB/s][A[A
+doom_mwh_10k.pt:  67%|██████▋   | 48.0M/71.7M [01:54<01:13, 320kB/s][A
+doom_mwh_10k.pt:  84%|████████▍ | 60.4M/71.7M [01:55<00:19, 586kB/s][A
+
+
+doom_mwh_s1.pt:  67%|██████▋   | 48.0M/71.7M [01:55<01:13, 322kB/s][A[A[A
+
+
+doom_mwh_s1.pt:  85%|████████▍ | 60.6M/71.7M [01:55<00:18, 589kB/s][A[A[A
+
+
+doom_mwh_s1.pt:  89%|████████▉ | 64.0M/71.7M [02:08<00:13, 589kB/s][A[A[A
+doom_mwh_10k.pt:  89%|████████▉ | 64.0M/71.7M [02:10<00:13, 586kB/s][A
+
+doom_mwh.pt:  89%|████████▉ | 64.0M/71.7M [02:12<00:12, 593kB/s][A[A
+
+doom_mwh.pt:  89%|████████▉ | 64.0M/71.7M [02:32<00:24, 318kB/s][A[A
+doom_mwh_10k.pt:  89%|████████▉ | 64.0M/71.7M [02:33<00:23, 320kB/s][A
+
+
+doom_mwh_s1.pt:  89%|████████▉ | 64.0M/71.7M [02:33<00:23, 320kB/s][A[A[Adoom_mwh.pt: 100%|██████████| 71.7M/71.7M [02:52<00:00, 417kB/s]
+
+
+
+doom_mwh_s1.pt: 100%|██████████| 71.7M/71.7M [02:48<00:00, 320kB/s][A[A[A
+doom_mwh_10k.pt: 100%|██████████| 71.7M/71.7M [02:50<00:00, 320kB/s][AUpload 11 LFS files:  82%|████████▏ | 9/11 [07:40<01:42, 51.13s/it]doom_mwh_10k.pt: 100%|██████████| 71.7M/71.7M [02:51<00:00, 418kB/s]
+Upload 11 LFS files:  91%|█████████ | 10/11 [07:41<00:46, 46.20s/it]doom_mwh_s1.pt: 100%|██████████| 71.7M/71.7M [02:50<00:00, 419kB/s]
+Upload 11 LFS files: 100%|██████████| 11/11 [07:42<00:00, 42.06s/it]Upload 11 LFS files: 100%|██████████| 11/11 [07:42<00:00, 42.06s/it]
+model repo done
+eval_pairs.npz:   0%|          | 0.00/136M [00:00<?, ?B/s]eval_pairs.npz:   0%|          | 16.4k/136M [00:00<1:52:09, 20.1kB/s]eval_pairs.npz:   7%|▋         | 9.24M/136M [00:01<00:10, 12.1MB/s]  eval_pairs.npz:   9%|▉         | 12.0M/136M [00:01<00:16, 7.50MB/s]eval_pairs.npz:  10%|█         | 13.7M/136M [00:01<00:15, 7.73MB/s]eval_pairs.npz:  11%|█         | 15.1M/136M [00:02<00:15, 7.71MB/s]eval_pairs.npz:  12%|█▏        | 16.2M/136M [00:13<03:52, 513kB/s] eval_pairs.npz:  22%|██▏       | 29.5M/136M [00:13<00:51, 2.04MB/s]eval_pairs.npz:  24%|██▍       | 32.3M/136M [00:26<02:07, 808kB/s] eval_pairs.npz:  33%|███▎      | 44.7M/136M [00:26<00:52, 1.74MB/s]eval_pairs.npz:  36%|███▋      | 49.3M/136M [00:39<01:31, 943kB/s] eval_pairs.npz:  45%|████▍     | 60.4M/136M [00:39<00:45, 1.66MB/s]eval_pairs.npz:  47%|████▋     | 64.0M/136M [00:50<00:43, 1.66MB/s]eval_pairs.npz:  47%|████▋     | 64.0M/136M [00:51<01:18, 914kB/s] eval_pairs.npz:  57%|█████▋    | 76.7M/136M [00:52<00:35, 1.67MB/s]eval_pairs.npz:  61%|██████▏   | 83.1M/136M [01:04<00:49, 1.06MB/s]eval_pairs.npz:  69%|██████▉   | 93.3M/136M [01:04<00:25, 1.64MB/s]eval_pairs.npz:  73%|███████▎  | 99.3M/136M [01:17<00:34, 1.05MB/s]eval_pairs.npz:  80%|████████  | 109M/136M [01:17<00:17, 1.58MB/s] eval_pairs.npz:  85%|████████▍ | 115M/136M [01:30<00:20, 1.01MB/s]eval_pairs.npz:  92%|█████████▏| 125M/136M [01:30<00:07, 1.56MB/s]eval_pairs.npz:  97%|█████████▋| 131M/136M [01:43<00:04, 1.03MB/s]eval_pairs.npz: 100%|██████████| 136M/136M [01:49<00:00, 1.24MB/s]
+uploaded eval_pairs/cube_eval_pairs.npz
+eval_pairs_v2.npz:   0%|          | 0.00/136M [00:00<?, ?B/s]eval_pairs_v2.npz:   9%|▉         | 12.7M/136M [00:00<00:01, 81.6MB/s]eval_pairs_v2.npz:  15%|█▌        | 20.8M/136M [00:12<01:21, 1.41MB/s]eval_pairs_v2.npz:  21%|██        | 28.6M/136M [00:12<00:46, 2.29MB/s]eval_pairs_v2.npz:  26%|██▌       | 35.2M/136M [00:24<01:32, 1.09MB/s]eval_pairs_v2.npz:  33%|███▎      | 44.6M/136M [00:25<00:50, 1.79MB/s]eval_pairs_v2.npz:  38%|███▊      | 51.0M/136M [00:37<01:20, 1.05MB/s]eval_pairs_v2.npz:  45%|████▍     | 60.7M/136M [00:37<00:45, 1.66MB/s]eval_pairs_v2.npz:  47%|████▋     | 64.0M/136M [00:48<00:43, 1.66MB/s]eval_pairs_v2.npz:  47%|████▋     | 64.0M/136M [00:50<01:19, 906kB/s] eval_pairs_v2.npz:  57%|█████▋    | 76.7M/136M [00:50<00:35, 1.66MB/s]eval_pairs_v2.npz:  62%|██████▏   | 83.7M/136M [01:03<00:48, 1.08MB/s]eval_pairs_v2.npz:  69%|██████▊   | 93.0M/136M [01:03<00:26, 1.61MB/s]eval_pairs_v2.npz:  73%|███████▎  | 99.3M/136M [01:16<00:34, 1.04MB/s]eval_pairs_v2.npz:  80%|███████▉  | 108M/136M [01:16<00:17, 1.56MB/s] eval_pairs_v2.npz:  83%|████████▎ | 112M/136M [01:28<00:15, 1.56MB/s]eval_pairs_v2.npz:  83%|████████▎ | 112M/136M [01:29<00:25, 908kB/s] eval_pairs_v2.npz:  92%|█████████▏| 125M/136M [01:29<00:06, 1.61MB/s]

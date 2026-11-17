@@ -1,0 +1,14 @@
+  oracle m=1 d=0 it=30 last: 50/300 success@50=0.300 @75=0.400
+  oracle m=1 d=0 it=30 last: 100/300 success@50=0.280 @75=0.380
+  oracle m=1 d=0 it=30 last: 150/300 success@50=0.273 @75=0.367
+  oracle m=1 d=0 it=30 last: 200/300 success@50=0.270 @75=0.355
+  oracle m=1 d=0 it=30 last: 250/300 success@50=0.268 @75=0.344
+  oracle m=1 d=0 it=30 last: 300/300 success@50=0.263 @75=0.330
+oracle:1:0:30:last                 n=300 succ@50= 26.3% succ@75= 33.0%  cost=7.002  (1010s)
+  oracle m=2 d=0 it=30 last: 50/300 success@50=0.260 @75=0.340
+  oracle m=2 d=0 it=30 last: 100/300 success@50=0.240 @75=0.360
+  oracle m=2 d=0 it=30 last: 150/300 success@50=0.260 @75=0.373
+  oracle m=2 d=0 it=30 last: 200/300 success@50=0.255 @75=0.360
+  oracle m=2 d=0 it=30 last: 250/300 success@50=0.252 @75=0.348
+  oracle m=2 d=0 it=30 last: 300/300 success@50=0.237 @75=0.333
+oracle:2:0:30:last                 n=300 succ@50= 23.7% succ@75= 33.3%  cost=9.228  (547s)

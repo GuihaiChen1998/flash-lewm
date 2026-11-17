@@ -1,0 +1,7 @@
+  oracle m=1 d=0 it=30 min: 50/300 success@50=0.940 @75=0.940
+  oracle m=1 d=0 it=30 min: 100/300 success@50=0.950 @75=0.950
+  oracle m=1 d=0 it=30 min: 150/300 success@50=0.920 @75=0.927
+  oracle m=1 d=0 it=30 min: 200/300 success@50=0.920 @75=0.925
+  oracle m=1 d=0 it=30 min: 250/300 success@50=0.916 @75=0.920
+  oracle m=1 d=0 it=30 min: 300/300 success@50=0.917 @75=0.920
+oracle:1:0:30:min                  n=300 succ@50= 91.7% succ@75= 92.0%  cost=15.218  (2762s)

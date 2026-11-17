@@ -1,0 +1,13 @@
+  clamp m=1 d=5 it=30 min: 25/300 success@50=0.320 @75=0.320
+  clamp m=1 d=5 it=30 min: 50/300 success@50=0.320 @75=0.320
+  clamp m=1 d=5 it=30 min: 75/300 success@50=0.280 @75=0.280
+  clamp m=1 d=5 it=30 min: 100/300 success@50=0.350 @75=0.350
+  clamp m=1 d=5 it=30 min: 125/300 success@50=0.328 @75=0.328
+  clamp m=1 d=5 it=30 min: 150/300 success@50=0.307 @75=0.307
+  clamp m=1 d=5 it=30 min: 175/300 success@50=0.297 @75=0.297
+  clamp m=1 d=5 it=30 min: 200/300 success@50=0.310 @75=0.310
+  clamp m=1 d=5 it=30 min: 225/300 success@50=0.302 @75=0.302
+  clamp m=1 d=5 it=30 min: 250/300 success@50=0.296 @75=0.300
+  clamp m=1 d=5 it=30 min: 275/300 success@50=0.309 @75=0.313
+  clamp m=1 d=5 it=30 min: 300/300 success@50=0.310 @75=0.313
+clamp:1:5:30:min:switch            n=300 succ@50= 31.0% succ@75= 31.3% succ@T= 31.3%  (1349s)

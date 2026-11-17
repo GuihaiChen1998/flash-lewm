@@ -1,0 +1,43 @@
+action mean [nan nan nan nan nan] std [nan nan nan nan nan] min [nan nan nan nan nan] max [nan nan nan nan nan]
+latent dist start-goal [371.77   3.27  27.57 156.29 391.13 380.56  18.97 141.11]
+0 moved expert nan | zero-plan 377.97 | random median 375.14 min 320.80 | rank of expert among 300 random: 0
+1 static expert nan | zero-plan 54.65 | random median 110.30 min 1.43 | rank of expert among 300 random: 0
+2 static expert nan | zero-plan 1.05 | random median 20.43 min 0.59 | rank of expert among 300 random: 0
+3 moved expert nan | zero-plan 112.77 | random median 135.68 min 8.95 | rank of expert among 300 random: 0
+4 moved expert nan | zero-plan 388.88 | random median 361.73 min 35.75 | rank of expert among 300 random: 0
+5 moved expert nan | zero-plan 371.80 | random median 372.26 min 265.87 | rank of expert among 300 random: 0
+6 static expert nan | zero-plan 6.79 | random median 32.20 min 1.00 | rank of expert among 300 random: 0
+7 moved expert nan | zero-plan 119.17 | random median 153.15 min 46.14 | rank of expert among 300 random: 0
+8 static expert nan | zero-plan 126.36 | random median 215.87 min 37.63 | rank of expert among 300 random: 0
+9 moved expert nan | zero-plan 193.79 | random median 230.59 min 60.27 | rank of expert among 300 random: 0
+10 static expert nan | zero-plan 47.93 | random median 67.26 min 3.93 | rank of expert among 300 random: 0
+11 moved expert nan | zero-plan 366.15 | random median 366.05 min 284.37 | rank of expert among 300 random: 0
+12 moved expert nan | zero-plan 70.01 | random median 140.67 min 6.02 | rank of expert among 300 random: 0
+13 static expert nan | zero-plan 53.06 | random median 173.36 min 3.74 | rank of expert among 300 random: 0
+14 moved expert nan | zero-plan 368.38 | random median 366.73 min 282.88 | rank of expert among 300 random: 0
+15 moved expert nan | zero-plan 156.41 | random median 229.56 min 9.37 | rank of expert among 300 random: 0
+16 moved expert nan | zero-plan 53.10 | random median 130.95 min 10.94 | rank of expert among 300 random: 0
+17 static expert nan | zero-plan 21.33 | random median 38.64 min 1.05 | rank of expert among 300 random: 0
+18 moved expert nan | zero-plan 378.11 | random median 376.16 min 308.43 | rank of expert among 300 random: 0
+19 static expert nan | zero-plan 67.33 | random median 203.68 min 16.93 | rank of expert among 300 random: 0
+20 moved expert nan | zero-plan 313.34 | random median 331.32 min 237.41 | rank of expert among 300 random: 0
+21 moved expert nan | zero-plan 89.21 | random median 211.26 min 13.99 | rank of expert among 300 random: 0
+22 moved expert nan | zero-plan 245.64 | random median 267.24 min 114.45 | rank of expert among 300 random: 0
+23 moved expert nan | zero-plan 243.71 | random median 275.45 min 75.26 | rank of expert among 300 random: 0
+24 moved expert nan | zero-plan 92.10 | random median 141.77 min 10.36 | rank of expert among 300 random: 0
+25 moved expert nan | zero-plan 49.73 | random median 106.88 min 13.30 | rank of expert among 300 random: 0
+26 moved expert nan | zero-plan 228.09 | random median 255.90 min 160.42 | rank of expert among 300 random: 0
+27 static expert nan | zero-plan 95.03 | random median 134.90 min 17.43 | rank of expert among 300 random: 0
+28 moved expert nan | zero-plan 159.26 | random median 219.36 min 63.29 | rank of expert among 300 random: 0
+29 static expert nan | zero-plan 105.67 | random median 188.82 min 35.63 | rank of expert among 300 random: 0
+30 moved expert nan | zero-plan 268.53 | random median 309.97 min 184.11 | rank of expert among 300 random: 0
+31 static expert nan | zero-plan 33.03 | random median 71.87 min 9.57 | rank of expert among 300 random: 0
+32 moved expert nan | zero-plan 55.75 | random median 113.14 min 13.83 | rank of expert among 300 random: 0
+33 moved expert nan | zero-plan 164.28 | random median 138.77 min 3.11 | rank of expert among 300 random: 0
+34 static expert nan | zero-plan 123.04 | random median 176.30 min 17.12 | rank of expert among 300 random: 0
+35 static expert nan | zero-plan 112.48 | random median 166.22 min 27.97 | rank of expert among 300 random: 0
+36 moved expert nan | zero-plan 92.83 | random median 129.08 min 16.37 | rank of expert among 300 random: 0
+37 static expert nan | zero-plan 99.98 | random median 187.69 min 28.40 | rank of expert among 300 random: 0
+38 moved expert nan | zero-plan 47.44 | random median 115.77 min 13.39 | rank of expert among 300 random: 0
+39 moved expert nan | zero-plan 34.46 | random median 119.79 min 25.54 | rank of expert among 300 random: 0
+pred(5 blocks) vs true goal latent mse-sum median nan  | pred(2 blocks) vs frame+10 nan | baseline ||z-zg|| 158.47738647460938

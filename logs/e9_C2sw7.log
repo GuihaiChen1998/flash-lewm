@@ -1,0 +1,13 @@
+  naive m=1 d=5 it=30 min: 25/300 success@50=0.160 @75=0.160
+  naive m=1 d=5 it=30 min: 50/300 success@50=0.220 @75=0.220
+  naive m=1 d=5 it=30 min: 75/300 success@50=0.200 @75=0.213
+  naive m=1 d=5 it=30 min: 100/300 success@50=0.280 @75=0.290
+  naive m=1 d=5 it=30 min: 125/300 success@50=0.264 @75=0.272
+  naive m=1 d=5 it=30 min: 150/300 success@50=0.247 @75=0.253
+  naive m=1 d=5 it=30 min: 175/300 success@50=0.229 @75=0.234
+  naive m=1 d=5 it=30 min: 200/300 success@50=0.240 @75=0.245
+  naive m=1 d=5 it=30 min: 225/300 success@50=0.222 @75=0.227
+  naive m=1 d=5 it=30 min: 250/300 success@50=0.216 @75=0.224
+  naive m=1 d=5 it=30 min: 275/300 success@50=0.222 @75=0.229
+  naive m=1 d=5 it=30 min: 300/300 success@50=0.223 @75=0.230
+naive:1:5:30:min:switch            n=300 succ@50= 22.3% succ@75= 23.0% succ@T= 23.0%  (1072s)

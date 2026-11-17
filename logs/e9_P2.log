@@ -1,0 +1,14 @@
+  clamp m=1 d=5 it=30 min: 50/300 success@50=0.760 @75=0.780
+  clamp m=1 d=5 it=30 min: 100/300 success@50=0.760 @75=0.800
+  clamp m=1 d=5 it=30 min: 150/300 success@50=0.753 @75=0.787
+  clamp m=1 d=5 it=30 min: 200/300 success@50=0.750 @75=0.780
+  clamp m=1 d=5 it=30 min: 250/300 success@50=0.744 @75=0.776
+  clamp m=1 d=5 it=30 min: 300/300 success@50=0.750 @75=0.780
+clamp:1:5:30:min:12:12:0.15        n=300 succ@50= 75.0% succ@75= 78.0%  cost=54.726  (2697s)
+  naive m=1 d=5 it=30 min: 50/300 success@50=0.480 @75=0.540
+  naive m=1 d=5 it=30 min: 100/300 success@50=0.440 @75=0.510
+  naive m=1 d=5 it=30 min: 150/300 success@50=0.453 @75=0.520
+  naive m=1 d=5 it=30 min: 200/300 success@50=0.465 @75=0.535
+  naive m=1 d=5 it=30 min: 250/300 success@50=0.444 @75=0.524
+  naive m=1 d=5 it=30 min: 300/300 success@50=0.440 @75=0.513
+naive:1:5:30:min:12:12:0.15        n=300 succ@50= 44.0% succ@75= 51.3%  cost=68.955  (1292s)

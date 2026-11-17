@@ -1,0 +1,10 @@
+  clamp m=1 d=5 it=30 min: 50/200 success@50=0.780 @75=0.800
+  clamp m=1 d=5 it=30 min: 100/200 success@50=0.760 @75=0.770
+  clamp m=1 d=5 it=30 min: 150/200 success@50=0.780 @75=0.793
+  clamp m=1 d=5 it=30 min: 200/200 success@50=0.745 @75=0.760
+clamp:1:5:30:min:drift             n=200 succ@50= 74.5% succ@75= 76.0% succ@T= 76.0%  (1230s)
+  naive m=1 d=5 it=30 min: 50/200 success@50=0.440 @75=0.440
+  naive m=1 d=5 it=30 min: 100/200 success@50=0.390 @75=0.400
+  naive m=1 d=5 it=30 min: 150/200 success@50=0.387 @75=0.400
+  naive m=1 d=5 it=30 min: 200/200 success@50=0.370 @75=0.380
+naive:1:5:30:min:drift             n=200 succ@50= 37.0% succ@75= 38.0% succ@T= 38.0%  (986s)

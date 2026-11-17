@@ -1,0 +1,4 @@
+flash 300x30 mean                              n=1010 succ= 88.9%  off50= 90.0%  lat mean=   77.6 p95=  142.3 ms  dist= 107.1
+flash-min 300x30                               n=1010 succ= 89.8%  off50= 88.0%  lat mean=  141.2 p95=  256.1 ms  dist= 121.5
+flash-min 300x15                               n=1010 succ= 89.3%  off50= 92.0%  lat mean=   83.7 p95=  139.2 ms  dist= 113.2
+flash-min 300x10                               n=1010 succ= 88.0%  off50= 94.0%  lat mean=   58.7 p95=   97.8 ms  dist= 104.3

@@ -1,0 +1,14 @@
+0 58908 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+1 62735 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+2 79449 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+3 82490 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+4 85128 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+5 86996 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+6 118110 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+7 152360 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+8 168250 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+9 185614 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+10 209429 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+11 254974 render-vs-dataset mean abs px diff 0.0 expert replay success True final dist -0.0 (224, 224, 3) uint8
+expert replay success 12 / 12
+(array([ 0.00309342, -0.05298254]), array([0.86754736, 0.86863831]))

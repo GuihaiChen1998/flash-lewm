@@ -1,0 +1,14 @@
+  naive m=2 d=10 it=30 min: 50/300 success@50=0.720 @75=0.760
+  naive m=2 d=10 it=30 min: 100/300 success@50=0.700 @75=0.750
+  naive m=2 d=10 it=30 min: 150/300 success@50=0.720 @75=0.760
+  naive m=2 d=10 it=30 min: 200/300 success@50=0.700 @75=0.730
+  naive m=2 d=10 it=30 min: 250/300 success@50=0.708 @75=0.732
+  naive m=2 d=10 it=30 min: 300/300 success@50=0.693 @75=0.717
+naive:2:10:30:min                  n=300 succ@50= 69.3% succ@75= 71.7%  cost=47.429  (1379s)
+  reanchor m=2 d=10 it=30 min: 50/300 success@50=0.860 @75=0.880
+  reanchor m=2 d=10 it=30 min: 100/300 success@50=0.900 @75=0.920
+  reanchor m=2 d=10 it=30 min: 150/300 success@50=0.900 @75=0.927
+  reanchor m=2 d=10 it=30 min: 200/300 success@50=0.890 @75=0.910
+  reanchor m=2 d=10 it=30 min: 250/300 success@50=0.884 @75=0.904
+  reanchor m=2 d=10 it=30 min: 300/300 success@50=0.873 @75=0.907
+reanchor:2:10:30:min               n=300 succ@50= 87.3% succ@75= 90.7%  cost=34.699  (1223s)

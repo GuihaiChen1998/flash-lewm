@@ -1,0 +1,8 @@
+official (re-encode every iter) 300x30 mean    n=250 succ= 90.4%  off50= 92.0%  lat mean=  476.9 p95=  483.4 ms  dist= 120.0
+cached-z cem 300x30 mean                       n=250 succ= 90.0%  off50= 90.0%  lat mean=  159.4 p95=  161.1 ms  dist= 115.0
+flash 300x30 mean                              n=250 succ= 88.4%  off50= 90.0%  lat mean=   63.2 p95=   63.7 ms  dist= 105.2
+flash 300x30 best                              n=250 succ= 88.0%  off50= 88.0%  lat mean=   63.8 p95=   64.3 ms  dist= 114.2
+flash 300x20 mean                              n=250 succ= 88.8%  off50= 92.0%  lat mean=   44.3 p95=   44.7 ms  dist= 105.2
+flash 300x15 mean                              n=250 succ= 88.4%  off50= 94.0%  lat mean=   34.5 p95=   34.9 ms  dist= 104.9
+flash 300x10 mean                              n=250 succ= 88.4%  off50= 90.0%  lat mean=   24.9 p95=   25.3 ms  dist=  93.0
+flash 1000x20 k30 mean                         n=250 succ= 92.4%  off50= 94.0%  lat mean=  109.1 p95=  109.8 ms  dist= 122.2

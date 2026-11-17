@@ -1,0 +1,62 @@
+cem300x30_mean (official alg, cached z)          t=  184.3 ms  evals=   9001  median cost=1.3645
+cem300x30_best                                   t=  179.4 ms  evals=   9000  median cost=1.2293
+cem300x15_mean                                   t=   95.1 ms  evals=   4501  median cost=2.7316
+cem300x10_mean                                   t=   65.3 ms  evals=   3001  median cost=5.4863
+cem300x5_mean                                    t=   35.4 ms  evals=   1501  median cost=14.5820
+cem300x3_mean                                    t=   23.5 ms  evals=    901  median cost=39.0403
+cem300x10_best                                   t=   59.8 ms  evals=   3000  median cost=3.1933
+cem300x5_best                                    t=   30.0 ms  evals=   1500  median cost=9.9270
+wide1000x10_k100_mean                            t=   75.4 ms  evals=  10001  median cost=7.9672
+wide1000x10_k30_mean                             t=   75.5 ms  evals=  10001  median cost=2.8893
+wide3000x5_k300_mean                             t=   63.1 ms  evals=  15001  median cost=19.5442
+wide3000x5_k100_mean                             t=   63.2 ms  evals=  15001  median cost=10.4842
+wide3000x5_k30_mean                              t=   63.3 ms  evals=  15001  median cost=4.3879
+wide3000x3_k30_mean                              t=   40.4 ms  evals=   9001  median cost=11.2961
+wide3000x8_k30_mean                              t=   98.4 ms  evals=  24001  median cost=2.9761
+wide3000x5_k30_best                              t=   58.0 ms  evals=  15000  median cost=2.1971
+wide10000x3_k100_mean                            t=  112.9 ms  evals=  30001  median cost=12.9156
+wide10000x4_k50_mean                             t=  149.2 ms  evals=  40001  median cost=6.9996
+tree L15 s1 m20 uniform sync dense               t=  156.2 ms  evals=   9000  median cost=1.6701
+tree L15 s1 m20 adaptive sync dense              t=  194.1 ms  evals=   9149  median cost=1.7262
+tree L15 s1 m20 adaptive sync kv-cache           t=  647.9 ms  evals=   9149  median cost=1.7262
+tree L15 s1 m20 adaptive ASYNC dense             t= 2243.5 ms  evals=   9173  median cost=1.5623
+tree L15 s1 m20 adaptive ASYNC kv-cache          t= 2505.3 ms  evals=   9173  median cost=1.5623
+tree L15 s1 m20 adaptive no-root                 t=  197.9 ms  evals=   9136  median cost=2.6491
+tree L15 s2 m20 adaptive sync dense              t=  160.0 ms  evals=   9171  median cost=1.5396
+tree L30 s1 m10 adaptive sync dense              t=  161.4 ms  evals=   9183  median cost=1.7851
+tree L5 s1 m60 adaptive sync dense               t=  156.6 ms  evals=   9152  median cost=1.4352
+tree L15 s1 m200 adaptive kv-cache (wide)        t=  109.7 ms  evals=  17662  median cost=6.5346
+islands L15 s1 m20 (prefix refit) adaptive       t=  166.0 ms  evals=   9156  median cost=1.5636
+islands L5 s1 m60 (prefix refit) adaptive        t=  163.9 ms  evals=   9162  median cost=1.3101
+
+method                                                 ms   evals med.ratio geo.ratio     win%
+cem300x30_mean (official alg, cached z)             184.3    9001     1.000     1.000      0.0
+cem300x30_best                                      179.4    9000     0.960     0.919     79.0
+cem300x15_mean                                       95.1    4501     1.827     1.986      2.0
+cem300x10_mean                                       65.3    3001     3.273     3.378      0.0
+cem300x5_mean                                        35.4    1501     8.593     8.696      0.0
+cem300x3_mean                                        23.5     901    24.815    19.085      0.0
+cem300x10_best                                       59.8    3000     1.857     2.264      4.0
+cem300x5_best                                        30.0    1500     5.422     5.690      1.0
+wide1000x10_k100_mean                                75.4   10001     3.561     3.858      1.0
+wide1000x10_k30_mean                                 75.5   10001     1.840     1.953     11.0
+wide3000x5_k300_mean                                 63.1   15001     9.634     8.281      0.0
+wide3000x5_k100_mean                                 63.2   15001     5.654     4.525      5.0
+wide3000x5_k30_mean                                  63.3   15001     3.234     3.057      5.0
+wide3000x3_k30_mean                                  40.4    9001     5.874     5.437      4.0
+wide3000x8_k30_mean                                  98.4   24001     1.905     1.962     14.0
+wide3000x5_k30_best                                  58.0   15000     1.608     1.734     10.0
+wide10000x3_k100_mean                               112.9   30001     6.663     5.680      4.0
+wide10000x4_k50_mean                                149.2   40001     3.545     3.327      8.0
+tree L15 s1 m20 uniform sync dense                  156.2    9000     1.267     1.268     33.0
+tree L15 s1 m20 adaptive sync dense                 194.1    9149     1.241     1.291     26.0
+tree L15 s1 m20 adaptive sync kv-cache              647.9    9149     1.241     1.291     26.0
+tree L15 s1 m20 adaptive ASYNC dense               2243.5    9173     1.190     1.232     30.0
+tree L15 s1 m20 adaptive ASYNC kv-cache            2505.3    9173     1.190     1.232     30.0
+tree L15 s1 m20 adaptive no-root                    197.9    9136     1.648     1.794     19.0
+tree L15 s2 m20 adaptive sync dense                 160.0    9171     1.225     1.285     27.0
+tree L30 s1 m10 adaptive sync dense                 161.4    9183     1.248     1.371     25.0
+tree L5 s1 m60 adaptive sync dense                  156.6    9152     1.084     1.115     31.0
+tree L15 s1 m200 adaptive kv-cache (wide)           109.7   17662     3.191     3.945      4.0
+islands L15 s1 m20 (prefix refit) adaptive          166.0    9156     1.198     1.198     34.0
+islands L5 s1 m60 (prefix refit) adaptive           163.9    9162     1.078     1.053     39.0

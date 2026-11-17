@@ -1,0 +1,2 @@
+cached-z cem 300x30 mean                       n=1010 succ= 89.2%  off50= 90.0%  lat mean=  165.0 p95=  166.4 ms  dist= 105.1
+cached-z cem 300x10 mean                       n=1010 succ= 87.0%  off50= 96.0%  lat mean=   62.3 p95=   63.1 ms  dist=  88.7

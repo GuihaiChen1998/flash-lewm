@@ -1,0 +1,13 @@
+  oracle m=5 d=0 it=30 last: 25/300 success@50=0.120 @75=0.120
+  oracle m=5 d=0 it=30 last: 50/300 success@50=0.160 @75=0.160
+  oracle m=5 d=0 it=30 last: 75/300 success@50=0.160 @75=0.160
+  oracle m=5 d=0 it=30 last: 100/300 success@50=0.230 @75=0.230
+  oracle m=5 d=0 it=30 last: 125/300 success@50=0.208 @75=0.208
+  oracle m=5 d=0 it=30 last: 150/300 success@50=0.193 @75=0.193
+  oracle m=5 d=0 it=30 last: 175/300 success@50=0.211 @75=0.211
+  oracle m=5 d=0 it=30 last: 200/300 success@50=0.240 @75=0.240
+  oracle m=5 d=0 it=30 last: 225/300 success@50=0.227 @75=0.227
+  oracle m=5 d=0 it=30 last: 250/300 success@50=0.228 @75=0.228
+  oracle m=5 d=0 it=30 last: 275/300 success@50=0.244 @75=0.244
+  oracle m=5 d=0 it=30 last: 300/300 success@50=0.240 @75=0.240
+oracle:5:0:30:last:switch          n=300 succ@50= 24.0% succ@75= 24.0% succ@T= 24.0%  (469s)

@@ -1,0 +1,7 @@
+xcb_connection_has_error() returned true
+xcb_connection_has_error() returned true
+episode 0/400 frames 200 (259 fps)
+episode 100/400 frames 19490 (336 fps)
+episode 200/400 frames 39122 (343 fps)
+episode 300/400 frames 59077 (355 fps)
+saved /data1/cgh/dataset/doom/mwh_1.npz 78387 frames; position range [ 176.00005 -687.99976] [1103.9998    111.999954]

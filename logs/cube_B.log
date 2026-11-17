@@ -1,0 +1,295 @@
+episodes 200, non-trivial (cube must move > 4 cm): 125
+sanity: render-vs-dataset mean abs px diff 0.20; expert replay success 20/20
+  min:1: 25/200 success=0.640
+  min:1: 50/200 success=0.660
+  min:1: 75/200 success=0.627
+  min:1: 100/200 success=0.670
+  min:1: 125/200 success=0.672
+  min:1: 150/200 success=0.673
+  min:1: 175/200 success=0.674
+  min:1: 200/200 success=0.675
+min:1      n=200 success=67.5%  non-trivial=48.0% (n=125)  t=9.016666666666667  (332s)
+  last:1: 25/200 success=0.480
+  last:1: 50/200 success=0.500
+  last:1: 75/200 success=0.493
+  last:1: 100/200 success=0.500
+  last:1: 125/200 success=0.504
+  last:1: 150/200 success=0.507
+  last:1: 175/200 success=0.526
+  last:1: 200/200 success=0.540
+last:1     n=200 success=54.0%  non-trivial=26.4% (n=125)  t=10.090909090909092  (210s)
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function Renderer.__del__ at 0x7f289539a290>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f2895399ab0>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable

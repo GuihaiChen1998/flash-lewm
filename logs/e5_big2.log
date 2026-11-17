@@ -1,0 +1,4 @@
+wide 1000x10 k30 mean                          n=1010 succ= 90.2%  off50= 96.0%  lat mean=   68.8 p95=   69.7 ms  dist=  99.9
+flash 300x30 mean                              n=1010 succ= 88.9%  off50= 90.0%  lat mean=   64.8 p95=   65.2 ms  dist= 107.1
+flash 300x15 mean                              n=1010 succ= 87.5%  off50= 94.0%  lat mean=   35.1 p95=   35.4 ms  dist=  99.6
+flash 300x10 mean                              n=1010 succ= 87.7%  off50= 90.0%  lat mean=   25.2 p95=   25.7 ms  dist=  90.5

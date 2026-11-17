@@ -1,0 +1,15 @@
+(self, env_type='single', ob_type='states', permute_blocks=True, multiview=False, height=224, width=224, *args, **kwargs)
+<class 'numpy.ndarray'> [('proprio/joint_pos', (6,)), ('proprio/joint_vel', (6,)), ('proprio/effector_pos', (3,)), ('proprio/effector_yaw', (1,)), ('proprio/gripper_opening', (1,)), ('proprio/gripper_vel', (1,)), ('proprio/gripper_contact', (1,)), ('privileged/block_0_pos', (3,)), ('privileged/block_0_quat', (4,)), ('privileged/block_0_yaw', (1,)), ('prev_qpos', (21,)), ('prev_qvel', (20,)), ('qpos', (21,)), ('qvel', (20,)), ('control', (7,)), ('time', (1,)), ('env_name', None), ('target', (28,)), ('success', None)]
+render (224, 224, 3) uint8 58.36496200042517
+action space Box(-1.0, 1.0, (5,), float32)
+Exception ignored in: <function Renderer.__del__ at 0x7f21cc8fd750>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x7f21cc8fcf70>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 129, in free
+TypeError: 'NoneType' object is not callable

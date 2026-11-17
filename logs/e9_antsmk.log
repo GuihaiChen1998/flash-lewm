@@ -1,0 +1,4 @@
+  oracle m=5 d=0 it=30 min: 50/50 success@50=0.020 @75=0.020
+oracle:5:0:30:min:base             n=50 succ@50=  2.0% succ@75=  2.0% succ@T=  2.0%  (43s)
+  oracle m=5 d=0 it=30 last: 50/50 success@50=0.000 @75=0.040
+oracle:5:0:30:last:base            n=50 succ@50=  0.0% succ@75=  4.0% succ@T=  4.0%  (30s)
