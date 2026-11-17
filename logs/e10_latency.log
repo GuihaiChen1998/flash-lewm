@@ -1,0 +1,56 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+pusht {'official_ms': [581.4427165314555, 633.7685529142618], 'flash_ms': [64.26349096000195, 65.04327692091465], 'n': 20, 'gpu': 'NVIDIA RTX A6000'}
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/scripts/e10_latency.py", line 15, in <module>
+    rows = official_eval_rows(50)[:n_pairs]; pairs = load_pairs(rows)
+  File "/data1/cgh/code/flash-lewm/flash_lewm/core.py", line 229, in load_pairs
+    out["state"].append(f[STATE_KEY][r])
+  File "/data1/cgh/code/flash-lewm/.pydeps/h5py/_hl/group.py", line 407, in __getitem__
+    return self._get(name)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/data1/cgh/code/flash-lewm/.pydeps/h5py/_hl/group.py", line 421, in _get
+    oid = h5o.open(self.id, self._e(name), lapl=lapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5o.pyx", line 255, in h5py.h5o.open
+KeyError: "Unable to synchronously open object (object 'state' doesn't exist)"
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/scripts/e10_latency.py", line 15, in <module>
+    rows = official_eval_rows(50)[:n_pairs]; pairs = load_pairs(rows)
+  File "/data1/cgh/code/flash-lewm/flash_lewm/core.py", line 229, in load_pairs
+    out["state"].append(f[STATE_KEY][r])
+  File "/data1/cgh/code/flash-lewm/.pydeps/h5py/_hl/group.py", line 407, in __getitem__
+    return self._get(name)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/data1/cgh/code/flash-lewm/.pydeps/h5py/_hl/group.py", line 421, in _get
+    oid = h5o.open(self.id, self._e(name), lapl=lapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5o.pyx", line 255, in h5py.h5o.open
+KeyError: "Unable to synchronously open object (object 'state' doesn't exist)"
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/scripts/e10_latency.py", line 15, in <module>
+    rows = official_eval_rows(50)[:n_pairs]; pairs = load_pairs(rows)
+  File "/data1/cgh/code/flash-lewm/flash_lewm/core.py", line 229, in load_pairs
+    out["state"].append(f[STATE_KEY][r])
+  File "/data1/cgh/code/flash-lewm/.pydeps/h5py/_hl/group.py", line 407, in __getitem__
+    return self._get(name)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/data1/cgh/code/flash-lewm/.pydeps/h5py/_hl/group.py", line 421, in _get
+    oid = h5o.open(self.id, self._e(name), lapl=lapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5o.pyx", line 255, in h5py.h5o.open
+KeyError: "Unable to synchronously open object (object 'state' doesn't exist)"
