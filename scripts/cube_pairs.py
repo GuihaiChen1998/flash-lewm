@@ -11,7 +11,8 @@ with h5py.File("/data1/cgh/dataset/lewm-original/cube/cube_single_expert.h5", "r
     N = len(ep)
     ok = step <= ep_len[ep] - 51
     idx = np.nonzero(ok)[0]
-    moved = (np.linalg.norm(bpos[idx + 25] - bpos[idx], axis=1) > 0.04) & (np.linalg.norm(bpos[idx + 50] - bpos[idx + 25], axis=1) > 0.04)
+    moved = (np.linalg.norm(bpos[idx + 25] - bpos[idx], axis=1) > 0.04) & (np.linalg.norm(bpos[idx + 50] - bpos[idx + 25], axis=1) > 0.04) \
+        & (np.linalg.norm(bpos[idx + 50] - bpos[idx], axis=1) > 0.04)  # goal2 must differ from the start too
     rows = np.sort(np.random.default_rng(42).choice(idx[moved], size=n, replace=False))
     R = {k: [] for k in ["state", "pixels", "goal", "goal_state", "goal2", "goal2_state"]}
     for r in rows:

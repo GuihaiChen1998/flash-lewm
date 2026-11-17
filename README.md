@@ -7,6 +7,20 @@ Fast-LeWM（[论文](https://arxiv.org/abs/2606.26217)，[官方代码](https://
 简要说：共享前缀缓存是精确的，但在官方配置（300 候选）下更慢；分支搜索和异步在单 GPU 上不成立；
 把图像潜向量缓存到 CEM 循环外并编译整轮迭代（`FlashCEM`）后，单次规划从 467 ms 降到 65 ms，闭环成功率不变（n=1010）。
 
+后续进展（按时间）：
+
+| 文档 | 内容 |
+|---|---|
+| [docs/issue7_review_and_results_v1.md](docs/issue7_review_and_results_v1.md) | issue #7：承诺前缀 / 异步重规划，实时仿真协议 |
+| [docs/min_cost_and_scenarios_v1.md](docs/min_cost_and_scenarios_v1.md) | 「前缀终点最小」代价与扰动、目标切换、远目标场景 |
+| [docs/multi_env_results_v1.md](docs/multi_env_results_v1.md) | Two-Room、ViZDoom、Visual AntMaze（含数据集对齐） |
+| [docs/cube_doom_solid_v1.md](docs/cube_doom_solid_v1.md) | Cube 与 ViZDoom 的大样本复核（最新） |
+| [docs/discussion_log_v1.md](docs/discussion_log_v1.md) | 逐轮讨论记录 |
+| [docs/HANDOFF.md](docs/HANDOFF.md) | 交接文档：机器、路径、运行前缀、未入库资源的位置 |
+
+目前最稳的结论：承诺前缀在 Cube 和 ViZDoom 上、延迟 5 / 10 步下都显著优于同步规划和朴素异步；
+min 代价在频繁重规划时是必需的。
+
 ## 代码
 
 | 文件 | 内容 |
@@ -19,6 +33,8 @@ Fast-LeWM（[论文](https://arxiv.org/abs/2606.26217)，[官方代码](https://
 | `scripts/e3_search.py` | 离线搜索质量对照 |
 | `scripts/e5_closedloop.py`、`scripts/paired.py` | 闭环成功率与配对 bootstrap |
 | `scripts/e7_flash.py` | FlashCEM 离线延迟与质量 |
+| `flash_lewm/realtime.py`、`scripts/e9_realtime.py` | 实时仿真器（延迟注入、承诺前缀、min 代价、场景预设） |
+| `flash_lewm/{doom,ant,cube}_env.py`、`flash_lewm/train_min.py` | ViZDoom / AntMaze / Cube 适配器，最小训练脚本 |
 
 ## 运行（Linux#1）
 

@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-14，第 10 轮结束。
+最后更新：2026-11-17，第 11 轮结束。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -14,7 +14,7 @@
 - 代码 `/data1/cgh/code/flash-lewm`（`third_party/Fast-LeWorldModel` 为官方代码，提交 2fc3bca；`.pydeps` 为项目内依赖；`ckpt/`；`results/`；`logs/`）
 - 数据 `/data1/cgh/dataset/lewm-original/pusht_expert_train.h5`（已解压）；cube / reacher / tworoom 仍是压缩包
 - Python `/home/cgh/anaconda3/envs/sglang/bin/python`；Jupyter MCP 工具名 `jupyter-mcp_execute_python`
-- 机器环境变量里的代理 `127.0.0.1:23333` 当时没有监听，下载用的是 `127.0.0.1:17897`
+- 代理端口会变：环境变量里的 `127.0.0.1:23333` 一直没监听；11-14 用 `17897`；**11-16 起 `17897` 也不通，改用 `127.0.0.1:11111`**。不通时先 `ss -ltnp | grep 127.0.0.1` 找在听的端口
 - 系统 git 用 `/usr/bin/git`（conda 里的 git 不支持 https）
 - Jupyter 网关单次调用超过约 60 秒容易超时：长任务用 `nohup` 后台跑，再轮询日志
 - GPU 计时要独占一张卡，否则数字会被污染
@@ -37,7 +37,7 @@ FlashCEM 降级为「优化后的同步基线」。
 第 3 轮的候选想法 A–D 尚未动手。
 
 运行注意：
-- 远端更新代码：`cd /data1/cgh/code/flash-lewm && /usr/bin/git fetch origin main && /usr/bin/git reset --hard origin/main`（需代理 127.0.0.1:17897）。
+- 远端更新代码：`cd /data1/cgh/code/flash-lewm && /usr/bin/git fetch origin main && /usr/bin/git reset --hard origin/main`（需代理，端口见上）。
 - 用户要求 sleep / timeout 不超过 20 秒；长实验用 nohup 后台跑，用定时回访查看。
 - 在远端用 `pkill -f` 会连带杀掉发起它的 shell，改用 ps 取 pid 再 kill。
 - GPU 与他人共用时，并行开太多进程会互相拖慢；计时类实验要注明。
@@ -67,7 +67,40 @@ FlashCEM 降级为「优化后的同步基线」。
 - Reacher：`/data1/cgh/dataset/lewm-original/reacher/reacher.h5`（99 GB）、`ckpt/Fast-lewm_dmc_object.ckpt` 已就位，评估脚本未写。
 - Jupyter 连接（Claude_MCP_Portal）会过期，需要用户重新登录。
 
-## 下一步候选（第 1 轮遗留）
+## Cube / ViZDoom 加固（第 11 轮，2026-11-17）
+结果见 `docs/cube_doom_solid_v1.md`，汇总数字在 `results/summary_cube_doom_solid.json`。
+- 承诺前缀在 Cube（300 回合）和 ViZDoom（两个种子各 500 回合）、延迟 5 / 10 步下都显著优于同步规划和朴素异步。
+- min 代价的结论收窄：Cube 普遍有效；ViZDoom 只在频繁重规划时有效，整段执行 + 静态目标时与官方代价无显著差别。
+- Cube 的 switch 场景评测集有缺陷（105 / 300 回合换目标即成功），剔除后无结论；`scripts/cube_pairs.py` 已修筛选条件，
+  **`/data1/cgh/dataset/cube_eval/eval_pairs.npz` 尚未重新生成**（重新生成后回合会变，旧结果不可配对）。
+
+运行前缀（配合 `scripts/e9_realtime.py <n_extra> <tag> <cfg...>`，实际回合数 = 50 + n_extra）：
+- Cube：`FLASH_ENV=cube FLASH_ADIM=5 FLASH_CHUNK=25 MUJOCO_GL=egl FLASH_CKPT=ckpt/Fast-lewm_ogb_object.ckpt PUSHT_H5=/data1/cgh/dataset/lewm-original/cube/cube_single_expert.h5 DOOM_PAIRS=/data1/cgh/dataset/cube_eval/eval_pairs.npz`
+  （`FLASH_CHUNK` 是每批并行的环境数，Cube 用 25；适配器在 `flash_lewm/cube_env.py`；日志里的 EGL / xcb 报错可忽略）
+- ViZDoom 500 回合：`DOOM_PAIRS=/data1/cgh/dataset/doom/eval_pairs500.npz`；第二个模型种子 `ckpt/doom_mwh_s1.pt`
+  （`python -m flash_lewm.train_min /data1/cgh/dataset/doom/mwh_all.npz ckpt/doom_mwh_s1.pt steps=30000 img=112 seed=1`）
+- 结果标签：`CUBE*`（Cube）、`DA*`（Doom 种子 A）、`DB*`（Doom 种子 B）；每跑完一个配置就写一次 JSON。
+- 耗时：24 个进程并行时每个配置 8–25 分钟；异步配置（clamp / naive）和 m=1 的配置最慢。要快就少开进程。
+
+## 不在 GitHub 上的资源（都在 Linux#1）
+远端机器没有 GitHub 推送凭证，会话沙箱也无法搬运大文件，所以以下内容只在 Linux#1：
+- 权重 `/data1/cgh/code/flash-lewm/ckpt/`：官方 4 个（`Fast-lewm_{pusht,ogb,tworoom,dmc}_object.ckpt`，可从官方发布重新下载）；
+  自训练 4 个（`doom_mwh.pt`、`doom_mwh_10k.pt`、`doom_mwh_s1.pt`、`ant_medium.pt`，各 69 MB，可用 `train_min` 重训，约 1 小时一个）。
+- 评测回合：`/data1/cgh/dataset/doom/{eval_pairs.npz, eval_pairs500.npz}`（`scripts/doom_pairs.py`）、
+  `/data1/cgh/dataset/cube_eval/eval_pairs.npz`（`scripts/cube_pairs.py`）、`/data1/cgh/dataset/ant/eval_pairs.npz`（`scripts/ant_pairs.py`）。
+- Doom 训练数据 `/data1/cgh/dataset/doom/mwh_all.npz`（11 GB，`scripts/doom_collect.py`）。
+- 逐回合结果 `results/*.json`（98 个文件，约 1 MB）与日志 `logs/`；备份在 `/data1/cgh/code/flash-lewm/results_backup_20261117.tar.gz`。
+- 两个未入库的探索脚本：`scripts/e6_overhead.py`（单次前向固定开销剖析）、`scripts/try_doom.py`。
+- 依赖目录 `.pydeps/`、`.mj/`。
+如需把权重放上 GitHub，建议在 Linux#1 上配置凭证后用 Release 附件上传（单文件 < 100 MB，可以直接传）。
+
+## 下一步候选（第 11 轮后）
+1. 重新生成 Cube 评测回合后重跑 switch 场景；或给 Cube 加 far / kick 场景。
+2. 用真实规划耗时代替按步数注入的延迟（FlashCEM 65 ms 对官方 467 ms），把「求解器变快」和「承诺前缀」两条线合起来比较。
+3. LIBERO-10 路线（第 10 轮的判断，未动手）；Reacher 评估脚本未写。
+4. 第 3 轮的算法候选 A–D、iCEM 基线仍未动手。
+
+## 更早的候选（第 1 轮遗留）
 1. FlashCEM 接入官方 `eval.py`，在 Cube 上复核。
 2. 测 `cem_multi` 多环境合批吞吐。
 3. 编译图像编码器。
