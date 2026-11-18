@@ -7,6 +7,8 @@ Fast-LeWM（[论文](https://arxiv.org/abs/2606.26217)，[官方代码](https://
 简要说：共享前缀缓存是精确的，但在官方配置（300 候选）下更慢；分支搜索和异步在单 GPU 上不成立；
 把图像潜向量缓存到 CEM 循环外并编译整轮迭代（`FlashCEM`）后，单次规划从 467 ms 降到 65 ms，闭环成功率不变（n=1010）。
 
+项目展示页：`docs/site/index.html`（仿 [LeWM 项目页](https://le-wm.github.io/)，含实时对比 GIF；可直接用 GitHub Pages 发布 `docs/site`）。
+
 后续进展（按时间）：
 
 | 文档 | 内容 |

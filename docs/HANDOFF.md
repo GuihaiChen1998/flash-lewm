@@ -118,6 +118,7 @@ FlashCEM 降级为「优化后的同步基线」。
   `STABLEWM_HOME=/data1/cgh/dataset/official_h5 WANDB_MODE=disabled python train.py data=tworoom data.dataset.name=<doom_mwh|libero10> 'data.dataset.keys_to_load=[pixels,action]' 'data.dataset.keys_to_cache=[action]' wandb.enabled=False hydra.run.dir=<输出目录>`（在 `third_party/Fast-LeWorldModel` 下运行）。
 - 官方训练的 LIBERO 模型（`ckpt/official_train/libero10/Fast-lewm_epoch_10_object.ckpt`）评测完：零延迟只有 6.7%，不比精简训练好，结论见 `docs/libero_results_v1.md`。读它时 `PUSHT_H5` 要指向 `/data1/cgh/dataset/official_h5/libero10.h5`（动作归一化取全部 10 个任务）。
 - 官方训练的 ViZDoom 模型（`ckpt/official_train/doom/Fast-lewm_epoch_10_object.ckpt`，读它时 `PUSHT_H5=/data1/cgh/dataset/official_h5/doom_mwh.h5`）与精简训练成功率几乎一样，真实延迟对比结论不变（`DOFF*`）。第 14 轮计划 6 项已全部完成。
+- 项目展示页 `docs/site/`（index.html + assets/*.gif）。GIF 由 `scripts/record_rollouts.py`（录帧，原始数据在 `/data1/cgh/dataset/rollouts/*.npz`）+ `scripts/make_gifs.py`（左右对比）+ `scripts/make_grid_gif.py`（前 8 回合不挑选）生成；大 GIF 是挑过的成功回合，页面上已注明。
 - 并行注意：评测进程要设 `OMP_NUM_THREADS=4`，否则多进程时 CPU 严重超订。
 - 实测耗时 + 实时对比完成（`docs/real_latency_v1.md`）：官方求解器约 600 ms（6 步）、FlashCEM 65 ms（1 步）；完整方法对官方部署全部显著，换目标 +8 到 +62。结果标签 `RL<env><场景>`。
 

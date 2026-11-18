@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flash-LeWM: Plan While Acting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a research project page; plain, confident, numbers first, every figure traceable to the repo.
+   IDEA: a stopwatch strip. The page behaves like a timing sheet: frozen time in red, acting time in teal.
+   PICTURE: side-by-side real-time rollouts (GIF) under a live timeline that shows when each robot is frozen.
+   COLOUR and TYPE: navy ground in both themes, official = red #e8452c, ours = teal #14a2b0, yellow for the goal switch; Red Hat Display / Text.
+   LAYOUT: one centred column to 1080px, media cards in white frames, tables that scroll on phones. */
+:root{color-scheme:dark;--bg:#0b1433;--panel:#121d45;--line:#26315e;--ink:#eef1fb;--mute:#a9b1d3;--off:#e8452c;--ours:#14a2b0;--ours-ink:#4fc1c6;--goal:#f7e463;--blue:#3b4fd8}
+:root[data-theme=light]{color-scheme:dark}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 "Red Hat Text",system-ui,sans-serif;overflow-x:clip}
+a{color:var(--ours-ink)}a:focus-visible,button:focus-visible{outline:2px solid var(--goal);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 max(4vw,16px)}
+.band{padding:clamp(28px,4vw,56px) 0}
+h1,h2,h3{font-family:"Red Hat Display",system-ui,sans-serif;line-height:1.08;text-wrap:balance;margin:0 0 .5em}
+h1{font-size:clamp(34px,5.4vw,54px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;margin-top:.2em}
+h3{font-size:19px;font-weight:700;margin:1.4em 0 .4em}
+p{max-width:70ch;margin:.6em 0}
+.lede{font-size:19px;color:var(--mute);max-width:62ch}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 4px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700}
+.btn:hover{border-color:var(--ours)}
+.note{font-size:14px;color:var(--mute)}
+.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.card img{display:block;width:100%;height:auto;border-radius:6px}
+figure{margin:0}figcaption{font-size:14px;color:var(--mute);margin-top:10px;max-width:none}
+.hero{display:grid;gap:22px;margin-top:28px}
+.tl{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.fig{position:relative;min-height:150px}.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;color:var(--mute);margin-top:8px}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin:26px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.kpi b{display:block;font:800 clamp(30px,4vw,40px)/1 "Red Hat Display",sans-serif;color:var(--ours-ink);margin-bottom:6px}
+.kpi span{color:var(--mute);font-size:14.5px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:22px;margin-top:16px}
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:14px}
+.method div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.method h3{margin-top:0}
+.method p{font-size:15.5px;color:var(--mute)}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;background:rgba(255,255,255,.07);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+.bars{display:grid;gap:14px;margin-top:14px}
+.row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center}
+.row .lbl{font-size:14.5px;color:var(--mute)}
+.track{position:relative;display:grid;gap:4px}
+.bar{position:relative;height:18px;border-radius:0 4px 4px 0;background:var(--off);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;white-space:nowrap}
+.bar.ours{background:var(--ours)}
+.bar.tiny{justify-content:flex-start;padding-left:calc(100% + 6px);color:var(--ink)}
+.ref{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--goal)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.tabs button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:700 15px "Red Hat Text",sans-serif;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ours);border-color:var(--ours);color:#04181b}
+table{border-collapse:collapse;width:100%;font-size:15px;margin-top:12px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{font-weight:700;color:var(--mute);font-size:13.5px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.win{color:var(--ours-ink);font-weight:700}
+.scroll{overflow-x:auto}
+pre{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13.5px}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding:26px 0 48px}
+@media(max-width:600px){.row{grid-template-columns:1fr}table{font-size:13px}.lede{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.playhead{display:none}}
+</style>
+</head>
+<body>
+<header class="band"><div class="wrap">
+  <h1>Flash-LeWM: plan while acting</h1>
+  <p class="lede">A latent world model is only useful in real time if the robot keeps moving while it thinks. We make planning with <a href="https://le-wm.github.io/">LeWorldModel</a>-style JEPA world models 9× faster and let the robot act during planning, without retraining the model.</p>
+  <div class="btns">
+    <a class="btn" href="https://github.com/GuihaiChen1998/flash-lewm">Code</a>
+    <a class="btn" href="https://github.com/GuihaiChen1998/flash-lewm/releases/tag/assets-v1">Checkpoints &amp; episodes</a>
+    <a class="btn" href="https://github.com/GuihaiChen1998/flash-lewm/blob/main/docs/real_latency_v1.md">Full results</a>
+  </div>
+  <p class="note">Work in progress. Built on the official <a href="https://github.com/Yuntian-Gao/Fast-LeWorldModel">Fast-LeWM</a> code and checkpoints.</p>
+
+  <div class="hero">
+    <figure class="card"><img src="assets/pusht_0.gif" alt="Push-T: official Fast-LeWM freezes for 0.6 s at every replan and misses the switched goal; ours keeps moving and reaches it at 3.4 s" width="1000" height="700"></figure>
+    <div class="tl" aria-label="When each robot is frozen during one 7.5 s episode">
+      <div class="fig" id="tl"><svg role="img" aria-label="Timeline of frozen and acting time"></svg></div>
+      <div class="legend"><span><i class="sw" style="background:var(--off)"></i>frozen while planning</span><span><i class="sw" style="background:var(--ours)"></i>acting</span><span><i class="sw" style="background:var(--goal)"></i>goal switches at 0.8 s</span></div>
+    </div>
+  </div>
+  <p class="note">Real-time playback, 1 environment step = 0.1 s. The goal image (inset) changes at 0.8 s. Episodes in the large GIFs were picked where our method succeeds; the uncurated first eight episodes are further down.</p>
+</div></header>
+
+<section class="band"><div class="wrap">
+  <h2>What changes</h2>
+  <div class="kpis">
+    <div class="kpi"><b>65 ms</b><span>per plan with FlashCEM, against 581–612 ms for the official CEM solver (same 300 samples × 30 iterations)</span></div>
+    <div class="kpi"><b>+58 to +62</b><span>points of success over the official deployment when the goal changes mid-episode (Push-T, Two-Room)</span></div>
+    <div class="kpi"><b>4 / 4</b><span>environments where the full method beats the official deployment in both scenarios, all with 95% intervals above zero</span></div>
+  </div>
+
+  <h3>Planning time per call</h3>
+  <div class="bars" id="lat"></div>
+  <div class="legend"><span><i class="sw" style="background:var(--off)"></i>official CEMSolver</span><span><i class="sw" style="background:var(--ours)"></i>FlashCEM (ours)</span></div>
+  <p class="note">RTX A6000, median of 20 plans, image encoding included. Measured while other jobs shared the machine, so both numbers are conservative.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Method</h2>
+  <p>Three changes to the planner, all at test time. The world model and its weights are untouched.</p>
+  <div class="method">
+    <div><h3>1. FlashCEM</h3><p>The official solver re-encodes the current and goal images inside every CEM iteration, which is 63% of its time. We encode once, cache the two latents, and compile the whole CEM iteration into one graph. Plans are unchanged: closed-loop success on 1010 Push-T episodes is 88.9% against 89.0%.</p></div>
+    <div><h3>2. Commitment prefix</h3><p>While a plan is being computed the robot keeps executing the queued action block. Every candidate is forced to start with that block, so the search only optimises what comes after it, and the next plan is ready before the queue runs out. Replanning every block costs no waiting.</p></div>
+    <div><h3>3. Prefix-min cost</h3><p>The action-prefix predictor already returns the latent after every prefix length. We score a candidate by its closest approach to the goal, <code>min_k ‖ẑ_k − z_goal‖²</code>, instead of the distance at the end only. With frequent replanning the terminal cost keeps pushing the arrival time back; the min cost does not.</p></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Results under measured latency</h2>
+  <p>Each method pays its own measured planning time: 6 frozen steps for the official solver, 1 for FlashCEM, at 10 Hz. <b>Official deployment</b> is the released planner: plan, freeze, execute all five blocks, repeat, terminal cost. <b>Ours</b> is FlashCEM + commitment prefix + prefix-min cost. Success within 50 steps; 300 episodes per environment (ViZDoom 500).</p>
+  <div class="tabs" role="group" aria-label="Scenario">
+    <button type="button" data-s="switch" aria-pressed="true">Goal switches at 0.8 s</button>
+    <button type="button" data-s="base" aria-pressed="false">Static goal</button>
+  </div>
+  <div class="bars" id="succ"></div>
+  <div class="legend"><span><i class="sw" style="background:var(--off)"></i>official deployment</span><span><i class="sw" style="background:var(--ours)"></i>ours</span><span><i class="sw" style="background:var(--goal);width:3px"></i>official planner with zero planning time (not deployable)</span></div>
+
+  <h3>Where the gain comes from</h3>
+  <p>Each column adds one component to the previous one; numbers are paired differences in success (points, 95% bootstrap interval).</p>
+  <div class="scroll"><table id="abl"></table></div>
+  <p class="note">ViZDoom uses a model we trained; retrained with the official <code>train.py</code> it gives the same picture (ours − official deployment +14.6 static, +22.2 switch).</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Rollouts</h2>
+  <p>Left: official Fast-LeWM deployment. Right: ours. Red frame and banner = the robot is frozen waiting for a plan.</p>
+  <div class="grid2">
+    <figure class="card"><img src="assets/tworoom_0.gif" alt="Two-Room rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>Two-Room, goal switch</figcaption></figure>
+    <figure class="card"><img src="assets/doom_0.gif" alt="ViZDoom rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>ViZDoom (My Way Home), goal switch</figcaption></figure>
+    <figure class="card"><img src="assets/cube_0.gif" alt="OGBench Cube rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>OGBench Cube, goal switch</figcaption></figure>
+    <figure class="card"><img src="assets/pusht_static_0.gif" alt="Push-T rollout with a static goal" loading="lazy" width="1000" height="600"><figcaption>Push-T, static goal</figcaption></figure>
+  </div>
+  <h3>Uncurated: the first eight evaluation episodes</h3>
+  <div class="grid2">
+    <figure class="card"><img src="assets/pusht_grid.gif" alt="First eight Push-T goal-switch episodes for both methods" loading="lazy" width="900" height="300"><figcaption>Push-T, goal switch</figcaption></figure>
+    <figure class="card"><img src="assets/tworoom_grid.gif" alt="First eight Two-Room goal-switch episodes for both methods" loading="lazy" width="900" height="300"><figcaption>Two-Room, goal switch</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Official evaluation protocol</h2>
+  <p>We ran the official <code>eval.py</code> unchanged (synchronous planning, no latency) on the four Fast-LeWM benchmarks. With the paper's seed we reproduce its numbers within 2 points. Averaged over ten seeds the official planner scores lower than the single-seed table suggests. Swapping in the prefix-min cost never hurts and adds 11 points on Reacher.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Environment</th><th class="n">Paper</th><th class="n">Ours, seed 42</th><th class="n">Official cost, 10 seeds</th><th class="n">Prefix-min, 10 seeds</th><th class="n">Difference</th></tr></thead>
+    <tbody>
+      <tr><td>Two-Room</td><td class="n">98</td><td class="n">96</td><td class="n">93.4</td><td class="n">94.4</td><td class="n">+1.0 [−0.4, +2.4]</td></tr>
+      <tr><td>Reacher</td><td class="n">88</td><td class="n">86</td><td class="n">81.8</td><td class="n win">93.2</td><td class="n win">+11.4 [+7.6, +15.2]</td></tr>
+      <tr><td>Push-T</td><td class="n">96</td><td class="n">98</td><td class="n">90.0</td><td class="n">90.4</td><td class="n">+0.4 [−1.4, +2.2]</td></tr>
+      <tr><td>OGBench Cube</td><td class="n">80</td><td class="n">78</td><td class="n">72.6</td><td class="n">74.4</td><td class="n">+1.8 [−1.2, +5.0]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Success rate (%), 50 episodes per seed. Paper column: Table 1 of Fast LeWorldModel (arXiv 2606.26217).</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Limitations</h2>
+  <p>Latency is converted to whole environment steps at an assumed 10 Hz. Results use one world-model seed per environment. On LIBERO-10 the base planner succeeds too rarely (under 20% even with no latency, with our model or one trained by the official code) to separate the methods, so it is not shown here; details are in the repository.</p>
+  <h3>Reproduce</h3>
+  <pre><code>git clone https://github.com/GuihaiChen1998/flash-lewm
+# measured planning time
+python scripts/e10_latency.py pusht 20
+# real-time closed loop, e.g. ours on Push-T with a goal switch (300 episodes)
+python scripts/e9_realtime.py 250 RLpushtswitch clamp:1:1:30:min:switch sync:5:6:30:last:switch
+# official eval.py with the prefix-min cost
+FLASH_COST=min python scripts/official_eval.py --config-name=reacher seed=42 ...</code></pre>
+</div></section>
+
+<footer><div class="wrap">Flash-LeWM project page. Every number on this page comes from per-episode files in the repository's <code>results/</code> folder.</div></footer>
+
+<script>
+{
+const LAT=[["Push-T",581,64],["Two-Room",597,65],["OGBench Cube",612,65],["Reacher",1260,216]];
+const SUCC={switch:[["Push-T",5.0,66.7,67.7,"+61.7"],["Two-Room",25.7,84.0,70.7,"+58.3"],["OGBench Cube",22.3,30.3,24.0,"+8.0"],["ViZDoom",19.0,46.2,36.4,"+27.2"]],
+            base:[["Push-T",86.0,92.0,88.3,"+6.0"],["Two-Room",88.0,96.3,89.3,"+8.3"],["OGBench Cube",23.0,36.0,29.0,"+13.0"],["ViZDoom",38.4,56.4,51.4,"+18.0"]]};
+const ABL={switch:[["Push-T","+27.0 [+22.0, +32.3]","+27.0 [+21.3, +32.7]","+7.7 [+1.3, +14.0]","+61.7 [+56.0, +67.0]"],
+                   ["Two-Room","+36.7 [+31.3, +42.0]","+14.3 [+9.3, +19.3]","+7.3 [+2.7, +12.0]","+58.3 [+52.7, +64.3]"],
+                   ["OGBench Cube","+2.3 [−0.3, +5.0]","+4.3 [+0.7, +8.0]","+1.3 [−2.0, +4.7]","+8.0 [+4.3, +11.7]"],
+                   ["ViZDoom","+11.8 [+8.6, +15.0]","+6.4 [+1.6, +11.0]","+9.0 [+4.4, +13.8]","+27.2 [+22.2, +32.2]"]],
+           base:[["Push-T","+0.7 [+0.0, +1.7]","+2.3 [−1.3, +6.0]","+3.0 [−0.3, +6.3]","+6.0 [+2.3, +9.7]"],
+                 ["Two-Room","+1.0 [+0.0, +2.3]","+4.3 [+1.7, +7.3]","+3.0 [+1.0, +5.3]","+8.3 [+5.3, +11.7]"],
+                 ["OGBench Cube","+3.7 [+1.3, +6.3]","+8.0 [+3.7, +12.3]","+1.3 [−1.3, +4.0]","+13.0 [+8.3, +17.7]"],
+                 ["ViZDoom","+8.8 [+6.2, +11.4]","+3.8 [−0.6, +8.0]","+5.4 [+1.2, +9.4]","+18.0 [+13.6, +22.4]"]]};
+const mx=1300;
+document.getElementById("lat").innerHTML=LAT.map(([n,a,b])=>`<div class="row"><div class="lbl">${n}</div><div class="track">
+  <div class="bar" style="width:${a/mx*100}%" title="official ${a} ms">${a} ms</div>
+  <div class="bar ours${b/mx<.12?" tiny":""}" style="width:${b/mx*100}%" title="FlashCEM ${b} ms">${b} ms · ${(a/b).toFixed(1)}×</div></div></div>`).join("");
+const succ=document.getElementById("succ"),abl=document.getElementById("abl");
+function show(s){
+  succ.innerHTML=SUCC[s].map(([n,o,u,z,d])=>`<div class="row"><div class="lbl">${n}<br><b style="color:var(--ours-ink)">${d}</b></div><div class="track">
+    <div class="bar${o<12?" tiny":""}" style="width:${Math.max(o,.6)}%" title="official deployment ${o}%">${o.toFixed(1)}%</div>
+    <div class="bar ours" style="width:${u}%" title="ours ${u}%">${u.toFixed(1)}%</div>
+    <i class="ref" style="left:${z}%" title="zero planning time ${z}%"></i></div></div>`).join("");
+  abl.innerHTML=`<thead><tr><th>Environment</th><th class="n">+ FlashCEM (6 → 1 step)</th><th class="n">+ prefix-min cost</th><th class="n">+ commitment prefix</th><th class="n">Ours − official deployment</th></tr></thead><tbody>`+
+    ABL[s].map(r=>`<tr><td>${r[0]}</td>${r.slice(1).map((c,i)=>`<td class="n${i==3?" win":""}">${c}</td>`).join("")}</tr>`).join("")+"</tbody>";
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s==s));
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>show(b.dataset.s)));
+show("switch");
+
+const svg=document.querySelector("#tl svg");
+const tracks=[["Official",[[0,6,0],[6,31,1],[31,37,0],[37,62,1],[62,68,0],[68,75,1]]],["Ours",[[0,1,0],[1,75,1]]]];
+function draw(){
+  const W=svg.clientWidth,H=svg.clientHeight,L=W<520?62:84,R=10,top=12,th=(H-46)/2,sx=t=>L+(W-L-R)*t/75;
+  let h="";
+  tracks.forEach(([n,segs],k)=>{const y=top+k*(th+8);
+    h+=`<text x="0" y="${y+th/2+5}" fill="#eef1fb" font-size="14" font-weight="700" font-family="Red Hat Text">${n}</text>`;
+    segs.forEach(([a,b,act])=>{h+=`<rect x="${sx(a)+1}" y="${y}" width="${Math.max(sx(b)-sx(a)-2,1)}" height="${th}" rx="3" fill="${act?"#14a2b0":"#e8452c"}"/>`});});
+  const yb=top+2*th+8;
+  h+=`<line x1="${sx(8)}" x2="${sx(8)}" y1="${top-6}" y2="${yb+4}" stroke="#f7e463" stroke-width="2"/>`;
+  const ticks=W<520?[0,2.5,5,7.5]:[0,1,2,3,4,5,6,7,7.5];
+  ticks.forEach(s=>{h+=`<text x="${sx(s*10)}" y="${H-6}" fill="#a9b1d3" font-size="12" text-anchor="middle" font-family="Red Hat Text">${s} s</text>`});
+  h+=`<line class="playhead" x1="${L}" x2="${L}" y1="${top-6}" y2="${yb+4}" stroke="#ffffff" stroke-width="2"><animate attributeName="x1" from="${L}" to="${W-R}" dur="7.5s" repeatCount="indefinite"/><animate attributeName="x2" from="${L}" to="${W-R}" dur="7.5s" repeatCount="indefinite"/></line>`;
+  svg.innerHTML=h;
+}
+new ResizeObserver(draw).observe(svg);
+}
+</script>
+</body>
+</html>
