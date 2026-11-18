@@ -97,7 +97,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
   <div class="kpis">
     <div class="kpi"><b>65 ms</b><span>per plan with FlashCEM, against 581–612 ms for the official CEM solver (same 300 samples × 30 iterations)</span></div>
     <div class="kpi"><b>+58 to +62</b><span>points of success over the official deployment when the goal changes mid-episode (Push-T, Two-Room)</span></div>
-    <div class="kpi"><b>4 / 4</b><span>environments where the full method beats the official deployment in both scenarios, all with 95% intervals above zero</span></div>
+    <div class="kpi"><b>5 / 5</b><span>environments (Push-T, Two-Room, Cube, ViZDoom, Reacher) where the full method beats the official deployment in both scenarios, all with 95% intervals above zero</span></div>
   </div>
 
   <h3>Planning time per call</h3>
@@ -118,7 +118,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
 
 <section class="band"><div class="wrap">
   <h2>Results under measured latency</h2>
-  <p>Each method pays its own measured planning time: 6 frozen steps for the official solver, 1 for FlashCEM, at 10 Hz. <b>Official deployment</b> is the released planner: plan, freeze, execute all five blocks, repeat, terminal cost. <b>Ours</b> is FlashCEM + commitment prefix + prefix-min cost. Success within 50 steps; 300 episodes per environment (ViZDoom 500).</p>
+  <p>Each method pays its own measured planning time at 10 Hz: 6 frozen steps for the official solver and 1 for FlashCEM (Reacher: 13 and 3). <b>Official deployment</b> is the released planner: plan, freeze, execute all five blocks, repeat, terminal cost. <b>Ours</b> is FlashCEM + commitment prefix + prefix-min cost. Success within 50 steps; 300 episodes per environment (ViZDoom 500).</p>
   <div class="tabs" role="group" aria-label="Scenario">
     <button type="button" data-s="switch" aria-pressed="true">Goal switches at 0.8 s</button>
     <button type="button" data-s="base" aria-pressed="false">Static goal</button>
@@ -129,7 +129,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
   <h3>Where the gain comes from</h3>
   <p>Each column adds one component to the previous one; numbers are paired differences in success (points, 95% bootstrap interval).</p>
   <div class="scroll"><table id="abl"></table></div>
-  <p class="note">ViZDoom uses a model we trained; retrained with the official <code>train.py</code> it gives the same picture (ours − official deployment +14.6 static, +22.2 switch).</p>
+  <p class="note">* Reacher, goal switch: with the official 13-step freeze the first plan is made after the switch at step 8, so it already aims at the new goal; with a 3-step freeze the first plan aims at the old goal and the robot then executes all five blocks of it. This favours the official deployment, so the Reacher gain is conservative. ViZDoom uses a model we trained; retrained with the official <code>train.py</code> it gives the same picture (ours − official deployment +14.6 static, +22.2 switch).</p>
 </div></section>
 
 <section class="band"><div class="wrap">
@@ -139,13 +139,29 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
     <figure class="card"><img src="assets/tworoom_0.gif" alt="Two-Room rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>Two-Room, goal switch</figcaption></figure>
     <figure class="card"><img src="assets/doom_0.gif" alt="ViZDoom rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>ViZDoom (My Way Home), goal switch</figcaption></figure>
     <figure class="card"><img src="assets/cube_0.gif" alt="OGBench Cube rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>OGBench Cube, goal switch</figcaption></figure>
+    <figure class="card"><img src="assets/reacher_0.gif" alt="Reacher rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>Reacher (DMC), goal switch: the official planner freezes for 1.3 s per plan</figcaption></figure>
     <figure class="card"><img src="assets/pusht_static_0.gif" alt="Push-T rollout with a static goal" loading="lazy" width="1000" height="600"><figcaption>Push-T, static goal</figcaption></figure>
   </div>
   <h3>Uncurated: the first eight evaluation episodes</h3>
   <div class="grid2">
     <figure class="card"><img src="assets/pusht_grid.gif" alt="First eight Push-T goal-switch episodes for both methods" loading="lazy" width="900" height="300"><figcaption>Push-T, goal switch</figcaption></figure>
     <figure class="card"><img src="assets/tworoom_grid.gif" alt="First eight Two-Room goal-switch episodes for both methods" loading="lazy" width="900" height="300"><figcaption>Two-Room, goal switch</figcaption></figure>
+    <figure class="card"><img src="assets/reacher_grid.gif" alt="First eight Reacher goal-switch episodes for both methods" loading="lazy" width="900" height="300"><figcaption>Reacher, goal switch</figcaption></figure>
   </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>LIBERO-10 (LIBERO-Long)</h2>
+  <p>Long-horizon kitchen and living-room manipulation with a 7-DoF arm. LIBERO has no goal-image protocol, so we build one from the demonstrations: start from a demo state, the goal is the frame 25 steps later, success means every movable object is within 4 cm of its goal position (demo actions replayed from the same starts reach it 93% of the time). This is not the official language-task success rate. The base planner is weak here: under 20% with no latency, for our model and for one trained with the official <code>train.py</code>. The gains are real but small in absolute terms.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Scenario</th><th class="n">Zero planning time</th><th class="n">Official deployment</th><th class="n">Ours</th><th class="n">Ours − official deployment</th></tr></thead>
+    <tbody>
+      <tr><td>Static goal</td><td class="n">14.7</td><td class="n">13.0</td><td class="n win">20.7</td><td class="n win">+7.7 [+3.0, +12.7]</td></tr>
+      <tr><td>Goal switches at 0.8 s</td><td class="n">7.0</td><td class="n">2.7</td><td class="n win">10.3</td><td class="n win">+7.7 [+4.3, +11.3]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Success (%) within 50 steps, 300 episodes, task STUDY_SCENE1 (book into the caddy), single-task model. Official solver 495 ms per plan (5 frozen steps), FlashCEM 64 ms (1 step). Ten-task results with a multi-task model are in the repository; there all methods stay below 10% and cannot be separated.</p>
+  <div class="grid2"><figure class="card"><img src="assets/libero_grid.gif" alt="First eight LIBERO episodes for both methods" loading="lazy" width="900" height="300"><figcaption>LIBERO-10, static goal, first eight episodes (uncurated)</figcaption></figure></div>
 </div></section>
 
 <section class="band"><div class="wrap">
@@ -165,7 +181,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
 
 <section class="band"><div class="wrap">
   <h2>Limitations</h2>
-  <p>Latency is converted to whole environment steps at an assumed 10 Hz. Results use one world-model seed per environment. On LIBERO-10 the base planner succeeds too rarely (under 20% even with no latency, with our model or one trained by the official code) to separate the methods, so it is not shown here; details are in the repository.</p>
+  <p>Latency is converted to whole environment steps at an assumed 10 Hz. Results use one world-model seed per environment. On LIBERO-10 the base planner succeeds too rarely for the comparison to say much beyond the direction of the effect.</p>
   <h3>Reproduce</h3>
   <pre><code>git clone https://github.com/GuihaiChen1998/flash-lewm
 # measured planning time
@@ -180,17 +196,19 @@ FLASH_COST=min python scripts/official_eval.py --config-name=reacher seed=42 ...
 
 <script>
 {
-const LAT=[["Push-T",581,64],["Two-Room",597,65],["OGBench Cube",612,65],["Reacher",1260,216]];
-const SUCC={switch:[["Push-T",5.0,66.7,67.7,"+61.7"],["Two-Room",25.7,84.0,70.7,"+58.3"],["OGBench Cube",22.3,30.3,24.0,"+8.0"],["ViZDoom",19.0,46.2,36.4,"+27.2"]],
-            base:[["Push-T",86.0,92.0,88.3,"+6.0"],["Two-Room",88.0,96.3,89.3,"+8.3"],["OGBench Cube",23.0,36.0,29.0,"+13.0"],["ViZDoom",38.4,56.4,51.4,"+18.0"]]};
+const LAT=[["Push-T",581,64],["Two-Room",597,65],["OGBench Cube",612,65],["Reacher",1260,216],["LIBERO-10",495,64]];
+const SUCC={switch:[["Push-T",5.0,66.7,67.7,"+61.7"],["Two-Room",25.7,84.0,70.7,"+58.3"],["OGBench Cube",22.3,30.3,24.0,"+8.0"],["ViZDoom",19.0,46.2,36.4,"+27.2"],["Reacher",55.3,79.0,53.3,"+23.7"]],
+            base:[["Push-T",86.0,92.0,88.3,"+6.0"],["Two-Room",88.0,96.3,89.3,"+8.3"],["OGBench Cube",23.0,36.0,29.0,"+13.0"],["ViZDoom",38.4,56.4,51.4,"+18.0"],["Reacher",57.0,99.7,83.0,"+42.7"]]};
 const ABL={switch:[["Push-T","+27.0 [+22.0, +32.3]","+27.0 [+21.3, +32.7]","+7.7 [+1.3, +14.0]","+61.7 [+56.0, +67.0]"],
                    ["Two-Room","+36.7 [+31.3, +42.0]","+14.3 [+9.3, +19.3]","+7.3 [+2.7, +12.0]","+58.3 [+52.7, +64.3]"],
                    ["OGBench Cube","+2.3 [−0.3, +5.0]","+4.3 [+0.7, +8.0]","+1.3 [−2.0, +4.7]","+8.0 [+4.3, +11.7]"],
-                   ["ViZDoom","+11.8 [+8.6, +15.0]","+6.4 [+1.6, +11.0]","+9.0 [+4.4, +13.8]","+27.2 [+22.2, +32.2]"]],
+                   ["ViZDoom","+11.8 [+8.6, +15.0]","+6.4 [+1.6, +11.0]","+9.0 [+4.4, +13.8]","+27.2 [+22.2, +32.2]"],
+                   ["Reacher","−38.3 [−44.7, −31.7]*","+38.0 [+31.0, +45.0]","+24.0 [+18.7, +29.3]","+23.7 [+16.0, +31.7]"]],
            base:[["Push-T","+0.7 [+0.0, +1.7]","+2.3 [−1.3, +6.0]","+3.0 [−0.3, +6.3]","+6.0 [+2.3, +9.7]"],
                  ["Two-Room","+1.0 [+0.0, +2.3]","+4.3 [+1.7, +7.3]","+3.0 [+1.0, +5.3]","+8.3 [+5.3, +11.7]"],
                  ["OGBench Cube","+3.7 [+1.3, +6.3]","+8.0 [+3.7, +12.3]","+1.3 [−1.3, +4.0]","+13.0 [+8.3, +17.7]"],
-                 ["ViZDoom","+8.8 [+6.2, +11.4]","+3.8 [−0.6, +8.0]","+5.4 [+1.2, +9.4]","+18.0 [+13.6, +22.4]"]]};
+                 ["ViZDoom","+8.8 [+6.2, +11.4]","+3.8 [−0.6, +8.0]","+5.4 [+1.2, +9.4]","+18.0 [+13.6, +22.4]"],
+                 ["Reacher","+15.7 [+11.3, +20.0]","+19.7 [+14.3, +25.3]","+7.3 [+4.3, +10.7]","+42.7 [+37.0, +48.3]"]]};
 const mx=1300;
 document.getElementById("lat").innerHTML=LAT.map(([n,a,b])=>`<div class="row"><div class="lbl">${n}</div><div class="track">
   <div class="bar" style="width:${a/mx*100}%" title="official ${a} ms">${a} ms</div>
