@@ -19,6 +19,9 @@ IMN_STD = (0.229, 0.224, 0.225)
 
 
 def load_model(path=CKPT, device="cuda"):
+    if os.path.isdir(str(path)) and os.path.exists(os.path.join(str(path), "weights.pt")):   # original LeWM release
+        from .lewm import load_lewm
+        return load_lewm(str(path), device)
     # The checkpoint is a pickled nn.Module. Its pickle globals were listed with
     # pickletools before first use (only torch / transformers.ViT / jepa / module classes).
     if str(path).endswith(".pt"):   # a model trained with flash_lewm.train_min (state dict + config)

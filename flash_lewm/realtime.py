@@ -31,6 +31,10 @@ def plan_cost(model, z, zg, plans, cost="last"):
           consistent under receding-horizon replanning.
     min   best endpoint over prefix lengths (reach the goal at any time within the plan)
     """
+    if getattr(model, "is_lewm", False):              # original LeWM: autoregressive rollout, all block latents
+        from .lewm import lewm_preds
+        c = (lewm_preds(model, z, plans) - zg.view(zg.shape[0], 1, 1, -1)).pow(2).sum(-1)
+        return c[..., -1] if cost == "last" else (c.mean(-1) if cost == "sum" else c.min(-1).values)
     if cost == "last":
         return dense_cost_multi(model, z, zg, plans)
     e, n, h = plans.shape[:3]
