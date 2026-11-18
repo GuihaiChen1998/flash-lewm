@@ -1,0 +1,14 @@
+  sync m=5 d=2 it=10 last: 50/300 success@50=0.260 @75=0.640
+  sync m=5 d=2 it=10 last: 100/300 success@50=0.290 @75=0.610
+  sync m=5 d=2 it=10 last: 150/300 success@50=0.287 @75=0.600
+  sync m=5 d=2 it=10 last: 200/300 success@50=0.265 @75=0.635
+  sync m=5 d=2 it=10 last: 250/300 success@50=0.268 @75=0.652
+  sync m=5 d=2 it=10 last: 300/300 success@50=0.270 @75=0.653
+sync:5:2:10:last:switch            n=300 succ@50= 27.0% succ@75= 65.3% succ@T= 65.3%  (39s)
+  clamp m=1 d=1 it=10 min: 50/300 success@50=0.740 @75=0.820
+  clamp m=1 d=1 it=10 min: 100/300 success@50=0.760 @75=0.830
+  clamp m=1 d=1 it=10 min: 150/300 success@50=0.720 @75=0.800
+  clamp m=1 d=1 it=10 min: 200/300 success@50=0.710 @75=0.810
+  clamp m=1 d=1 it=10 min: 250/300 success@50=0.704 @75=0.804
+  clamp m=1 d=1 it=10 min: 300/300 success@50=0.697 @75=0.803
+clamp:1:1:10:min:switch            n=300 succ@50= 69.7% succ@75= 80.3% succ@T= 80.3%  (340s)

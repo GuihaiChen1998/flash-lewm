@@ -1,0 +1,11 @@
+{
+ "official cem 300x30": 5508.626451715827,
+ "cached cem 300x30": 617.3822674900293,
+ "official icem 300x10": "error: RuntimeError('The size of tensor a (10) must match the size of tensor b (2) at non-singleton dimension 3')",
+ "cached icem 300x10": 206.99727535247803,
+ "official icem 100x5": "error: RuntimeError('The size of tensor a (10) must match the size of tensor b (2) at non-singleton dimension 3')",
+ "cached icem 100x5": 114.31411746889353,
+ "official mppi 300x10": 463.1662266328931,
+ "cached mppi 300x10": 211.26015204936266,
+ "flash cem 300x30 (compiled)": 556.6796055063605
+}

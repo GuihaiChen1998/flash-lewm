@@ -1,0 +1,10 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+  sync m=5 d=5 it=10 last: 50/100 success@50=0.100 @75=0.420
+  sync m=5 d=5 it=10 last: 100/100 success@50=0.060 @75=0.390
+sync:5:5:10:last:switch            n=100 succ@50=  6.0% succ@75= 39.0% succ@T= 39.0%  (270s)
+  clamp m=1 d=3 it=10 min: 50/100 success@50=0.460 @75=0.560
+  clamp m=1 d=3 it=10 min: 100/100 success@50=0.450 @75=0.530
+clamp:1:3:10:min:switch            n=100 succ@50= 45.0% succ@75= 53.0% succ@T= 53.0%  (1208s)

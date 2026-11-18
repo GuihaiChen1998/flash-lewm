@@ -1,0 +1,11 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+cem 300x30 5508.626451715827 617.3822674900293
+icem 300x10 error: RuntimeError('The size of tensor a (10) must match the size of tensor b (2) at non-singleton dimension 3') 206.99727535247803
+icem 100x5 error: RuntimeError('The size of tensor a (10) must match the size of tensor b (2) at non-singleton dimension 3') 114.31411746889353
+mppi 300x10 463.1662266328931 211.26015204936266
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/_inductor/compile_fx.py:194: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+lewm_pusht {'official cem 300x30': 5508.626451715827, 'cached cem 300x30': 617.3822674900293, 'official icem 300x10': "error: RuntimeError('The size of tensor a (10) must match the size of tensor b (2) at non-singleton dimension 3')", 'cached icem 300x10': 206.99727535247803, 'official icem 100x5': "error: RuntimeError('The size of tensor a (10) must match the size of tensor b (2) at non-singleton dimension 3')", 'cached icem 100x5': 114.31411746889353, 'official mppi 300x10': 463.1662266328931, 'cached mppi 300x10': 211.26015204936266, 'flash cem 300x30 (compiled)': 556.6796055063605}

@@ -1,0 +1,36 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+cem 300x30 453.11456359922886 146.49608079344034
+icem 300x10 error: IndexError('index 1 is out of bounds for dimension 0 with size 1') 59.39681828022003
+icem 100x5 error: IndexError('index 1 is out of bounds for dimension 0 with size 1') 34.65172369033098
+mppi 300x10 148.24279304593801 55.12105766683817
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+pusht {'official cem 300x30': 453.11456359922886, 'cached cem 300x30': 146.49608079344034, 'official icem 300x10': "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')", 'cached icem 300x10': 59.39681828022003, 'official icem 100x5': "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')", 'cached icem 100x5': 34.65172369033098, 'official mppi 300x10': 148.24279304593801, 'cached mppi 300x10': 55.12105766683817, 'flash cem 300x30 (compiled)': 61.937298625707626}
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+cem 300x30 454.85910400748253 146.68927434831858
+icem 300x10 error: IndexError('index 1 is out of bounds for dimension 0 with size 1') 59.71165280789137
+icem 100x5 error: IndexError('index 1 is out of bounds for dimension 0 with size 1') 34.70643609762192
+mppi 300x10 149.0091923624277 55.35893514752388
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+tworoom {'official cem 300x30': 454.85910400748253, 'cached cem 300x30': 146.68927434831858, 'official icem 300x10': "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')", 'cached icem 300x10': 59.71165280789137, 'official icem 100x5': "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')", 'cached icem 100x5': 34.70643609762192, 'official mppi 300x10': 149.0091923624277, 'cached mppi 300x10': 55.35893514752388, 'flash cem 300x30 (compiled)': 62.17233370989561}
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+cem 300x30 567.6762908697128 186.53452768921852
+icem 300x10 error: IndexError('index 1 is out of bounds for dimension 0 with size 1') 75.94317477196455
+icem 100x5 error: IndexError('index 1 is out of bounds for dimension 0 with size 1') 44.00085471570492
+mppi 300x10 186.86587642878294 70.54850179702044
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+cube {'official cem 300x30': 567.6762908697128, 'cached cem 300x30': 186.53452768921852, 'official icem 300x10': "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')", 'cached icem 300x10': 75.94317477196455, 'official icem 100x5': "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')", 'cached icem 100x5': 44.00085471570492, 'official mppi 300x10': 186.86587642878294, 'cached mppi 300x10': 70.54850179702044, 'flash cem 300x30 (compiled)': 63.27577866613865}
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+cem 300x30 568.9333938062191 186.8133107200265
+icem 300x10 error: IndexError('index 1 is out of bounds for dimension 0 with size 1') 75.87139308452606
+icem 100x5 error: IndexError('index 1 is out of bounds for dimension 0 with size 1') 44.000379741191864
+mppi 300x10 187.2808849439025 70.58755494654179
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+reacher {'official cem 300x30': 568.9333938062191, 'cached cem 300x30': 186.8133107200265, 'official icem 300x10': "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')", 'cached icem 300x10': 75.87139308452606, 'official icem 100x5': "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')", 'cached icem 100x5': 44.000379741191864, 'official mppi 300x10': 187.2808849439025, 'cached mppi 300x10': 70.58755494654179, 'flash cem 300x30 (compiled)': 63.310496509075165}

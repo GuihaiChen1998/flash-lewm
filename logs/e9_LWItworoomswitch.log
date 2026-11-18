@@ -1,0 +1,8 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+  sync m=5 d=4 it=5 last: 50/100 success@50=0.200 @75=0.440
+  sync m=5 d=4 it=5 last: 100/100 success@50=0.210 @75=0.480
+sync:5:4:5:last:switch             n=100 succ@50= 21.0% succ@75= 48.0% succ@T= 48.0%  (34s)
+  clamp m=1 d=2 it=5 min: 50/100 success@50=0.460 @75=0.560
+  clamp m=1 d=2 it=5 min: 100/100 success@50=0.440 @75=0.560
+clamp:1:2:5:min:switch             n=100 succ@50= 44.0% succ@75= 56.0% succ@T= 56.0%  (251s)

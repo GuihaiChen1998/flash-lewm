@@ -1,0 +1,17 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+  sync m=5 d=56 it=30 last: 50/100 success@50=0.080 @75=0.420
+  sync m=5 d=56 it=30 last: 100/100 success@50=0.080 @75=0.410
+sync:5:56:30:last:base             n=100 succ@50=  8.0% succ@75= 41.0% succ@T= 41.0%  (298s)
+  sync m=5 d=6 it=30 last: 50/100 success@50=0.880 @75=0.920
+  sync m=5 d=6 it=30 last: 100/100 success@50=0.810 @75=0.890
+sync:5:6:30:last:base              n=100 succ@50= 81.0% succ@75= 89.0% succ@T= 89.0%  (668s)
+  clamp m=2 d=6 it=30 min: 50/100 success@50=0.920 @75=0.940
+  clamp m=2 d=6 it=30 min: 100/100 success@50=0.920 @75=0.930
+clamp:2:6:30:min:base              n=100 succ@50= 92.0% succ@75= 93.0% succ@T= 93.0%  (1229s)
+  sync m=5 d=6 it=30 min: 50/100 success@50=0.920 @75=0.920
+  sync m=5 d=6 it=30 min: 100/100 success@50=0.930 @75=0.930
+sync:5:6:30:min:base               n=100 succ@50= 93.0% succ@75= 93.0% succ@T= 93.0%  (328s)
+  oracle m=5 d=0 it=30 last: 50/100 success@50=0.920 @75=0.920
+  oracle m=5 d=0 it=30 last: 100/100 success@50=0.880 @75=0.890
+oracle:5:0:30:last:base            n=100 succ@50= 88.0% succ@75= 89.0% succ@T= 89.0%  (327s)

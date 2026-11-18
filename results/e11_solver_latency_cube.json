@@ -1,0 +1,11 @@
+{
+ "official cem 300x30": 567.6762908697128,
+ "cached cem 300x30": 186.53452768921852,
+ "official icem 300x10": "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')",
+ "cached icem 300x10": 75.94317477196455,
+ "official icem 100x5": "error: IndexError('index 1 is out of bounds for dimension 0 with size 1')",
+ "cached icem 100x5": 44.00085471570492,
+ "official mppi 300x10": 186.86587642878294,
+ "cached mppi 300x10": 70.54850179702044,
+ "flash cem 300x30 (compiled)": 63.27577866613865
+}

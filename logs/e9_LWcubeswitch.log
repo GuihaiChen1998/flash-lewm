@@ -1,0 +1,33 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  sync m=5 d=56 it=30 last: 25/100 success@50=0.040 @75=0.080
+  sync m=5 d=56 it=30 last: 50/100 success@50=0.040 @75=0.140
+  sync m=5 d=56 it=30 last: 75/100 success@50=0.027 @75=0.147
+  sync m=5 d=56 it=30 last: 100/100 success@50=0.020 @75=0.140
+sync:5:56:30:last:switch           n=100 succ@50=  2.0% succ@75= 14.0% succ@T= 14.0%  (398s)
+  sync m=5 d=6 it=30 last: 25/100 success@50=0.200 @75=0.200
+  sync m=5 d=6 it=30 last: 50/100 success@50=0.240 @75=0.240
+  sync m=5 d=6 it=30 last: 75/100 success@50=0.200 @75=0.200
+  sync m=5 d=6 it=30 last: 100/100 success@50=0.230 @75=0.230
+sync:5:6:30:last:switch            n=100 succ@50= 23.0% succ@75= 23.0% succ@T= 23.0%  (791s)
+  clamp m=2 d=6 it=30 min: 25/100 success@50=0.120 @75=0.120
+  clamp m=2 d=6 it=30 min: 50/100 success@50=0.240 @75=0.240
+  clamp m=2 d=6 it=30 min: 75/100 success@50=0.200 @75=0.200
+  clamp m=2 d=6 it=30 min: 100/100 success@50=0.220 @75=0.220
+clamp:2:6:30:min:switch            n=100 succ@50= 22.0% succ@75= 22.0% succ@T= 22.0%  (1176s)
+  sync m=5 d=6 it=30 min: 25/100 success@50=0.120 @75=0.120
+  sync m=5 d=6 it=30 min: 50/100 success@50=0.240 @75=0.240
+  sync m=5 d=6 it=30 min: 75/100 success@50=0.200 @75=0.200
+  sync m=5 d=6 it=30 min: 100/100 success@50=0.230 @75=0.230
+sync:5:6:30:min:switch             n=100 succ@50= 23.0% succ@75= 23.0% succ@T= 23.0%  (389s)
+  oracle m=5 d=0 it=30 last: 25/100 success@50=0.160 @75=0.160
+  oracle m=5 d=0 it=30 last: 50/100 success@50=0.220 @75=0.220
+  oracle m=5 d=0 it=30 last: 75/100 success@50=0.200 @75=0.200
+  oracle m=5 d=0 it=30 last: 100/100 success@50=0.200 @75=0.200
+oracle:5:0:30:last:switch          n=100 succ@50= 20.0% succ@75= 20.0% succ@T= 20.0%  (243s)

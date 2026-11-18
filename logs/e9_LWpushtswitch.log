@@ -1,0 +1,19 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+  sync m=5 d=56 it=30 last: 50/100 success@50=0.000 @75=0.120
+  sync m=5 d=56 it=30 last: 100/100 success@50=0.000 @75=0.060
+sync:5:56:30:last:switch           n=100 succ@50=  0.0% succ@75=  6.0% succ@T=  6.0%  (299s)
+  sync m=5 d=6 it=30 last: 50/100 success@50=0.120 @75=0.680
+  sync m=5 d=6 it=30 last: 100/100 success@50=0.070 @75=0.580
+sync:5:6:30:last:switch            n=100 succ@50=  7.0% succ@75= 58.0% succ@T= 58.0%  (666s)
+  clamp m=2 d=6 it=30 min: 50/100 success@50=0.420 @75=0.520
+  clamp m=2 d=6 it=30 min: 100/100 success@50=0.460 @75=0.550
+clamp:2:6:30:min:switch            n=100 succ@50= 46.0% succ@75= 55.0% succ@T= 55.0%  (1148s)
+  sync m=5 d=6 it=30 min: 50/100 success@50=0.280 @75=0.680
+  sync m=5 d=6 it=30 min: 100/100 success@50=0.210 @75=0.660
+sync:5:6:30:min:switch             n=100 succ@50= 21.0% succ@75= 66.0% succ@T= 66.0%  (296s)
+  oracle m=5 d=0 it=30 last: 50/100 success@50=0.660 @75=0.800
+  oracle m=5 d=0 it=30 last: 100/100 success@50=0.560 @75=0.720
+oracle:5:0:30:last:switch          n=100 succ@50= 56.0% succ@75= 72.0% succ@T= 72.0%  (295s)
