@@ -48,7 +48,7 @@ for name, (algo, n, it) in BUDGETS.items():
         rt.cem_clamped(model, zz[:1], zz[1:], n=n, iters=it, topk=30, gen=torch.Generator(device=dev).manual_seed(0), cost="min", algo=algo)
     res[f"cached {name}"] = timeit(ours)
     print(name, res[f"official {name}"], res[f"cached {name}"], flush=True)
-if not getattr(model, "is_lewm", False):
+if True:
     fl = FlashCEM(model, n=300, topk=30, iters=30)
     def fl_t(i):
         zz = encode_pixels(model, np.concatenate([pairs["pixels"][i:i + 1], pairs["goal"][i:i + 1]])); fl(zz[0], zz[1], torch.Generator(device=dev).manual_seed(0))

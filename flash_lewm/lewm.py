@@ -43,6 +43,19 @@ def load_lewm(d, device="cuda"):
     return m
 
 
+def lewm_preds_raw(model, z, plans):
+    """Same as lewm_preds, without the inference-mode decorator (used inside torch.compile)."""
+    e, n, h = plans.shape[:3]
+    emb = z.view(e, 1, 1, -1).expand(e, n, 1, -1).reshape(e * n, 1, -1)
+    act = plans.reshape(e * n, h, -1)
+    hs, out = model.history, []
+    for t in range(h):
+        ae = model.action_encoder(act[:, :t + 1])
+        pr = model.predict(emb[:, -hs:], ae[:, -hs:])[:, -1:]
+        emb = torch.cat([emb, pr], 1); out.append(pr)
+    return torch.cat(out, 1).view(e, n, h, -1)
+
+
 @torch.inference_mode()
 def lewm_preds(model, z, plans):
     """z [E,D]; plans [E,N,H,A] (normalised blocks) -> latents after 1..H blocks [E,N,H,D]."""

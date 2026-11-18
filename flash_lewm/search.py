@@ -220,7 +220,11 @@ class _CEMStep(torch.nn.Module):
         cand = torch.cat([mean[None], noise[1:] * std + mean], 0)
         n = cand.shape[0]
         emb = z.view(1, 1, -1).expand(n, 1, -1)
-        if self.cost == "last":
+        if getattr(self.m, "is_lewm", False):     # original LeWM: autoregressive block rollout
+            from .lewm import lewm_preds_raw
+            c = (lewm_preds_raw(self.m, z.view(1, -1), cand.view(1, n, H, A))[0] - zg.view(1, 1, -1)).pow(2).sum(-1)
+            c = c[:, -1] if self.cost == "last" else c.min(-1).values
+        elif self.cost == "last":
             act = self.m.action_encoder(cand.view(n, H, A), return_last_only=True, latent=emb)
             pred = self.m.predict(emb, act)
             c = (pred[:, 0] - zg.view(1, -1)).pow(2).sum(-1)
