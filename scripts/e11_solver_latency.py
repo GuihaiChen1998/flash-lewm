@@ -20,7 +20,7 @@ BUDGETS = {"cem 300x30": ("cem", 300, 30), "icem 300x10": ("icem", 300, 10), "ic
 
 def info_for(i):
     return {"pixels": preprocess(pairs["pixels"][i:i + 1]).cpu()[:, None], "goal": preprocess(pairs["goal"][i:i + 1]).cpu()[:, None],
-            "action": torch.zeros(1, 1, adim)}
+            "action": torch.zeros(1, 1, adim * (5 if getattr(model, "is_lewm", False) else 1))}
 
 def timeit(f):
     for _ in range(2): f(0)
@@ -36,7 +36,8 @@ for name, (algo, n, it) in BUDGETS.items():
     if algo in ("cem", "icem"): kw.update(var_scale=1.0, topk=30)
     try:
         sol = cls(model, **kw)
-        sol.configure(action_space=gym.spaces.Box(-1, 1, shape=(1, adim)), n_envs=1, config=types.SimpleNamespace(horizon=1, action_block=25))
+        hz = 5 if getattr(model, "is_lewm", False) else 1          # LeWM plans 5 blocks of 5; Fast-LeWM packs them into one
+        sol.configure(action_space=gym.spaces.Box(-1, 1, shape=(1, adim)), n_envs=1, config=types.SimpleNamespace(horizon=hz, action_block=25 // hz))
         def off(i):
             with contextlib.redirect_stdout(io.StringIO()): sol.solve(info_for(i))
         res[f"official {name}"] = timeit(off)
@@ -47,9 +48,10 @@ for name, (algo, n, it) in BUDGETS.items():
         rt.cem_clamped(model, zz[:1], zz[1:], n=n, iters=it, topk=30, gen=torch.Generator(device=dev).manual_seed(0), cost="min", algo=algo)
     res[f"cached {name}"] = timeit(ours)
     print(name, res[f"official {name}"], res[f"cached {name}"], flush=True)
-fl = FlashCEM(model, n=300, topk=30, iters=30)
-def fl_t(i):
-    zz = encode_pixels(model, np.concatenate([pairs["pixels"][i:i + 1], pairs["goal"][i:i + 1]])); fl(zz[0], zz[1], torch.Generator(device=dev).manual_seed(0))
-res["flash cem 300x30 (compiled)"] = timeit(fl_t)
+if not getattr(model, "is_lewm", False):
+    fl = FlashCEM(model, n=300, topk=30, iters=30)
+    def fl_t(i):
+        zz = encode_pixels(model, np.concatenate([pairs["pixels"][i:i + 1], pairs["goal"][i:i + 1]])); fl(zz[0], zz[1], torch.Generator(device=dev).manual_seed(0))
+    res["flash cem 300x30 (compiled)"] = timeit(fl_t)
 print(tag, res, flush=True)
 json.dump(res, open(f"results/e11_solver_latency_{tag}.json", "w"), indent=1)
