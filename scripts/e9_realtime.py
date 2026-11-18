@@ -55,7 +55,7 @@ for cfg in cfgs:
     pairs = get_pairs(off, "switch" in kw)
     n_ep = len(pairs["state"])
     t0 = time.time()
-    first, mc = simulate(model, pairs, a_mean, a_std, method, m=m, d=d, iters=iters, cost=cost, T=T, chunk=int(os.environ.get("FLASH_CHUNK", "50")),
+    first, mc = simulate(model, pairs, a_mean, a_std, method, m=m, d=d, iters=iters, cost=cost, T=T, chunk=int(os.environ.get("FLASH_CHUNK", "50")), n=int(os.environ.get("FLASH_N", "300")),
                          log=lambda s: print(s, flush=True), **kw)
     res[cfg] = {"n": n_ep, "T": T, "first_success": first.tolist(), "mean_model_cost": mc,
                 "succ50": float(np.mean(first < 50)), "succ75": float(np.mean(first < 75)), "succT": float(np.mean(first < T)),

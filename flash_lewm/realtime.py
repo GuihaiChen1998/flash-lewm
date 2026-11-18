@@ -41,25 +41,82 @@ def plan_cost(model, z, zg, plans, cost="last"):
     return c.mean(-1) if cost == "sum" else c.min(-1).values
 
 
+SOLVER = os.environ.get("FLASH_SOLVER", "cem")      # cem | icem | mppi
+ICEM_BETA, ICEM_DECAY, ICEM_KEEP, ICEM_ALPHA = 2.0, 1.25, 0.3, 0.1
+MPPI_TEMP = 0.1
+
+
+def _colored(e, n, steps, gen, dev, beta=ICEM_BETA):
+    """Unit-variance noise with power spectrum 1/f^beta along the env-step axis: [e, n, steps, ADIM]."""
+    if steps < 2:
+        return torch.randn(e, n, steps, ADIM, generator=gen, device=dev)
+    white = torch.randn(e, n, ADIM, steps, generator=gen, device=dev)
+    f = torch.fft.rfftfreq(steps, device=dev)
+    f[0] = f[1]
+    col = torch.fft.irfft(torch.fft.rfft(white, dim=-1) * f.pow(-beta / 2), n=steps, dim=-1)
+    col = col / col.std(-1, keepdim=True).clamp_min(1e-8)
+    return col.transpose(-1, -2)
+
+
 @torch.inference_mode()
-def cem_clamped(model, z, zg, prefix=None, n=300, topk=30, iters=30, gen=None, init_mean=None, cost="last"):
-    """Batched CEM over the free suffix only. z, zg: [E,192]; prefix: [E, m*A] or None.
+def cem_clamped(model, z, zg, prefix=None, n=300, topk=30, iters=30, gen=None, init_mean=None, cost="last", algo=None):
+    """Batched sampling-based planner over the free suffix only. z, zg: [E,192]; prefix: [E, m*A] or None.
     Every candidate is prefix (+) suffix and is scored by the unmodified model, so the score is the
-    model's score of the full plan. Returns (full plan [E, H*A], model cost of that plan [E])."""
+    model's score of the full plan. Returns (full plan [E, H*A], model cost of that plan [E]).
+
+    algo cem   the official CEM (Gaussian, mean and std of the top-k, return the mean)
+         icem  iCEM (Pinneri et al. 2020): colored noise along the env-step axis (beta=2), population
+               shrinking by 1.25 per iteration, 30% of the previous elites carried over, momentum 0.1 on
+               mean and std, warm start from init_mean; returns the best sequence seen
+         mppi  MPPI: fixed unit noise, mean <- softmax(-cost/temperature)-weighted average of all samples
+               (costs standardised per environment, temperature 0.1)"""
+    algo = algo or SOLVER
     e, dev = z.shape[0], z.device
     dp = 0 if prefix is None else prefix.shape[1]
     ds = H * A - dp
     mean = torch.zeros(e, ds, device=dev) if init_mean is None else init_mean.clone()
     std = torch.ones(e, ds, device=dev)
-    for _ in range(iters):
-        suf = torch.randn(e, n, ds, generator=gen, device=dev) * std[:, None] + mean[:, None]
-        suf[:, 0] = mean
-        cand = suf if dp == 0 else torch.cat([prefix[:, None].expand(e, n, dp), suf], -1)
-        c = plan_cost(model, z, zg, cand.view(e, n, H, A), cost)
-        _, i = torch.topk(c, topk, dim=1, largest=False)
-        el = torch.gather(suf, 1, i[..., None].expand(-1, -1, ds))
-        mean, std = el.mean(1), el.std(1)
-    plan = mean if dp == 0 else torch.cat([prefix, mean], -1)
+    keep, best, best_c = None, None, None
+
+    def score(suf):
+        cand = suf if dp == 0 else torch.cat([prefix[:, None].expand(e, suf.shape[1], dp), suf], -1)
+        return plan_cost(model, z, zg, cand.view(e, suf.shape[1], H, A), cost)
+
+    for it in range(iters):
+        if algo == "icem":
+            ni = max(int(n * ICEM_DECAY ** (-it)), 2 * topk)
+            noise = _colored(e, ni, ds // ADIM, gen, dev).reshape(e, ni, ds)
+            suf = noise * std[:, None] + mean[:, None]
+            suf[:, 0] = mean
+            if keep is not None:
+                suf = torch.cat([suf, keep], 1)
+            c = score(suf)
+            v, i = torch.topk(c, topk, dim=1, largest=False)
+            el = torch.gather(suf, 1, i[..., None].expand(-1, -1, ds))
+            keep = el[:, :max(1, int(ICEM_KEEP * topk))]
+            mean = (1 - ICEM_ALPHA) * el.mean(1) + ICEM_ALPHA * mean
+            std = (1 - ICEM_ALPHA) * el.std(1) + ICEM_ALPHA * std
+            if best is None:
+                best, best_c = el[:, 0].clone(), v[:, 0].clone()
+            else:
+                upd = v[:, 0] < best_c
+                best[upd], best_c[upd] = el[upd, 0], v[upd, 0]
+        elif algo == "mppi":
+            suf = torch.randn(e, n, ds, generator=gen, device=dev) + mean[:, None]
+            suf[:, 0] = mean
+            c = score(suf)
+            cz = (c - c.mean(1, keepdim=True)) / c.std(1, keepdim=True).clamp_min(1e-8)
+            w = torch.softmax(-cz / MPPI_TEMP, dim=1)
+            mean = (w[..., None] * suf).sum(1)
+        else:
+            suf = torch.randn(e, n, ds, generator=gen, device=dev) * std[:, None] + mean[:, None]
+            suf[:, 0] = mean
+            c = score(suf)
+            _, i = torch.topk(c, topk, dim=1, largest=False)
+            el = torch.gather(suf, 1, i[..., None].expand(-1, -1, ds))
+            mean, std = el.mean(1), el.std(1)
+    out = best if algo == "icem" else mean
+    plan = out if dp == 0 else torch.cat([prefix, out], -1)
     return plan, plan_cost(model, z, zg, plan.view(e, 1, H, A), cost)[:, 0]
 
 
@@ -163,12 +220,16 @@ def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=30
 
         kw = dict(n=n, topk=topk, iters=iters, gen=gen, cost=cost)
         if method in ("sync", "oracle"):
+            warm = None
             while t < T:
                 z = observe()
                 hold(d)
-                plan, c = cem_clamped(model, z, zg, **kw)
+                plan, c = cem_clamped(model, z, zg, init_mean=warm, **kw)
                 costs.append(c.mean().item())
                 execute(plan[:, :mb])
+                if SOLVER in ("icem", "mppi"):        # iCEM / MPPI shift the unexecuted remainder as the next mean
+                    warm = torch.zeros_like(plan)
+                    warm[:, :H * A - mb] = plan[:, mb:]
         else:
             z = observe()
             hold(d)
@@ -182,7 +243,7 @@ def simulate(model, pairs, a_mean, a_std, method, m=1, d=5, T=75, iters=30, n=30
                     nxt = new[:, mb:2 * mb]
                 elif method in ("clamp", "clamp_ws"):
                     init = None
-                    if method == "clamp_ws":       # blocks the previous plan placed after the queue
+                    if method == "clamp_ws" or SOLVER in ("icem", "mppi"):   # warm start: blocks the previous plan placed after the queue
                         init = torch.zeros(E, H * A - mb, device=dev)
                         init[:, :carry.shape[1]] = carry
                     new, c = cem_clamped(model, z, zg, prefix=queue, init_mean=init, **kw)
