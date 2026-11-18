@@ -204,6 +204,25 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
 </div></section>
 
 <section class="band"><div class="wrap">
+  <h2>At 50 Hz</h2>
+  <p>At 10 Hz every planner under 100 ms costs one step, so a faster sampler cannot show its speed. We shrink the control period to 20 ms (delay = ⌈time / 20 ms⌉): the official CEM now freezes for 23–29 steps, FlashCEM for 4, iCEM for 2–4. With the commitment prefix the robot replans once per action block (5 steps, 100 ms), and any plan that finishes within the block is fully hidden. So even if iCEM and MPPI were compiled to FlashCEM's per-iteration cost, being faster than one block buys nothing; plan quality decides.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Environment, scenario</th><th class="n">Official CEM</th><th class="n">iCEM + ours (compiled-equivalent)</th><th class="n">MPPI + ours (compiled-equivalent)</th><th class="n">Full method</th><th class="n">Full − official</th></tr></thead>
+    <tbody>
+      <tr><td>Push-T, static</td><td class="n">85.3</td><td class="n">87.0</td><td class="n">86.7</td><td class="n win">91.0</td><td class="n win">+5.7</td></tr>
+      <tr><td>Push-T, goal switch</td><td class="n">29.0</td><td class="n">34.3</td><td class="n">49.0</td><td class="n win">59.0</td><td class="n win">+30.0</td></tr>
+      <tr><td>Two-Room, static</td><td class="n">86.7</td><td class="n">95.0</td><td class="n">95.0</td><td class="n win">96.3</td><td class="n win">+9.7</td></tr>
+      <tr><td>Two-Room, goal switch</td><td class="n">45.0</td><td class="n">67.7</td><td class="n">68.3</td><td class="n win">79.0</td><td class="n win">+34.0</td></tr>
+      <tr><td>OGBench Cube, static</td><td class="n">3.3</td><td class="n">20.7</td><td class="n">15.0</td><td class="n win">35.3</td><td class="n win">+32.0</td></tr>
+      <tr><td>OGBench Cube, goal switch</td><td class="n">20.3</td><td class="n">18.0</td><td class="n">18.3</td><td class="n win">30.0</td><td class="n win">+9.7</td></tr>
+      <tr><td>Reacher, static</td><td class="n">18.7</td><td class="n">75.3</td><td class="n">85.3</td><td class="n win">99.0</td><td class="n win">+80.3</td></tr>
+      <tr><td>Reacher, goal switch</td><td class="n">11.3</td><td class="n">36.0</td><td class="n">47.7</td><td class="n win">88.0</td><td class="n win">+76.7</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Fast-LeWM, success (%) within 50 steps, 300 episodes per row; all full − official differences have 95% intervals above zero. "Compiled-equivalent" charges iCEM / MPPI the measured time of FlashCEM with the same samples × iterations (24–26 ms, 2 steps), the most favourable assumption for them. Against these, the full method wins 6 of 8 rows for iCEM and 7 of 8 for MPPI; the rest are ties. Speed would matter once a plan takes longer than one action block, which we did not test.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
   <h2>Official evaluation protocol</h2>
   <p>We ran the official <code>eval.py</code> unchanged (synchronous planning, no latency) on the four Fast-LeWM benchmarks. With the paper's seed we reproduce its numbers within 2 points. Averaged over ten seeds the official planner scores lower than the single-seed table suggests. Swapping in the prefix-min cost never hurts and adds 11 points on Reacher.</p>
   <div class="scroll"><table>
@@ -216,11 +235,23 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
     </tbody>
   </table></div>
   <p class="note">Success rate (%), 50 episodes per seed. Paper column: Table 1 of Fast LeWorldModel (arXiv 2606.26217).</p>
+  <h3>The original LeWM under its own <code>eval.py</code></h3>
+  <p>Our fast implementation encodes the observation and goal once per plan instead of re-encoding 300 candidate images every iteration. Run inside the official LeWM <code>eval.py</code> with the official terminal cost, it gives exactly the official success rates (episode-level agreement 99.2–100%), so it changes speed, not plans. Swapping in the prefix-min cost improves all four environments.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Environment</th><th class="n">Official code</th><th class="n">Ours, terminal cost</th><th class="n">Same outcome per episode</th><th class="n">Ours, prefix-min</th><th class="n">Difference</th></tr></thead>
+    <tbody>
+      <tr><td>Push-T</td><td class="n">87.4</td><td class="n">87.4</td><td class="n">99.2%</td><td class="n win">90.8</td><td class="n win">+3.4 [+1.0, +5.8]</td></tr>
+      <tr><td>Two-Room</td><td class="n">88.2</td><td class="n">88.2</td><td class="n">100%</td><td class="n win">93.0</td><td class="n win">+4.8 [+2.4, +7.4]</td></tr>
+      <tr><td>OGBench Cube</td><td class="n">68.4</td><td class="n">68.4</td><td class="n">100%</td><td class="n win">72.8</td><td class="n win">+4.4 [+1.2, +7.6]</td></tr>
+      <tr><td>Reacher</td><td class="n">79.8</td><td class="n">79.8</td><td class="n">100%</td><td class="n win">91.2</td><td class="n win">+11.4 [+7.2, +15.6]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Released LeWM weights, official config (CEM 300 × 30, horizon 5 × 5), 10 seeds × 50 episodes. Synchronous evaluation, so planning time does not enter these numbers.</p>
 </div></section>
 
 <section class="band"><div class="wrap">
   <h2>Limitations</h2>
-  <p>Latency is converted to whole environment steps at an assumed 10 Hz. Results use one world-model seed per environment. LeWM rows use 100 episodes, so their intervals are about twice as wide. iCEM and MPPI use standard hyperparameters, not tuned per environment, and were only tested at 10 Hz, where their speed advantage cannot show. On LIBERO-10 the base planner succeeds too rarely for the comparison to say much beyond the direction of the effect.</p>
+  <p>Latency is converted to whole environment steps at an assumed 10 Hz. Results use one world-model seed per environment. LeWM rows use 100 episodes, so their intervals are about twice as wide. iCEM and MPPI use standard hyperparameters, not tuned per environment. The 50 Hz study scales the delay in steps; the environments, models and action blocks are unchanged, and planning is assumed to run in the background while a block executes. On LIBERO-10 the base planner succeeds too rarely for the comparison to say much beyond the direction of the effect.</p>
   <h3>Reproduce</h3>
   <pre><code>git clone https://github.com/GuihaiChen1998/flash-lewm
 # measured planning time
