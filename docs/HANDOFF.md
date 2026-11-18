@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-17，第 14 轮。
+最后更新：2026-11-18，第 17 轮。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -121,6 +121,18 @@ FlashCEM 降级为「优化后的同步基线」。
 - 项目展示页 `docs/site/`（index.html + assets/*.gif）。GIF 由 `scripts/record_rollouts.py`（录帧，原始数据在 `/data1/cgh/dataset/rollouts/*.npz`）+ `scripts/make_gifs.py`（左右对比）+ `scripts/make_grid_gif.py`（前 8 回合不挑选）生成；大 GIF 是挑过的成功回合，页面上已注明。
 - 并行注意：评测进程要设 `OMP_NUM_THREADS=4`，否则多进程时 CPU 严重超订。
 - 实测耗时 + 实时对比完成（`docs/real_latency_v1.md`）：官方求解器约 600 ms（6 步）、FlashCEM 65 ms（1 步）；完整方法对官方部署全部显著，换目标 +8 到 +62。结果标签 `RL<env><场景>`。
+
+## 采样方法对比与原版 LeWM（第 17 轮，2026-11-18）
+- iCEM / MPPI：`FLASH_SOLVER=icem|mppi`、`FLASH_N=<候选数>`（`flash_lewm/realtime.py` 的 `cem_clamped`）。官方库 `ICEMSolver` 在 Fast-LeWM（horizon=1）和 LeWM 上都报错，用的是自己的实现。
+  结果标签 `IC<env><场景>`（iCEM 300×10）、`IS`（iCEM 100×5）、`MP`（MPPI 300×10），结论见 `docs/sampling_baselines_v1.md`。
+- 求解器耗时：`scripts/e11_solver_latency.py <tag> <次数>` → `results/e11_solver_latency_<tag>.json`。机器空闲时测。
+- Reacher 首测耗时（1260 / 216 ms）是负载下的；空闲重测 567 / 63 ms，按 6 / 1 步重跑为 `RL6reacher*`，页面与 `docs/real_latency_v1.md` 已更正。
+- 原版 LeWM：HF 权重在 `ckpt/lewm/{pusht,tworoom,cube,reacher}`（config.json + weights.pt），`core.load_model` 遇到含 weights.pt 的目录会走 `flash_lewm/lewm.py`。
+  运行 LeWM 时 PYTHONPATH **不要**带 `third_party/Fast-LeWorldModel`（无所谓，加载器用私有模块名），但跑 Fast-LeWM 权重时**必须**带（否则 `No module named 'jepa'`）。
+  实时结果标签 `LW` / `LWI` / `LWM` + `<env><场景>`，每组 100 回合；结论见 `docs/lewm_plugin_v1.md`。LeWM 官方 CEM 5.5 s/次，编译 FlashCEM 557 ms（预测器是瓶颈）。
+- Reacher 回放已按 6 / 1 步重录：`/data1/cgh/dataset/rollouts/reacher6.npz`。
+- 远端没有可推送的 git 凭据：推送时临时把 GuihaiChen1998 的 token 写进 0600 文件、用完即删（token 在私有仓库 private-documents 的 /任务基础上下文/）。
+- 未做：LeWM 上跑官方 `eval.py`；50 Hz 下 iCEM 省时间是否变成收益。
 
 ## 下一步候选（第 11 轮后）
 1. 给 Cube 加 far / kick 场景；查清官方代价配置在换目标那一步就成功的 21–29 个回合是怎么回事。

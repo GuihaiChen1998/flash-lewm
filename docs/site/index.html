@@ -96,8 +96,9 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
   <h2>What changes</h2>
   <div class="kpis">
     <div class="kpi"><b>65 ms</b><span>per plan with FlashCEM, against 581–612 ms for the official CEM solver (same 300 samples × 30 iterations)</span></div>
-    <div class="kpi"><b>+58 to +62</b><span>points of success over the official deployment when the goal changes mid-episode (Push-T, Two-Room)</span></div>
+    <div class="kpi"><b>+58 to +66</b><span>points of success over the official deployment when the goal changes mid-episode (Push-T, Two-Room, Reacher)</span></div>
     <div class="kpi"><b>5 / 5</b><span>environments (Push-T, Two-Room, Cube, ViZDoom, Reacher) where the full method beats the official deployment in both scenarios, all with 95% intervals above zero</span></div>
+    <div class="kpi"><b>Plug-in</b><span>no retraining: the same planner layer works on the original LeWM and on top of iCEM and MPPI</span></div>
   </div>
 
   <h3>Planning time per call</h3>
@@ -118,7 +119,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
 
 <section class="band"><div class="wrap">
   <h2>Results under measured latency</h2>
-  <p>Each method pays its own measured planning time at 10 Hz: 6 frozen steps for the official solver and 1 for FlashCEM (Reacher: 13 and 3). <b>Official deployment</b> is the released planner: plan, freeze, execute all five blocks, repeat, terminal cost. <b>Ours</b> is FlashCEM + commitment prefix + prefix-min cost. Success within 50 steps; 300 episodes per environment (ViZDoom 500).</p>
+  <p>Each method pays its own measured planning time at 10 Hz: 6 frozen steps for the official solver and 1 for FlashCEM. <b>Official deployment</b> is the released planner: plan, freeze, execute all five blocks, repeat, terminal cost. <b>Ours</b> is FlashCEM + commitment prefix + prefix-min cost. Success within 50 steps; 300 episodes per environment (ViZDoom 500).</p>
   <div class="tabs" role="group" aria-label="Scenario">
     <button type="button" data-s="switch" aria-pressed="true">Goal switches at 0.8 s</button>
     <button type="button" data-s="base" aria-pressed="false">Static goal</button>
@@ -129,7 +130,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
   <h3>Where the gain comes from</h3>
   <p>Each column adds one component to the previous one; numbers are paired differences in success (points, 95% bootstrap interval).</p>
   <div class="scroll"><table id="abl"></table></div>
-  <p class="note">* Reacher, goal switch: with the official 13-step freeze the first plan is made after the switch at step 8, so it already aims at the new goal; with a 3-step freeze the first plan aims at the old goal and the robot then executes all five blocks of it. This favours the official deployment, so the Reacher gain is conservative. ViZDoom uses a model we trained; retrained with the official <code>train.py</code> it gives the same picture (ours − official deployment +14.6 static, +22.2 switch).</p>
+  <p class="note">Reacher latency was re-measured on an idle machine (567 ms official, 63 ms FlashCEM; a first measurement under load gave 1260 / 216 ms) and the Reacher runs were repeated at 6 / 1 steps. ViZDoom uses a model we trained; retrained with the official <code>train.py</code> it gives the same picture (ours − official deployment +14.6 static, +22.2 switch).</p>
 </div></section>
 
 <section class="band"><div class="wrap">
@@ -139,7 +140,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
     <figure class="card"><img src="assets/tworoom_0.gif" alt="Two-Room rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>Two-Room, goal switch</figcaption></figure>
     <figure class="card"><img src="assets/doom_0.gif" alt="ViZDoom rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>ViZDoom (My Way Home), goal switch</figcaption></figure>
     <figure class="card"><img src="assets/cube_0.gif" alt="OGBench Cube rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>OGBench Cube, goal switch</figcaption></figure>
-    <figure class="card"><img src="assets/reacher_0.gif" alt="Reacher rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>Reacher (DMC), goal switch: the official planner freezes for 1.3 s per plan</figcaption></figure>
+    <figure class="card"><img src="assets/reacher_0.gif" alt="Reacher rollout, goal switches" loading="lazy" width="1000" height="700"><figcaption>Reacher (DMC), goal switch</figcaption></figure>
     <figure class="card"><img src="assets/pusht_static_0.gif" alt="Push-T rollout with a static goal" loading="lazy" width="1000" height="600"><figcaption>Push-T, static goal</figcaption></figure>
   </div>
   <h3>Uncurated: the first eight evaluation episodes</h3>
@@ -165,6 +166,44 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
 </div></section>
 
 <section class="band"><div class="wrap">
+  <h2>Plug-in: the original LeWM</h2>
+  <p>The method is a planning layer, not a new model. We load the released LeWM weights (<code>quentinll/lewm-*</code>) unchanged and plan with its own autoregressive predictor. The official LeWM planner re-encodes 300 candidate images every iteration and takes 5.5 s per plan: at 10 Hz that is 56 frozen steps, longer than the whole 50-step budget. Encoding the observation once brings it to 0.56 s (6 steps); LeWM's bottleneck is then the block-by-block predictor, so compiling helps little and we commit two blocks while planning.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Environment, scenario</th><th class="n">Zero planning time</th><th class="n">Official deployment</th><th class="n">Encode once</th><th class="n">Ours</th><th class="n">Ours − official deployment</th></tr></thead>
+    <tbody>
+      <tr><td>Push-T, static</td><td class="n">88</td><td class="n">0</td><td class="n">77</td><td class="n win">85</td><td class="n win">+85 [+78, +92]</td></tr>
+      <tr><td>Push-T, goal switch</td><td class="n">56</td><td class="n">0</td><td class="n">7</td><td class="n win">46</td><td class="n win">+46 [+36, +56]</td></tr>
+      <tr><td>Two-Room, static</td><td class="n">88</td><td class="n">8</td><td class="n">81</td><td class="n win">92</td><td class="n win">+84 [+76, +91]</td></tr>
+      <tr><td>Two-Room, goal switch</td><td class="n">55</td><td class="n">1</td><td class="n">20</td><td class="n win">59</td><td class="n win">+58 [+48, +68]</td></tr>
+      <tr><td>OGBench Cube, static</td><td class="n">24</td><td class="n">2</td><td class="n">20</td><td class="n win">33</td><td class="n win">+31 [+22, +40]</td></tr>
+      <tr><td>OGBench Cube, goal switch</td><td class="n">20</td><td class="n">2</td><td class="n">23</td><td class="n win">22</td><td class="n win">+20 [+13, +28]</td></tr>
+      <tr><td>Reacher, static</td><td class="n">86</td><td class="n">0</td><td class="n">60</td><td class="n win">99</td><td class="n win">+99 [+97, +100]</td></tr>
+      <tr><td>Reacher, goal switch</td><td class="n">54</td><td class="n">0</td><td class="n">12</td><td class="n win">89</td><td class="n win">+89 [+83, +95]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Success (%) within 50 steps, 100 episodes per row. Official deployment: official CEM, 56-step delay. Encode once: same planner with the observation encoded once (6 steps), whole plan executed, terminal cost. Ours: encode once + commitment prefix + prefix-min cost. Ours is never significantly below the zero-planning-time reference and is above it in four rows.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Against and on top of iCEM and MPPI</h2>
+  <p>iCEM and MPPI change how candidates are sampled. Our two components change how a plan is executed under latency (commitment prefix) and how it is scored (prefix-min cost), so they can be added to either. On Fast-LeWM, adding them improves iCEM and MPPI in 21 of 24 settings (the other three are Cube with a goal switch, where nothing separates). The full method still wins at the same 1-step delay: at 10 Hz any planner under 100 ms costs one step, so iCEM's extra speed buys nothing, while its 10 iterations plan worse than FlashCEM's 30.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Environment, scenario</th><th class="n">iCEM</th><th class="n">iCEM + ours</th><th class="n">MPPI</th><th class="n">MPPI + ours</th><th class="n">Full method</th></tr></thead>
+    <tbody>
+      <tr><td>Push-T, static</td><td class="n">72.3</td><td class="n">87.3</td><td class="n">79.3</td><td class="n">86.3</td><td class="n win">92.0</td></tr>
+      <tr><td>Push-T, goal switch</td><td class="n">14.3</td><td class="n">35.3</td><td class="n">12.3</td><td class="n">50.0</td><td class="n win">66.7</td></tr>
+      <tr><td>Two-Room, static</td><td class="n">90.7</td><td class="n">95.0</td><td class="n">80.7</td><td class="n">95.0</td><td class="n win">96.3</td></tr>
+      <tr><td>Two-Room, goal switch</td><td class="n">43.3</td><td class="n">70.0</td><td class="n">27.0</td><td class="n">69.7</td><td class="n win">84.0</td></tr>
+      <tr><td>OGBench Cube, static</td><td class="n">14.0</td><td class="n">24.3</td><td class="n">10.0</td><td class="n">16.3</td><td class="n win">36.0</td></tr>
+      <tr><td>OGBench Cube, goal switch</td><td class="n">22.3</td><td class="n">21.3</td><td class="n">16.0</td><td class="n">18.7</td><td class="n win">30.3</td></tr>
+      <tr><td>Reacher, static</td><td class="n">45.7</td><td class="n">73.3</td><td class="n">64.7</td><td class="n">87.0</td><td class="n win">100.0</td></tr>
+      <tr><td>Reacher, goal switch</td><td class="n">15.3</td><td class="n">32.3</td><td class="n">20.3</td><td class="n">48.3</td><td class="n win">75.3</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Fast-LeWM, success (%) within 50 steps, 300 episodes per row. iCEM 300×10 (colored noise β = 2, decaying population, elite carry-over, warm start), deployed like the official planner with its estimated delay (2–3 steps); MPPI 300×10, 2 steps; "+ ours" runs at the measured cached time (1 step). On the original LeWM the same stacking helps in 13 of 16 settings; there MPPI + ours ties the full method on Push-T and Two-Room because LeWM plans too slowly for the full method to replan every block.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
   <h2>Official evaluation protocol</h2>
   <p>We ran the official <code>eval.py</code> unchanged (synchronous planning, no latency) on the four Fast-LeWM benchmarks. With the paper's seed we reproduce its numbers within 2 points. Averaged over ten seeds the official planner scores lower than the single-seed table suggests. Swapping in the prefix-min cost never hurts and adds 11 points on Reacher.</p>
   <div class="scroll"><table>
@@ -181,7 +220,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
 
 <section class="band"><div class="wrap">
   <h2>Limitations</h2>
-  <p>Latency is converted to whole environment steps at an assumed 10 Hz. Results use one world-model seed per environment. On LIBERO-10 the base planner succeeds too rarely for the comparison to say much beyond the direction of the effect.</p>
+  <p>Latency is converted to whole environment steps at an assumed 10 Hz. Results use one world-model seed per environment. LeWM rows use 100 episodes, so their intervals are about twice as wide. iCEM and MPPI use standard hyperparameters, not tuned per environment, and were only tested at 10 Hz, where their speed advantage cannot show. On LIBERO-10 the base planner succeeds too rarely for the comparison to say much beyond the direction of the effect.</p>
   <h3>Reproduce</h3>
   <pre><code>git clone https://github.com/GuihaiChen1998/flash-lewm
 # measured planning time
@@ -196,20 +235,20 @@ FLASH_COST=min python scripts/official_eval.py --config-name=reacher seed=42 ...
 
 <script>
 {
-const LAT=[["Push-T",581,64],["Two-Room",597,65],["OGBench Cube",612,65],["Reacher",1260,216],["LIBERO-10",495,64]];
-const SUCC={switch:[["Push-T",5.0,66.7,67.7,"+61.7"],["Two-Room",25.7,84.0,70.7,"+58.3"],["OGBench Cube",22.3,30.3,24.0,"+8.0"],["ViZDoom",19.0,46.2,36.4,"+27.2"],["Reacher",55.3,79.0,53.3,"+23.7"]],
-            base:[["Push-T",86.0,92.0,88.3,"+6.0"],["Two-Room",88.0,96.3,89.3,"+8.3"],["OGBench Cube",23.0,36.0,29.0,"+13.0"],["ViZDoom",38.4,56.4,51.4,"+18.0"],["Reacher",57.0,99.7,83.0,"+42.7"]]};
+const LAT=[["Push-T",581,64],["Two-Room",597,65],["OGBench Cube",612,65],["Reacher",567,63],["LIBERO-10",495,64]];
+const SUCC={switch:[["Push-T",5.0,66.7,67.7,"+61.7"],["Two-Room",25.7,84.0,70.7,"+58.3"],["OGBench Cube",22.3,30.3,24.0,"+8.0"],["ViZDoom",19.0,46.2,36.4,"+27.2"],["Reacher",9.3,75.3,53.3,"+66.0"]],
+            base:[["Push-T",86.0,92.0,88.3,"+6.0"],["Two-Room",88.0,96.3,89.3,"+8.3"],["OGBench Cube",23.0,36.0,29.0,"+13.0"],["ViZDoom",38.4,56.4,51.4,"+18.0"],["Reacher",70.0,100.0,83.0,"+30.0"]]};
 const ABL={switch:[["Push-T","+27.0 [+22.0, +32.3]","+27.0 [+21.3, +32.7]","+7.7 [+1.3, +14.0]","+61.7 [+56.0, +67.0]"],
                    ["Two-Room","+36.7 [+31.3, +42.0]","+14.3 [+9.3, +19.3]","+7.3 [+2.7, +12.0]","+58.3 [+52.7, +64.3]"],
                    ["OGBench Cube","+2.3 [−0.3, +5.0]","+4.3 [+0.7, +8.0]","+1.3 [−2.0, +4.7]","+8.0 [+4.3, +11.7]"],
                    ["ViZDoom","+11.8 [+8.6, +15.0]","+6.4 [+1.6, +11.0]","+9.0 [+4.4, +13.8]","+27.2 [+22.2, +32.2]"],
-                   ["Reacher","−38.3 [−44.7, −31.7]*","+38.0 [+31.0, +45.0]","+24.0 [+18.7, +29.3]","+23.7 [+16.0, +31.7]"]],
+                   ["Reacher","+17.3 [+12.7, +21.7]","+24.3 [+16.7, +31.7]","+24.3 [+18.7, +30.0]","+66.0 [+60.3, +71.3]"]],
            base:[["Push-T","+0.7 [+0.0, +1.7]","+2.3 [−1.3, +6.0]","+3.0 [−0.3, +6.3]","+6.0 [+2.3, +9.7]"],
                  ["Two-Room","+1.0 [+0.0, +2.3]","+4.3 [+1.7, +7.3]","+3.0 [+1.0, +5.3]","+8.3 [+5.3, +11.7]"],
                  ["OGBench Cube","+3.7 [+1.3, +6.3]","+8.0 [+3.7, +12.3]","+1.3 [−1.3, +4.0]","+13.0 [+8.3, +17.7]"],
                  ["ViZDoom","+8.8 [+6.2, +11.4]","+3.8 [−0.6, +8.0]","+5.4 [+1.2, +9.4]","+18.0 [+13.6, +22.4]"],
-                 ["Reacher","+15.7 [+11.3, +20.0]","+19.7 [+14.3, +25.3]","+7.3 [+4.3, +10.7]","+42.7 [+37.0, +48.3]"]]};
-const mx=1300;
+                 ["Reacher","+3.7 [−0.7, +8.0]","+20.3 [+15.0, +25.7]","+6.0 [+3.3, +9.0]","+30.0 [+25.0, +35.3]"]]};
+const mx=650;
 document.getElementById("lat").innerHTML=LAT.map(([n,a,b])=>`<div class="row"><div class="lbl">${n}</div><div class="track">
   <div class="bar" style="width:${a/mx*100}%" title="official ${a} ms">${a} ms</div>
   <div class="bar ours${b/mx<.12?" tiny":""}" style="width:${b/mx*100}%" title="FlashCEM ${b} ms">${b} ms · ${(a/b).toFixed(1)}×</div></div></div>`).join("");

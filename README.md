@@ -19,12 +19,15 @@ Fast-LeWM（[论文](https://arxiv.org/abs/2606.26217)，[官方代码](https://
 | [docs/cube_doom_solid_v1.md](docs/cube_doom_solid_v1.md) | Cube 与 ViZDoom 的大样本复核 |
 | [docs/libero_results_v1.md](docs/libero_results_v1.md) | LIBERO-10 单任务与 10 任务 |
 | [docs/official_protocol_v1.md](docs/official_protocol_v1.md) | 官方 eval.py 协议下复现与 min 代价对比 |
-| [docs/real_latency_v1.md](docs/real_latency_v1.md) | 按实测规划耗时的实时对比：完整方法 vs 官方部署（最新） |
+| [docs/real_latency_v1.md](docs/real_latency_v1.md) | 按实测规划耗时的实时对比：完整方法 vs 官方部署 |
+| [docs/sampling_baselines_v1.md](docs/sampling_baselines_v1.md) | 与 iCEM、MPPI 的对比，以及把我们的部件叠加到它们上 |
+| [docs/lewm_plugin_v1.md](docs/lewm_plugin_v1.md) | 不改模型直接用在原版 LeWM 上（即插即用验证，最新） |
 | [docs/discussion_log_v1.md](docs/discussion_log_v1.md) | 逐轮讨论记录 |
 | [docs/HANDOFF.md](docs/HANDOFF.md) | 交接文档：机器、路径、运行前缀、未入库资源的位置 |
 
 目前最稳的结论：按实测规划耗时，完整方法（FlashCEM + 承诺前缀 + min 代价）在 Push-T、Two-Room、Cube、ViZDoom 上
 全部显著优于官方 Fast-LeWM 的实际部署（换目标场景 +8 到 +62 个百分点）；官方协议下 min 代价不降成功率、Reacher +11.4。
+方法是即插即用的规划层：不改模型直接用在原版 LeWM 上，完整方法对官方部署 +20 到 +99；承诺前缀 + min 代价叠加到 iCEM、MPPI 上，Fast-LeWM 与 LeWM 共 40 组里 34 组显著提升，其余 6 组（都在 Cube）不显著。
 
 ## 代码
 
@@ -39,7 +42,10 @@ Fast-LeWM（[论文](https://arxiv.org/abs/2606.26217)，[官方代码](https://
 | `scripts/e5_closedloop.py`、`scripts/paired.py` | 闭环成功率与配对 bootstrap |
 | `scripts/e7_flash.py` | FlashCEM 离线延迟与质量 |
 | `flash_lewm/realtime.py`、`scripts/e9_realtime.py` | 实时仿真器（延迟注入、承诺前缀、min 代价、场景预设） |
-| `flash_lewm/{doom,ant,cube}_env.py`、`flash_lewm/train_min.py` | ViZDoom / AntMaze / Cube 适配器，最小训练脚本 |
+| `flash_lewm/{doom,ant,cube,reacher,libero}_env.py`、`flash_lewm/train_min.py` | ViZDoom / AntMaze / Cube / Reacher / LIBERO 适配器，最小训练脚本 |
+| `flash_lewm/lewm.py` | 原版 LeWM 加载（HF 权重）与逐块自回归预测 |
+| `scripts/e10_latency.py`、`scripts/e11_solver_latency.py` | 实测规划耗时（官方 / 缓存 / 编译；CEM、iCEM、MPPI） |
+| `scripts/official_eval.py` | 官方 eval.py 包装（可换 min 代价） |
 
 ## 运行（Linux#1）
 
