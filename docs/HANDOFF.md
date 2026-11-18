@@ -91,8 +91,14 @@ FlashCEM 降级为「优化后的同步基线」。
 - **Hugging Face（账号 UUUooUUU，私有）**：模型仓库 `UUUooUUU/flash-lewm`（`ckpt/`、`results/`、`logs/`）；
   数据集仓库 `UUUooUUU/flash-lewm-data`（`eval_pairs/` 同上 5 个文件；`doom/mwh_all.npz` 是 11 GB 的 Doom 训练数据，
   上传状态看 Linux#1 的 `logs/upload_hf_big.log`，末尾出现 `ALL DONE` 才算完成）。
-- 上传脚本：`scripts/upload_release.sh`（环境变量 `GH`）、`scripts/upload_hf.py small|big|all`（环境变量 `HF`；
-  需 `HF_ENDPOINT=https://huggingface.co HF_HUB_DISABLE_XET=1`，代理下新存储后端连不上）。令牌不入库，用完即删。
+- 上传脚本：**`scripts/upload_all.py hf|gh|all`**（第 17 轮起用它；只传目标处缺失或大小不同的文件，中断后重跑即可；
+  环境变量 `HF`、`GH`，需 `HF_ENDPOINT=https://huggingface.co HF_HUB_DISABLE_XET=1`）。旧脚本 `upload_release.sh`、`upload_hf.py` 保留。令牌不入库，用完即删。
+- 第 17 轮补传到 Release `assets-v1` 的（77 个，全部成功，日志 Linux#1 `logs/upload_all_gh.log`）：`ckpt/` 下全部文件（含 `ckpt/lewm/*` 原版 LeWM 权重、`ckpt/official_train/{doom,libero10}/` 官方训练全部输出、
+  LIBERO 模型、各环境 action_stats）、`reacher_eval_pairs.npz`、`libero/study1.npz` 与 `pairs*`、`rollouts/*.npz`。
+  资产名：`ckpt/` 顶层文件和 `eval_pairs/` 用原文件名，其余把路径里的 `/` 换成 `__`（如 `ckpt__lewm__pusht__weights.pt`、`rollouts__reacher6.npz`）。
+  `environment.json`（训练时的环境变量）不上传。
+- 超过 2 GB、只能放 Hugging Face 的：`libero/libero10.npz`（6.8 GB）、`doom/mwh_all.npz`（11.8 GB，已在 HF）、`official_h5/{doom_mwh,libero10}.h5`（11.8 / 6.8 GB）。
+- **HF 第 17 轮补传未完成**：私有文档里的 HF 令牌现在是只读的（403），等用户换成写权限令牌后跑 `upload_all.py hf`。
 - 推送权限：chancanmakeit 账号的令牌对本仓库只读；能推送的是 GuihaiChen1998 账号的令牌。
 - 没有上传的：官方数据集原件（Push-T / Cube / Two-Room / Reacher / OGBench AntMaze，可从官方下载）、
   `.pydeps/` 与 `.mj/`（按清单重装）、`third_party/Fast-LeWorldModel`（官方代码，提交 2fc3bca）。
