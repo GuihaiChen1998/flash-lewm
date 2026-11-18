@@ -21,7 +21,9 @@ Fast-LeWM（[论文](https://arxiv.org/abs/2606.26217)，[官方代码](https://
 | [docs/official_protocol_v1.md](docs/official_protocol_v1.md) | 官方 eval.py 协议下复现与 min 代价对比 |
 | [docs/real_latency_v1.md](docs/real_latency_v1.md) | 按实测规划耗时的实时对比：完整方法 vs 官方部署 |
 | [docs/sampling_baselines_v1.md](docs/sampling_baselines_v1.md) | 与 iCEM、MPPI 的对比，以及把我们的部件叠加到它们上 |
-| [docs/lewm_plugin_v1.md](docs/lewm_plugin_v1.md) | 不改模型直接用在原版 LeWM 上（即插即用验证，最新） |
+| [docs/lewm_plugin_v1.md](docs/lewm_plugin_v1.md) | 不改模型直接用在原版 LeWM 上（即插即用验证） |
+| [docs/lewm_official_protocol_v1.md](docs/lewm_official_protocol_v1.md) | 原版 LeWM 官方 eval.py：我们的实现与官方等价，min 代价四环境全部显著提升 |
+| [docs/rate50hz_v1.md](docs/rate50hz_v1.md) | 50 Hz 控制下与 iCEM、MPPI 的对比（最新） |
 | [docs/discussion_log_v1.md](docs/discussion_log_v1.md) | 逐轮讨论记录 |
 | [docs/HANDOFF.md](docs/HANDOFF.md) | 交接文档：机器、路径、运行前缀、未入库资源的位置 |
 

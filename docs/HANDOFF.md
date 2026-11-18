@@ -1,6 +1,6 @@
 # 会话交接文档（每轮更新）
 
-最后更新：2026-11-18，第 17 轮。
+最后更新：2026-11-18，第 18 轮。
 
 ## 项目
 仓库 `GuihaiChen1998/flash-lewm`，目标是加速 Fast-LeWM 的潜空间规划。issue #6 是初始方案。
@@ -139,6 +139,17 @@ FlashCEM 降级为「优化后的同步基线」。
 - Reacher 回放已按 6 / 1 步重录：`/data1/cgh/dataset/rollouts/reacher6.npz`。
 - 远端没有可推送的 git 凭据：推送时临时把 GuihaiChen1998 的 token 写进 0600 文件、用完即删（token 在私有仓库 private-documents 的 /任务基础上下文/）。
 - 未做：LeWM 上跑官方 `eval.py`；50 Hz 下 iCEM 省时间是否变成收益。
+
+## LeWM 官方协议与 50 Hz（第 18 轮，2026-11-18）
+- LeWM 官方 `eval.py`：`scripts/official_eval_lewm.py`（PYTHONPATH 用 `.:.pydeps_off:.pydeps`，**不要**带 Fast-LeWorldModel；必须加 `--config-path=<repo>/third_party/le-wm/config/eval`、
+  `policy=<env>`、`+cache_dir=/data1/cgh/dataset/lewm_cache`）。`FLASH_COST=last|hooklast|min`。结果 `results/official_lewm/lewm_<env>_<mode>_s<seed>.json`，结论见 `docs/lewm_official_protocol_v1.md`。
+  `flash_lewm/official_hooks.py` 已支持 LeWM（动作维度取 `action_encoder.patch_embed.in_channels`）。
+- 6 个 LeWM 官方评测并行时偶尔在加载模型时报 CUDA 错误（GPU 忙），重跑即可。
+- 50 Hz：延迟步数 = ⌈ms/20⌉，标签 `F5C`（CEM / FlashCEM 各预算）、`F5I`（iCEM 300×10）、`F5S`（iCEM 100×5）、`F5M`（MPPI），结论见 `docs/rate50hz_v1.md`。
+  FlashCEM 各预算耗时 `scripts/e12_flash_iters.py` → `results/e12_flash_iters_{pusht,cube}.json`（Cube 需 `FLASH_EP_KEY=ep_idx FLASH_STATE_KEY=qpos`）。
+- **仿真器要点**：`clamp` 方法里延迟 d 只决定开头那次等待和约束 5m ≥ d；之后每块执行期间规划在后台完成。所以只要 d ≤ 5m，延迟长短不影响后续，
+  这是 50 Hz 下 iCEM 再快也没收益的原因。写论文时要说明这个假设。
+- 32 个 e9 进程同时跑 MuJoCo 渲染时有 3 个报 EGL 错误中断，只补缺失配置重跑（`logs/e9_*_redo.log`）。
 
 ## 下一步候选（第 11 轮后）
 1. 给 Cube 加 far / kick 场景；查清官方代价配置在换目标那一步就成功的 21–29 个回合是怎么回事。
