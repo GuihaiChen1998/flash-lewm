@@ -1,0 +1,39 @@
+[2026-11-19 01:29:23,193][absl][INFO] - MUJOCO_GL=egl, attempting to import specified OpenGL backend.
+[2026-11-19 01:29:23,222][OpenGL.acceleratesupport][INFO] - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+[2026-11-19 01:29:23,322][absl][INFO] - MuJoCo library version is: 3.6.0
+2026-11-19 01:29:31.748 | INFO     | stable_worldmodel.world:__init__:123 - 🌍🌍🌍 World swm/ReacherDMControl-v0 initialized 🌍🌍🌍
+2026-11-19 01:29:31.748 | INFO     | stable_worldmodel.world:__init__:125 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-19 01:29:31.748 | INFO     | stable_worldmodel.world:__init__:126 - Box(-1.0, 1.0, (50, 2), float64)
+2026-11-19 01:29:31.748 | INFO     | stable_worldmodel.world:__init__:128 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-19 01:29:31.748 | INFO     | stable_worldmodel.world:__init__:129 - Box(-inf, inf, (50, 6), float32)
+2026-11-19 01:29:31.748 | INFO     | stable_worldmodel.world:__init__:132 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    arm_density: [1;35mBox[0m[1m([0m[1;36m500.0[0m, [1;36m1500.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+    color: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m1.0[0m, [1m([0m[1;36m3[0m,[1m)[0m, float64[1m)[0m
+    finger_density: [1;35mBox[0m[1m([0m[1;36m500.0[0m, [1;36m1500.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+    finger_locked: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+floor:
+    color: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m1.0[0m, [1m([0m[1;36m2[0m, [1;36m3[0m[1m)[0m, float64[1m)[0m
+light:
+    intensity: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m1.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float64[1m)[0m
+rendering:
+    render_target: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+target:
+    color: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m1.0[0m, [1m([0m[1;36m3[0m,[1m)[0m, float64[1m)[0m
+    shape: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+[2026-11-19 01:29:31,849][root][INFO] - Cached 'action' from '/data1/cgh/dataset/lewm_cache/dmc/reacher_random.h5'
+1760000 valid starting points found for evaluation.
+[ 128267  136513  172735  179377  185182  189273  257500  332101  366907
+  404927  456735  556268  712588  745268  808839  870336  882105  891249
+  895808  905240  905399 1005679 1031561 1058181 1096293 1114684 1269622
+ 1294136 1315639 1362611 1401662 1408039 1442084 1478821 1523727 1529852
+ 1555599 1564529 1570913 1579945 1653716 1663520 1687855 1725130 1725718
+ 1784621 1795165 1862756 1951073 1960957]
+CEM solve time: 109.5252 seconds
+CEM solve time: 102.4032 seconds
+{'success_rate': 76.0, 'episode_successes': array([ True,  True,  True,  True,  True,  True, False,  True,  True,
+       False,  True, False,  True,  True,  True,  True,  True,  True,
+       False,  True, False,  True,  True,  True,  True,  True,  True,
+       False, False,  True,  True,  True, False,  True,  True,  True,
+        True, False,  True,  True,  True, False,  True,  True,  True,
+       False,  True,  True, False,  True]), 'seeds': None}

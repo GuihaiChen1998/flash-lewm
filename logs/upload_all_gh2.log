@@ -1,0 +1,6 @@
+gh ckpt__official_train__doom__environment.template.json 7886 201
+gh ckpt__official_train__doom__lightning_logs__version_0__checkpoints__epoch=9-step=21470.ckpt 215387492 422
+gh ckpt__official_train__libero10__environment.template.json 7734 201
+gh ckpt__official_train__libero10__lightning_logs__version_0__checkpoints__epoch=9-step=9510.ckpt 215397092 422
+GH DONE
+ALL DONE

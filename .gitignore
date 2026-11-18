@@ -12,3 +12,4 @@ nohup.out
 .pydeps_train/
 results/official/*/
 ckpt/official_train/
+results/official_lewm/*/

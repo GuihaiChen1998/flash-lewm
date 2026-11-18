@@ -1,0 +1,13 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+300 30 64.23114892095327
+300 20 44.92555093020201
+300 15 35.22999584674835
+300 10 25.775191374123096
+300 5 16.038629226386547
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/_inductor/compile_fx.py:194: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+100 10 17.246726900339127
+100 5 11.702783405780792

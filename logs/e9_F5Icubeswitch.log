@@ -1,0 +1,47 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  sync m=5 d=11 it=10 last: 25/300 success@50=0.080 @75=0.080
+  sync m=5 d=11 it=10 last: 50/300 success@50=0.160 @75=0.180
+  sync m=5 d=11 it=10 last: 75/300 success@50=0.160 @75=0.187
+  sync m=5 d=11 it=10 last: 100/300 success@50=0.220 @75=0.250
+  sync m=5 d=11 it=10 last: 125/300 success@50=0.200 @75=0.232
+  sync m=5 d=11 it=10 last: 150/300 success@50=0.207 @75=0.240
+  sync m=5 d=11 it=10 last: 175/300 success@50=0.217 @75=0.246
+  sync m=5 d=11 it=10 last: 200/300 success@50=0.240 @75=0.270
+  sync m=5 d=11 it=10 last: 225/300 success@50=0.231 @75=0.262
+  sync m=5 d=11 it=10 last: 250/300 success@50=0.224 @75=0.260
+  sync m=5 d=11 it=10 last: 275/300 success@50=0.240 @75=0.276
+  sync m=5 d=11 it=10 last: 300/300 success@50=0.233 @75=0.267
+sync:5:11:10:last:switch           n=300 succ@50= 23.3% succ@75= 26.7% succ@T= 26.7%  (601s)
+  clamp m=1 d=4 it=10 min: 25/300 success@50=0.160 @75=0.160
+  clamp m=1 d=4 it=10 min: 50/300 success@50=0.160 @75=0.160
+  clamp m=1 d=4 it=10 min: 75/300 success@50=0.187 @75=0.187
+  clamp m=1 d=4 it=10 min: 100/300 success@50=0.200 @75=0.200
+  clamp m=1 d=4 it=10 min: 125/300 success@50=0.216 @75=0.216
+  clamp m=1 d=4 it=10 min: 150/300 success@50=0.207 @75=0.207
+  clamp m=1 d=4 it=10 min: 175/300 success@50=0.206 @75=0.206
+  clamp m=1 d=4 it=10 min: 200/300 success@50=0.220 @75=0.220
+  clamp m=1 d=4 it=10 min: 225/300 success@50=0.236 @75=0.236
+  clamp m=1 d=4 it=10 min: 250/300 success@50=0.240 @75=0.240
+  clamp m=1 d=4 it=10 min: 275/300 success@50=0.247 @75=0.247
+  clamp m=1 d=4 it=10 min: 300/300 success@50=0.247 @75=0.247
+clamp:1:4:10:min:switch            n=300 succ@50= 24.7% succ@75= 24.7% succ@T= 24.7%  (1805s)
+  clamp m=1 d=2 it=10 min: 25/300 success@50=0.240 @75=0.240
+  clamp m=1 d=2 it=10 min: 50/300 success@50=0.200 @75=0.220
+  clamp m=1 d=2 it=10 min: 75/300 success@50=0.200 @75=0.213
+  clamp m=1 d=2 it=10 min: 100/300 success@50=0.230 @75=0.240
+  clamp m=1 d=2 it=10 min: 125/300 success@50=0.232 @75=0.240
+  clamp m=1 d=2 it=10 min: 150/300 success@50=0.207 @75=0.220
+  clamp m=1 d=2 it=10 min: 175/300 success@50=0.194 @75=0.211
+  clamp m=1 d=2 it=10 min: 200/300 success@50=0.200 @75=0.215
+  clamp m=1 d=2 it=10 min: 225/300 success@50=0.204 @75=0.218
+  clamp m=1 d=2 it=10 min: 250/300 success@50=0.188 @75=0.200
+  clamp m=1 d=2 it=10 min: 275/300 success@50=0.185 @75=0.196
+  clamp m=1 d=2 it=10 min: 300/300 success@50=0.180 @75=0.193
+clamp:1:2:10:min:switch            n=300 succ@50= 18.0% succ@75= 19.3% succ@T= 19.3%  (1254s)

@@ -1,0 +1,37 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+  oracle m=5 d=0 it=30 last: 50/300 success@50=0.540 @75=0.800
+  oracle m=5 d=0 it=30 last: 100/300 success@50=0.510 @75=0.810
+  oracle m=5 d=0 it=30 last: 150/300 success@50=0.493 @75=0.813
+  oracle m=5 d=0 it=30 last: 200/300 success@50=0.530 @75=0.855
+  oracle m=5 d=0 it=30 last: 250/300 success@50=0.520 @75=0.868
+  oracle m=5 d=0 it=30 last: 300/300 success@50=0.533 @75=0.863
+oracle:5:0:30:last:switch          n=300 succ@50= 53.3% succ@75= 86.3% succ@T= 86.3%  (606s)
+  sync m=5 d=29 it=30 last: 50/300 success@50=0.160 @75=0.580
+  sync m=5 d=29 it=30 last: 100/300 success@50=0.160 @75=0.580
+  sync m=5 d=29 it=30 last: 150/300 success@50=0.153 @75=0.587
+  sync m=5 d=29 it=30 last: 200/300 success@50=0.135 @75=0.575
+  sync m=5 d=29 it=30 last: 250/300 success@50=0.120 @75=0.564
+  sync m=5 d=29 it=30 last: 300/300 success@50=0.113 @75=0.563
+sync:5:29:30:last:switch           n=300 succ@50= 11.3% succ@75= 56.3% succ@T= 56.3%  (381s)
+  clamp m=1 d=4 it=30 min: 50/300 success@50=0.900 @75=0.920
+  clamp m=1 d=4 it=30 min: 100/300 success@50=0.880 @75=0.910
+  clamp m=1 d=4 it=30 min: 150/300 success@50=0.867 @75=0.927
+  clamp m=1 d=4 it=30 min: 200/300 success@50=0.890 @75=0.940
+  clamp m=1 d=4 it=30 min: 250/300 success@50=0.884 @75=0.940
+  clamp m=1 d=4 it=30 min: 300/300 success@50=0.880 @75=0.940
+clamp:1:4:30:min:switch            n=300 succ@50= 88.0% succ@75= 94.0% succ@T= 94.0%  (4403s)
+  clamp m=1 d=2 it=10 min: 50/300 success@50=0.760 @75=0.820
+  clamp m=1 d=2 it=10 min: 100/300 success@50=0.770 @75=0.800
+  clamp m=1 d=2 it=10 min: 150/300 success@50=0.780 @75=0.813
+  clamp m=1 d=2 it=10 min: 200/300 success@50=0.780 @75=0.820
+  clamp m=1 d=2 it=10 min: 250/300 success@50=0.788 @75=0.824
+  clamp m=1 d=2 it=10 min: 300/300 success@50=0.773 @75=0.810
+clamp:1:2:10:min:switch            n=300 succ@50= 77.3% succ@75= 81.0% succ@T= 81.0%  (1490s)
+  clamp m=1 d=1 it=5 min: 50/300 success@50=0.860 @75=0.900
+  clamp m=1 d=1 it=5 min: 100/300 success@50=0.820 @75=0.840
+  clamp m=1 d=1 it=5 min: 150/300 success@50=0.833 @75=0.853
+  clamp m=1 d=1 it=5 min: 200/300 success@50=0.825 @75=0.845
+  clamp m=1 d=1 it=5 min: 250/300 success@50=0.820 @75=0.848
+  clamp m=1 d=1 it=5 min: 300/300 success@50=0.817 @75=0.840
+clamp:1:1:5:min:switch             n=300 succ@50= 81.7% succ@75= 84.0% succ@T= 84.0%  (690s)

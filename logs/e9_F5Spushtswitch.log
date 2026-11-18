@@ -1,0 +1,25 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+  sync m=5 d=3 it=5 last: 50/300 success@50=0.040 @75=0.340
+  sync m=5 d=3 it=5 last: 100/300 success@50=0.060 @75=0.300
+  sync m=5 d=3 it=5 last: 150/300 success@50=0.060 @75=0.273
+  sync m=5 d=3 it=5 last: 200/300 success@50=0.050 @75=0.265
+  sync m=5 d=3 it=5 last: 250/300 success@50=0.052 @75=0.252
+  sync m=5 d=3 it=5 last: 300/300 success@50=0.057 @75=0.253
+sync:5:3:5:last:switch             n=300 succ@50=  5.7% succ@75= 25.3% succ@T= 25.3%  (49s)
+  clamp m=1 d=2 it=5 min: 50/300 success@50=0.360 @75=0.360
+  clamp m=1 d=2 it=5 min: 100/300 success@50=0.310 @75=0.330
+  clamp m=1 d=2 it=5 min: 150/300 success@50=0.327 @75=0.340
+  clamp m=1 d=2 it=5 min: 200/300 success@50=0.335 @75=0.365
+  clamp m=1 d=2 it=5 min: 250/300 success@50=0.336 @75=0.364
+  clamp m=1 d=2 it=5 min: 300/300 success@50=0.350 @75=0.383
+clamp:1:2:5:min:switch             n=300 succ@50= 35.0% succ@75= 38.3% succ@T= 38.3%  (412s)
+  clamp m=1 d=1 it=5 min: 50/300 success@50=0.360 @75=0.360
+  clamp m=1 d=1 it=5 min: 100/300 success@50=0.310 @75=0.330
+  clamp m=1 d=1 it=5 min: 150/300 success@50=0.327 @75=0.347
+  clamp m=1 d=1 it=5 min: 200/300 success@50=0.335 @75=0.370
+  clamp m=1 d=1 it=5 min: 250/300 success@50=0.336 @75=0.368
+  clamp m=1 d=1 it=5 min: 300/300 success@50=0.343 @75=0.380
+clamp:1:1:5:min:switch             n=300 succ@50= 34.3% succ@75= 38.0% succ@T= 38.0%  (420s)

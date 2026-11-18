@@ -1,0 +1,23 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+  sync m=5 d=11 it=10 last: 50/300 success@50=0.340 @75=0.520
+  sync m=5 d=11 it=10 last: 100/300 success@50=0.270 @75=0.430
+  sync m=5 d=11 it=10 last: 150/300 success@50=0.280 @75=0.453
+  sync m=5 d=11 it=10 last: 200/300 success@50=0.290 @75=0.480
+  sync m=5 d=11 it=10 last: 250/300 success@50=0.300 @75=0.480
+  sync m=5 d=11 it=10 last: 300/300 success@50=0.310 @75=0.493
+sync:5:11:10:last:switch           n=300 succ@50= 31.0% succ@75= 49.3% succ@T= 49.3%  (154s)
+  clamp m=1 d=4 it=10 min: 50/300 success@50=0.380 @75=0.520
+  clamp m=1 d=4 it=10 min: 100/300 success@50=0.370 @75=0.530
+  clamp m=1 d=4 it=10 min: 150/300 success@50=0.347 @75=0.507
+  clamp m=1 d=4 it=10 min: 200/300 success@50=0.335 @75=0.525
+  clamp m=1 d=4 it=10 min: 250/300 success@50=0.336 @75=0.520
+  clamp m=1 d=4 it=10 min: 300/300 success@50=0.343 @75=0.510
+clamp:1:4:10:min:switch            n=300 succ@50= 34.3% succ@75= 51.0% succ@T= 51.0%  (1352s)
+  clamp m=1 d=2 it=10 min: 50/300 success@50=0.520 @75=0.620
+  clamp m=1 d=2 it=10 min: 100/300 success@50=0.410 @75=0.580
+  clamp m=1 d=2 it=10 min: 150/300 success@50=0.360 @75=0.487
+  clamp m=1 d=2 it=10 min: 200/300 success@50=0.380 @75=0.505
+  clamp m=1 d=2 it=10 min: 250/300 success@50=0.372 @75=0.500
+  clamp m=1 d=2 it=10 min: 300/300 success@50=0.360 @75=0.487
+clamp:1:2:10:min:switch            n=300 succ@50= 36.0% succ@75= 48.7% succ@T= 48.7%  (1353s)

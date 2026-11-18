@@ -1,0 +1,41 @@
+[2026-11-19 02:55:07,482][OpenGL.acceleratesupport][INFO] - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+[2026-11-19 02:55:07,538][absl][INFO] - MUJOCO_GL=egl, attempting to import specified OpenGL backend.
+[2026-11-19 02:55:07,561][absl][INFO] - MuJoCo library version is: 3.6.0
+2026-11-19 02:55:48.864 | INFO     | stable_worldmodel.world:__init__:123 - 🌍🌍🌍 World swm/OGBCube-v0 initialized 🌍🌍🌍
+2026-11-19 02:55:48.865 | INFO     | stable_worldmodel.world:__init__:125 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-19 02:55:48.865 | INFO     | stable_worldmodel.world:__init__:126 - Box(-1.0, 1.0, (50, 5), float32)
+2026-11-19 02:55:48.865 | INFO     | stable_worldmodel.world:__init__:128 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-19 02:55:48.865 | INFO     | stable_worldmodel.world:__init__:129 - Box(-inf, inf, (50, 28), float64)
+2026-11-19 02:55:48.865 | INFO     | stable_worldmodel.world:__init__:132 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    color: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m1.0[0m, [1m([0m[1;36m3[0m,[1m)[0m, float64[1m)[0m
+    ee_start_position: [1;35mBox[0m[1m([0m[1m[[0m [1;36m0.25[0m [1;36m-0.35[0m  [1;36m0.2[0m [1m][0m, [1m[[0m[1;36m0.6[0m  [1;36m0.35[0m [1;36m0.35[0m[1m][0m, [1m([0m[1;36m3[0m,[1m)[0m, float64[1m)[0m
+camera:
+    angle_delta: [1;35mBox[0m[1m([0m[1;36m-10.0[0m, [1;36m10.0[0m, [1m([0m[1;36m1[0m, [1;36m2[0m[1m)[0m, float64[1m)[0m
+cube:
+    color: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m1.0[0m, [1m([0m[1;36m1[0m, [1;36m3[0m[1m)[0m, float64[1m)[0m
+    goal_position: [1;35mBox[0m[1m([0m[1m[[0m[1m[[0m [1;36m0.3[0m [1;36m-0.3[0m[1m][0m[1m][0m, [1m[[0m[1m[[0m[1;36m0.55[0m [1;36m0.3[0m [1m][0m[1m][0m, [1m([0m[1;36m1[0m, [1;36m2[0m[1m)[0m, float64[1m)[0m
+    goal_yaw: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m6.283185307179586[0m, [1m([0m[1;36m1[0m,[1m)[0m, float64[1m)[0m
+    size: [1;35mBox[0m[1m([0m[1;36m0.01[0m, [1;36m0.03[0m, [1m([0m[1;36m1[0m,[1m)[0m, float64[1m)[0m
+    start_position: [1;35mBox[0m[1m([0m[1m[[0m[1m[[0m [1;36m0.3[0m [1;36m-0.3[0m[1m][0m[1m][0m, [1m[[0m[1m[[0m[1;36m0.55[0m [1;36m0.3[0m [1m][0m[1m][0m, [1m([0m[1;36m1[0m, [1;36m2[0m[1m)[0m, float64[1m)[0m
+    start_yaw: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m6.283185307179586[0m, [1m([0m[1;36m1[0m,[1m)[0m, float64[1m)[0m
+floor:
+    color: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m1.0[0m, [1m([0m[1;36m2[0m, [1;36m3[0m[1m)[0m, float64[1m)[0m
+light:
+    intensity: [1;35mBox[0m[1m([0m[1;36m0.0[0m, [1;36m1.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float64[1m)[0m
+[2026-11-19 02:55:48,941][root][INFO] - Cached 'action' from '/data1/cgh/dataset/lewm_cache/ogbench/cube_single_expert.h5'
+1760000 valid starting points found for evaluation.
+[  41837   76900   97597  171878  176162  211180  261303  274570  361076
+  423171  428984  585547  612877  686541  701201  737014  744033  757301
+  765665  779232  805415  933013  955398  982307 1004544 1014884 1032690
+ 1061189 1185551 1197458 1216914 1299408 1311467 1344804 1354592 1395875
+ 1399883 1427036 1487322 1531661 1551127 1572662 1585969 1621191 1627177
+ 1725843 1734801 1883517 1913542 2002580]
+CEM solve time: 82.9989 seconds
+CEM solve time: 80.2783 seconds
+{'success_rate': 74.0, 'episode_successes': array([False,  True,  True, False,  True,  True,  True,  True,  True,
+        True, False, False,  True,  True,  True, False,  True,  True,
+        True,  True,  True,  True,  True, False,  True, False,  True,
+       False,  True, False,  True,  True,  True,  True,  True,  True,
+        True,  True,  True, False, False,  True,  True,  True,  True,
+        True,  True,  True, False, False]), 'seeds': None}

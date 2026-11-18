@@ -1,0 +1,979 @@
+/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:424: UserWarning: [33mWARN: Casting input x to numpy array.[0m
+  gym.logger.warn("Casting input x to numpy array.")
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+/data1/cgh/code/flash-lewm/.pydeps/gymnasium/spaces/box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  sync m=5 d=11 it=10 last: 25/300 success@50=0.040 @75=0.040
+  sync m=5 d=11 it=10 last: 50/300 success@50=0.080 @75=0.080
+  sync m=5 d=11 it=10 last: 75/300 success@50=0.067 @75=0.080
+  sync m=5 d=11 it=10 last: 100/300 success@50=0.080 @75=0.090
+  sync m=5 d=11 it=10 last: 125/300 success@50=0.104 @75=0.120
+  sync m=5 d=11 it=10 last: 150/300 success@50=0.113 @75=0.140
+  sync m=5 d=11 it=10 last: 175/300 success@50=0.097 @75=0.120
+  sync m=5 d=11 it=10 last: 200/300 success@50=0.115 @75=0.140
+  sync m=5 d=11 it=10 last: 225/300 success@50=0.111 @75=0.142
+  sync m=5 d=11 it=10 last: 250/300 success@50=0.116 @75=0.148
+  sync m=5 d=11 it=10 last: 275/300 success@50=0.124 @75=0.160
+  sync m=5 d=11 it=10 last: 300/300 success@50=0.123 @75=0.160
+sync:5:11:10:last:base             n=300 succ@50= 12.3% succ@75= 16.0% succ@T= 16.0%  (640s)
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/scripts/e9_realtime.py", line 58, in <module>
+    first, mc = simulate(model, pairs, a_mean, a_std, method, m=m, d=d, iters=iters, cost=cost, T=T, chunk=int(os.environ.get("FLASH_CHUNK", "50")), n=int(os.environ.get("FLASH_N", "300")),
+  File "/data1/cgh/code/flash-lewm/flash_lewm/realtime.py", line 240, in simulate
+    plan, c = cem_clamped(model, z, zg, **kw)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data1/cgh/code/flash-lewm/flash_lewm/realtime.py", line 97, in cem_clamped
+    c = score(suf)
+  File "/data1/cgh/code/flash-lewm/flash_lewm/realtime.py", line 87, in score
+    return plan_cost(model, z, zg, cand.view(e, suf.shape[1], H, A), cost)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data1/cgh/code/flash-lewm/flash_lewm/realtime.py", line 43, in plan_cost
+    pred = model.predict(emb, act)                                   # [E*N, H, D]
+  File "/data1/cgh/code/flash-lewm/third_party/Fast-LeWorldModel/jepa.py", line 70, in predict
+    preds = self.predictor(emb, act_emb)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data1/cgh/code/flash-lewm/third_party/Fast-LeWorldModel/module.py", line 638, in forward
+    out = self.transition_stack(x, c)  # (B*T, 1, D)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data1/cgh/code/flash-lewm/third_party/Fast-LeWorldModel/module.py", line 290, in forward
+    x = block(x, c)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data1/cgh/code/flash-lewm/third_party/Fast-LeWorldModel/module.py", line 158, in forward
+    x = x + gate_mlp * self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data1/cgh/code/flash-lewm/third_party/Fast-LeWorldModel/module.py", line 59, in forward
+    return self.net(x)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cgh/anaconda3/envs/sglang/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 734, in forward
+    return F.gelu(input, approximate=self.approximate)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 294.00 MiB. GPU 0 has a total capacity of 47.53 GiB of which 253.25 MiB is free. Process 3074728 has 688.00 MiB memory in use. Process 2007558 has 3.54 GiB memory in use. Process 2007595 has 3.54 GiB memory in use. Process 2007600 has 3.53 GiB memory in use. Process 2007562 has 3.53 GiB memory in use. Process 2007542 has 3.54 GiB memory in use. Process 2007570 has 3.53 GiB memory in use. Including non-PyTorch memory, this process has 1.10 GiB memory in use. Process 2007582 has 1.97 GiB memory in use. Process 2007607 has 3.54 GiB memory in use. Process 2007587 has 1.07 GiB memory in use. Process 2007566 has 3.54 GiB memory in use. Process 2007550 has 3.54 GiB memory in use. Process 2007554 has 3.53 GiB memory in use. Process 2007546 has 3.53 GiB memory in use. Process 2007612 has 3.53 GiB memory in use. Of the allocated memory 740.64 MiB is allocated by PyTorch, and 59.36 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 131, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE,
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fbda3444740>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fbda3444740>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbda34449c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 131, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE,
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fbda3444740>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fbda3444740>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbda34449c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42840>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42840>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf428c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf428c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42640>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42640>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42940>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42940>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42d40>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42d40>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43f40>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43f40>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43cc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43cc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf429c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf429c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42a40>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42a40>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42ac0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42ac0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42b40>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42b40>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42bc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42bc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42c40>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42c40>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42cc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42cc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43ac0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43ac0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42e40>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42e40>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42ec0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42ec0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42f40>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42f40>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42240>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf42240>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43240>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43240>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf431c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf431c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43340>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43340>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf432c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf432c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function Renderer.__del__ at 0x7fbd6531ab00>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 339, in __del__
+    self.close()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/rendering/classic/renderer.py", line 325, in close
+    self._gl_context.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43bc0>,
+	),
+	result = 0
+)
+Exception ignored in: <function GLContext.__del__ at 0x7fbd6531a320>
+Traceback (most recent call last):
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 138, in __del__
+    self.free()
+  File "/data1/cgh/code/flash-lewm/.pydeps/mujoco/egl/__init__.py", line 133, in free
+    EGL.eglDestroyContext(EGL_DISPLAY, self._context)
+  File "/data1/cgh/code/flash-lewm/.pydeps/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglDestroyContext,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fbc549c70c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fbc6bf43bc0>,
+	),
+	result = 0
+)

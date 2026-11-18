@@ -1,0 +1,47 @@
+2026-11-19 02:51:49.140 | INFO     | stable_worldmodel.world:__init__:123 - 🌍🌍🌍 World swm/TwoRoom-v1 initialized 🌍🌍🌍
+2026-11-19 02:51:49.140 | INFO     | stable_worldmodel.world:__init__:125 - 🕹️ 🕹️ 🕹️ Action space 🕹️ 🕹️ 🕹️
+2026-11-19 02:51:49.140 | INFO     | stable_worldmodel.world:__init__:126 - Box(-1.0, 1.0, (50, 2), float32)
+2026-11-19 02:51:49.140 | INFO     | stable_worldmodel.world:__init__:128 - 👁️ 👁️ 👁️ Observation space 👁️ 👁️ 👁️
+2026-11-19 02:51:49.140 | INFO     | stable_worldmodel.world:__init__:129 - Box(0.0, 224.0, (50, 10), float32)
+2026-11-19 02:51:49.140 | INFO     | stable_worldmodel.world:__init__:132 - ⚗️ ⚗️ ⚗️ Variation space ⚗️ ⚗️ ⚗️
+agent:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    position: [1;35mBox[0m[1m([0m[1;36m14.0[0m, [1;36m209.0[0m, [1m([0m[1;36m2[0m,[1m)[0m, float32[1m)[0m
+    radius: [1;35mBox[0m[1m([0m[1;36m7.0[0m, [1;36m14.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+    speed: [1;35mBox[0m[1m([0m[1;36m1.75[0m, [1;36m10.5[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+background:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+door:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    number: [1;35mDiscrete[0m[1m([0m[1;36m3[0m, [33mstart[0m=[1;36m1[0m[1m)[0m
+    position: [1;35mMultiDiscrete[0m[1m([0m[1m[[0m[1;36m224[0m [1;36m224[0m [1;36m224[0m[1m][0m[1m)[0m
+    size: [1;35mMultiDiscrete[0m[1m([0m[1m[[0m[1;36m21[0m [1;36m21[0m [1;36m21[0m[1m][0m, [33mstart[0m=[1m[[0m[1;36m1[0m [1;36m1[0m [1;36m1[0m[1m][0m[1m)[0m
+rendering:
+    render_target: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+target:
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    position: [1;35mBox[0m[1m([0m[1;36m14.0[0m, [1;36m209.0[0m, [1m([0m[1;36m2[0m,[1m)[0m, float32[1m)[0m
+    radius: [1;35mBox[0m[1m([0m[1;36m7.0[0m, [1;36m14.0[0m, [1m([0m[1;36m1[0m,[1m)[0m, float32[1m)[0m
+task:
+    min_steps: [1;35mDiscrete[0m[1m([0m[1;36m100[0m, [33mstart[0m=[1;36m15[0m[1m)[0m
+wall:
+    axis: [1;35mDiscrete[0m[1m([0m[1;36m2[0m[1m)[0m
+    border_color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    color: [1;35mBox[0m[1m([0m[1;36m0[0m, [1;36m255[0m, [1m([0m[1;36m3[0m,[1m)[0m, uint8[1m)[0m
+    thickness: [1;35mDiscrete[0m[1m([0m[1;36m35[0m, [33mstart[0m=[1;36m7[0m[1m)[0m
+[2026-11-19 02:51:49,190][root][INFO] - Cached 'action' from '/data1/cgh/dataset/lewm_cache/tworoom.h5'
+[2026-11-19 02:51:49,220][root][INFO] - Cached 'proprio' from '/data1/cgh/dataset/lewm_cache/tworoom.h5'
+670809 valid starting points found for evaluation.
+[ 19213  35344  44800  79061  81019  97057 119852 125956 165580 194051
+ 196743 268394 280913 314777 321542 337943 341160 347214 351057 357203
+ 369195 427712 437920 450279 460469 465203 473288 486350 543250 548672
+ 557566 595413 600973 616332 620809 639816 641665 654127 681672 702069
+ 710876 720739 726863 742989 745736 791007 795177 863029 876730 917373]
+CEM solve time: 76.3511 seconds
+CEM solve time: 63.1679 seconds
+{'success_rate': 86.0, 'episode_successes': array([ True, False,  True,  True, False,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True, False, False,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+       False,  True,  True,  True,  True,  True, False,  True,  True,
+        True,  True, False,  True,  True]), 'seeds': None}

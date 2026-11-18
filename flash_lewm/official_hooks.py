@@ -36,7 +36,10 @@ def install_min_cost(model, cost="min"):
     def get_cost(self, info_dict, action_candidates):
         b, s = action_candidates.shape[:2]
         z, zg = _encode_pair(self, info_dict, s)
-        d = enc_dim or self._action_encoder_input_dim()
+        if getattr(self, "is_lewm", False):                   # original LeWM: Embedder(input_dim = 5 x env action dim)
+            d = self.action_encoder.patch_embed.in_channels
+        else:
+            d = enc_dim or self._action_encoder_input_dim()
         plans = action_candidates.reshape(b, s, -1, d)        # [B, S, blocks, block_dim]
         return plan_cost(self, z, zg, plans, cost)
 
