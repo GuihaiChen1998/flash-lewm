@@ -7,7 +7,8 @@ src, out = sys.argv[1], sys.argv[2]; n = int(sys.argv[3]) if len(sys.argv) > 3 e
 d = np.load(src); T, sw = int(d["T"]), int(d["switch"])
 F = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 15); f12 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 12)
 C = 4; Rr = (n + C - 1) // C; S = 104; GAP = 4; HEAD = 30
-cfg = [("Fast-LeWM (official)", "sync_5_6_30_last"), ("Ours", "clamp_1_1_30_min")]
+import os
+cfg = [("Fast-LeWM (official)", os.environ.get("GIF_L", "sync_5_6_30_last")), ("Ours", os.environ.get("GIF_R", "clamp_1_1_30_min"))]
 gw = C * S + (C - 1) * GAP
 W = 2 * gw + 3 * 16; H = HEAD + Rr * S + (Rr - 1) * GAP + 30
 frames = []

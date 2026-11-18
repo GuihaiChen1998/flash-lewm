@@ -52,8 +52,8 @@ for n, i in enumerate(order):
         img = Image.new("RGB", (W, HEAD + P + FOOT + 8), BG)
         goal = d["goal2"][i] if (sw >= 0 and t >= sw) else d["goal"][i]
         tl, tr = min(t, fL.shape[1] - 1), min(t, fR.shape[1] - 1)
-        panel(img, fL[i, tl], aL[i, tl], PAD + 3, "Fast-LeWM (official)", "CEM 581 ms / plan, waits 6 steps", t, int(sL[i]) if sL[i] < T else None, goal)
-        panel(img, fR[i, tr], aR[i, tr], 2 * PAD + P + 6, "Ours", "FlashCEM 65 ms + commitment prefix", t, int(sR[i]) if sR[i] < T else None, goal)
+        panel(img, fL[i, tl], aL[i, tl], PAD + 3, "Fast-LeWM (official)", os.environ.get("GIF_LSUB", "CEM 581 ms / plan, waits 6 steps"), t, int(sL[i]) if sL[i] < T else None, goal)
+        panel(img, fR[i, tr], aR[i, tr], 2 * PAD + P + 6, "Ours", os.environ.get("GIF_RSUB", "FlashCEM 65 ms + commitment prefix"), t, int(sR[i]) if sR[i] < T else None, goal)
         dr = ImageDraw.Draw(img)
         foot = f"t = {t / 10:.1f} s"
         if sw >= 0 and sw <= t < sw + 12:
