@@ -13,7 +13,7 @@ kw, off, T = SCN[scn]
 model = load_model()
 a_mean, a_std = (model.a_mean, model.a_std) if hasattr(model, "a_mean") else action_stats()
 
-if os.environ.get("FLASH_ENV") in ("doom", "ant", "cube", "libero"):
+if os.environ.get("FLASH_ENV") in ("doom", "ant", "cube", "libero", "reacher"):
     d = dict(np.load(os.environ["DOOM_PAIRS"])); pairs = {k: v[:n] for k, v in d.items()}
 else:
     rows = official_eval_rows(50, seed=42, goal_offset=50)[:n]

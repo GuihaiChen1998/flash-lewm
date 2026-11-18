@@ -24,6 +24,10 @@ def make_env():
         from .cube_env import CubeNav
 
         return CubeNav()
+    if ENV == "reacher":
+        from .reacher_env import ReacherNav
+
+        return ReacherNav()
     if ENV == "libero":
         from .libero_env import LiberoNav
 
@@ -45,7 +49,7 @@ def make_env():
 
 
 def set_episode(env, state, goal_state):
-    if ENV in ("doom", "ant", "cube", "libero"):
+    if ENV in ("doom", "ant", "cube", "libero", "reacher"):
         env.set_spec(state)
         env._set_goal_state(goal_state)
         return
